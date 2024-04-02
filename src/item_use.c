@@ -1150,4 +1150,10 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
     }
 }
 
+void ItemUseOutOfBattle_Mints(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_Mints;
+    SetUpItemUseCallback(taskId);
+}
+
 #undef tUsingRegisteredKeyItem
