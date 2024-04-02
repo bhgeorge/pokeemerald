@@ -728,11 +728,6 @@ static const u8 sMachoBraceDesc[] = _(
     "promotes growth,\n"
     "but reduces SPEED.");
 
-static const u8 sExpShareDesc[] = _(
-    "A hold item that\n"
-    "gets EXP. points\n"
-    "from battles.");
-
 static const u8 sQuickClawDesc[] = _(
     "A hold item that\n"
     "occasionally allows\n"
@@ -1115,6 +1110,11 @@ static const u8 sDevonScopeDesc[] = _(
     "A device by DEVON\n"
     "that signals any\n"
     "unseeable POKéMON.");
+
+static const u8 sExpShareDesc[] = _(
+    "A machine that can\n"
+    "share EXP. points\n"
+    "from battles.");
 
 // TMs/HMs
 static const u8 sTM01Desc[] = _(
