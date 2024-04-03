@@ -353,6 +353,10 @@ static const u8 sMaxRepelDesc[] = _(
     "POKéMON for 250\n"
     "steps.");
 
+static const u8 sEverRepelDesc[] = _(
+    "Repels weak wild\n"
+    "POKéMON.");
+
 static const u8 sEscapeRopeDesc[] = _(
     "Use to escape\n"
     "instantly from a\n"

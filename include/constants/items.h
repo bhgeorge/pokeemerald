@@ -440,7 +440,10 @@
 #define ITEM_SERIOUS_MINT        396
 #define ITEM_TIMID_MINT          397
 
-#define ITEMS_COUNT              398
+// Amethyst
+#define ITEM_EVER_REPEL          398
+
+#define ITEMS_COUNT              399
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
 // Its icon is defined at ITEMS_COUNT as the "return to field" arrow

@@ -3475,7 +3475,6 @@ extern const u32 gItemIconPalette_PokeDoll[];
 extern const u32 gItemIcon_FluffyTail[];
 extern const u32 gItemIconPalette_FluffyTail[];
 // Field items
-extern const u32 gItemIcon_Repel[];
 extern const u32 gItemIconPalette_SuperRepel[];
 extern const u32 gItemIconPalette_MaxRepel[];
 extern const u32 gItemIcon_EscapeRope[];
@@ -3858,6 +3857,8 @@ extern const u32 gItemIconPalette_PinkMint[];
 extern const u32 gItemIconPalette_GreenMint[];
 extern const u32 gItemIconPalette_LightBlueMint[];
 extern const u32 gItemIconPalette_YellowMint[];
+// Amethysy-only key items
+extern const u32 gItemIconPalette_EverRepel[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
