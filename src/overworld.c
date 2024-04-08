@@ -6,6 +6,7 @@
 #include "bg.h"
 #include "cable_club.h"
 #include "clock.h"
+#include "day_night.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -1468,6 +1469,7 @@ void CB1_Overworld(void)
 
 static void OverworldBasic(void)
 {
+    DayNightApplyFilters();
     ScriptContext_RunScript();
     RunTasks();
     AnimateSprites();
