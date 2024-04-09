@@ -8,6 +8,7 @@ struct WildPokemon
     u8 minLevel;
     u8 maxLevel;
     u16 species;
+    u16 nightSpecies;
 };
 
 struct WildPokemonInfo

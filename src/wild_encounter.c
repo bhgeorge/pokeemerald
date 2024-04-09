@@ -2,6 +2,7 @@
 #include "wild_encounter.h"
 #include "pokemon.h"
 #include "metatile_behavior.h"
+#include "day_night.h"
 #include "fieldmap.h"
 #include "random.h"
 #include "field_player_avatar.h"
@@ -450,8 +451,11 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
         return FALSE;
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
-
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    
+    if (GetTimeOfDay() == TIME_OF_DAY_NIGHT && wildMonInfo->wildPokemon[wildMonIndex].nightSpecies != SPECIES_NONE)
+        CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].nightSpecies, level);
+    else
+        CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
     return TRUE;
 }
 
@@ -460,7 +464,10 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    if (GetTimeOfDay() == TIME_OF_DAY_NIGHT && wildMonInfo->wildPokemon[wildMonIndex].nightSpecies != SPECIES_NONE)
+        CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].nightSpecies, level);
+    else
+        CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
     return wildMonInfo->wildPokemon[wildMonIndex].species;
 }
 
