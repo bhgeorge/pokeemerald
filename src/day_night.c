@@ -51,7 +51,7 @@ const struct LightingColor gLightingColors[] =
         .lightColor = RGB2(26, 25, 18),
     },
     // // Littleroot
-    // {
+    // { 
     //     .paletteNum = 6,
     //     .colorNum = 10,
     //     .lightColor = RGB2(25, 25, 19),
@@ -268,6 +268,16 @@ void DayNightApplyFilters()
 
     if (!IsMapDayNightException() && IsLightActive() && !gMain.inBattle)
         DoDayNightLightning();
+}
+
+u8 GetTimeOfDay()
+{
+  u8 hour = gLocalTime.hours;
+
+  if (hour > MIDNIGHT_END_HOUR && hour <= SUNSET_END_HOUR)
+    return TIME_OF_DAY_DAY;
+
+  return TIME_OF_DAY_NIGHT;
 }
 
 //Applies filter to a color. Filters RGB channels are substracted from color RGB channels.

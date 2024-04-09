@@ -10,6 +10,7 @@
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "data.h"
+#include "day_night.h"
 #include "event_data.h"
 #include "evolution_scene.h"
 #include "field_specials.h"
@@ -47,12 +48,6 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/union_room.h"
-
-#define DAY_EVO_HOUR_BEGIN       12
-#define DAY_EVO_HOUR_END         HOURS_PER_DAY
-
-#define NIGHT_EVO_HOUR_BEGIN     0
-#define NIGHT_EVO_HOUR_END       12
 
 #define FRIENDSHIP_EVO_THRESHOLD 220
 
@@ -5516,12 +5511,12 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
                 break;
             case EVO_FRIENDSHIP_DAY:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= DAY_EVO_HOUR_BEGIN && gLocalTime.hours < DAY_EVO_HOUR_END && friendship >= FRIENDSHIP_EVO_THRESHOLD)
+                if (GetTimeOfDay() == TIME_OF_DAY_DAY && friendship >= FRIENDSHIP_EVO_THRESHOLD)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_NIGHT:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= NIGHT_EVO_HOUR_BEGIN && gLocalTime.hours < NIGHT_EVO_HOUR_END && friendship >= FRIENDSHIP_EVO_THRESHOLD)
+                if (GetTimeOfDay() == TIME_OF_DAY_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL:
