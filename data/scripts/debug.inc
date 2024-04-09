@@ -107,7 +107,9 @@ Debug_EndGameStart::
 
 Debug_TestOne::
 	lockall
-	giveitem ITEM_BOTTLE_CAP, 5
+	giveitem ITEM_LINK_STONE, 2
+	givemon SPECIES_KADABRA, 20, ITEM_NONE
+	givemon SPECIES_POLIWHIRL, 20, ITEM_KINGS_ROCK 
 	release
 	end
 

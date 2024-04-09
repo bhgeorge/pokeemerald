@@ -57,7 +57,7 @@ extern u8 Debug_TestOne[];
 // Text
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
 static const u8 sDebugText_EndGameStart[] = _("Endgame Start");
-static const u8 sDebugText_TestOne[]      = _("Hyper Train");
+static const u8 sDebugText_TestOne[]      = _("Link Stone");
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 
 // Menu Actions
