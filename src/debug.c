@@ -20,6 +20,7 @@
 enum { // Main
     DEBUG_MENU_ITEM_QUICK_START,
     DEBUG_MENU_ITEM_ENDGAME_START,
+    DEBUG_MENU_ITEM_TEST_ONE,
     DEBUG_MENU_ITEM_CANCEL
 };
 
@@ -45,15 +46,18 @@ static void DebugTask_HandleMenuInput_Main(u8 taskId);
 static void DebugAction_Cancel(u8 taskId);
 static void DebugAction_QuickStart(u8 taskId);
 static void DebugAction_EndGameStart(u8 taskId);
+static void DebugAction_TestOne(u8 taskId);
 
 // Scripts
 extern u8 Debug_ShowFieldMessageStringVar4[];
 extern u8 Debug_QuickStart[];
 extern u8 Debug_EndGameStart[];
+extern u8 Debug_TestOne[];
 
 // Text
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
 static const u8 sDebugText_EndGameStart[] = _("Endgame Start");
+static const u8 sDebugText_TestOne[]      = _("Hyper Train");
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 
 // Menu Actions
@@ -61,6 +65,7 @@ static void (*const sDebugMenu_Actions_Main[])(u8) =
 {
     [DEBUG_MENU_ITEM_QUICK_START]     = DebugAction_QuickStart,
     [DEBUG_MENU_ITEM_ENDGAME_START]   = DebugAction_EndGameStart,
+    [DEBUG_MENU_ITEM_TEST_ONE]        = DebugAction_TestOne,
     [DEBUG_MENU_ITEM_CANCEL]          = DebugAction_Cancel
 };
 
@@ -69,6 +74,7 @@ static const struct ListMenuItem sDebugMenu_Items_Main[] =
 {
     [DEBUG_MENU_ITEM_QUICK_START]     = {sDebugText_QuickStart, DEBUG_MENU_ITEM_QUICK_START},
     [DEBUG_MENU_ITEM_ENDGAME_START]   = {sDebugText_EndGameStart, DEBUG_MENU_ITEM_ENDGAME_START},
+    [DEBUG_MENU_ITEM_TEST_ONE]        = {sDebugText_TestOne, DEBUG_MENU_ITEM_TEST_ONE},
     [DEBUG_MENU_ITEM_CANCEL]          = {sDebugText_Cancel,     DEBUG_MENU_ITEM_CANCEL}
 };
 
@@ -200,6 +206,13 @@ static void DebugAction_EndGameStart(u8 taskId)
     Debug_DestroyMenu(taskId);
     LockPlayerFieldControls();
     ScriptContext_SetupScript(Debug_EndGameStart);
+}
+
+static void DebugAction_TestOne(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_TestOne);
 }
 
 #endif // DEBUG_SYSTEM_ENABLE

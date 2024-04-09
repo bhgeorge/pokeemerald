@@ -94,6 +94,12 @@ enum {
     MON_DATA_SPEED2,
     MON_DATA_SPATK2,
     MON_DATA_SPDEF2,
+    MON_DATA_HYPER_TRAINED_HP,
+    MON_DATA_HYPER_TRAINED_ATK,
+    MON_DATA_HYPER_TRAINED_DEF,
+    MON_DATA_HYPER_TRAINED_SPEED,
+    MON_DATA_HYPER_TRAINED_SPATK,
+    MON_DATA_HYPER_TRAINED_SPDEF,
     MON_DATA_HIDDEN_NATURE,
 };
 
@@ -106,9 +112,15 @@ struct PokemonSubstruct0
     u32 experience;
     u8 ppBonuses;
     u8 friendship;
-    u8 hiddenNature:5; // 25 natures
+    u8 hiddenNature:5; // 25 Natures
     u8 free_sub0:3;
-    u8 free_sub0b;
+    u8 hyperTrainedHp:1;
+    u8 hyperTrainedAtk:1;
+    u8 hyperTrainedDef:1;
+    u8 hyperTrainedSpeed:1;
+    u8 hyperTrainedSpAtk:1;
+    u8 hyperTrainedSpDef:1;
+    u8 free_sub1:2;
 };
 
 struct PokemonSubstruct1
@@ -515,6 +527,7 @@ u32 CanSpeciesLearnTMHM(u16 species, u8 tm);
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves);
 u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves);
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon);
+u8 GetNumberOfTrainableIVs(struct Pokemon *mon);
 u16 SpeciesToPokedexNum(u16 species);
 bool32 IsSpeciesInHoennDex(u16 species);
 void ClearBattleMonForms(void);

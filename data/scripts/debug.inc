@@ -52,10 +52,11 @@ Debug_EndGameStart::
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
 	setvar VAR_BIRCH_LAB_STATE, 2
 	setvar VAR_ROUTE101_STATE, 3
-	givemon SPECIES_ABSOL, 65, ITEM_NONE
-	givemon SPECIES_GARDEVOIR, 65, ITEM_NONE
-	givemon SPECIES_BRELOOM, 65, ITEM_NONE
-	givemon SPECIES_PIDGEY, 65, ITEM_NONE
+	givemon SPECIES_LUGIA, 65, ITEM_NONE
+	givemon SPECIES_HO_OH, 65, ITEM_NONE
+	givemon SPECIES_KYOGRE, 65, ITEM_NONE
+	givemon SPECIES_GROUDON, 65, ITEM_NONE
+	givemon SPECIES_RAYQUAZA, 65, ITEM_NONE
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -104,7 +105,10 @@ Debug_EndGameStart::
 	release
 	end
 
-Debug_Script_1::
+Debug_TestOne::
+	lockall
+	giveitem ITEM_BOTTLE_CAP, 5
+	release
 	end
 
 Debug_Script_2::

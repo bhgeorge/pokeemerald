@@ -4410,6 +4410,16 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_TOWN_HYPER_TRAINERS_HOUSE",
+      "name": "FallarborTown_HyperTrainersHouse_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FallarborTown_HyperTrainersHouse/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_HyperTrainersHouse/map.bin"
     }
   ]
 }

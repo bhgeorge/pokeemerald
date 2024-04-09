@@ -423,6 +423,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SASSY_MINT] = {gItemIcon_Mint, gItemIconPalette_PinkMint},
     [ITEM_SERIOUS_MINT] = {gItemIcon_Mint, gItemIconPalette_YellowMint},
     [ITEM_TIMID_MINT] = {gItemIcon_Mint, gItemIconPalette_GreenMint},
+    [ITEM_BOTTLE_CAP] = {gItemIcon_BottleCap, gItemIconPalette_BottleCap},
     // Amethyst-only key items
     [ITEM_EVER_REPEL] = {gItemIcon_Repel, gItemIconPalette_EverRepel},
     // Return to field arrow

@@ -3857,6 +3857,8 @@ extern const u32 gItemIconPalette_PinkMint[];
 extern const u32 gItemIconPalette_GreenMint[];
 extern const u32 gItemIconPalette_LightBlueMint[];
 extern const u32 gItemIconPalette_YellowMint[];
+extern const u32 gItemIcon_BottleCap[];
+extern const u32 gItemIconPalette_BottleCap[];
 // Amethysy-only key items
 extern const u32 gItemIconPalette_EverRepel[];
 

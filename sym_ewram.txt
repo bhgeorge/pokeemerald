@@ -109,6 +109,7 @@
 	.include "src/save.o"
 	.include "src/mystery_event_script.o"
 	.include "src/move_relearner.o"
+	.include "src/hyper_trainer.o"
 	.include "src/decoration_inventory.o"
 	.include "src/roamer.o"
 	.include "src/battle_tower.o"
