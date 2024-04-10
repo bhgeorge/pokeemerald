@@ -201,7 +201,6 @@ gSpecials::
 	def_special StoreSelectedPokemonInDaycare
 	def_special ChooseSendDaycareMon
 	def_special ShowDaycareLevelMenu
-	def_special GetNumLevelsGainedFromDaycare
 	def_special GetDaycareCost
 	def_special TakePokemonFromDaycare
 	def_special ScriptHatchMon
