@@ -108,8 +108,8 @@ Debug_EndGameStart::
 Debug_TestOne::
 	lockall
 	giveitem ITEM_LINK_STONE, 2
-	givemon SPECIES_KADABRA, 20, ITEM_NONE
-	givemon SPECIES_POLIWHIRL, 20, ITEM_KINGS_ROCK 
+	givemon SPECIES_CLAMPERL, 20, ITEM_DEEP_SEA_TOOTH
+	givemon SPECIES_CLAMPERL, 20, ITEM_DEEP_SEA_SCALE 
 	release
 	end
 
