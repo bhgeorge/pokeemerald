@@ -125,6 +125,10 @@ enum
 #define TILE_FILLED_JAM_HEART    0x103C
 #define TILE_EMPTY_JAM_HEART     0x103D
 
+#define STATS_SUB_DIRECTION_PREV 0
+#define STATS_SUB_DIRECTION_NEXT 1
+#define STATS_SUB_DIRECTION_NONE 2
+
 static EWRAM_DATA struct PokemonSummaryScreenData
 {
     /*0x00*/ union {
@@ -1558,7 +1562,7 @@ static void Task_HandleInput(u8 taskId)
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
                 PlaySE(SE_SELECT);
-                BufferIvOrEvStats(1);
+                BufferIvOrEvStats(STATS_SUB_DIRECTION_NEXT);
             }
             else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
             {
@@ -1584,7 +1588,7 @@ static void Task_HandleInput(u8 taskId)
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
                 PlaySE(SE_SELECT);
-                BufferIvOrEvStats(1);
+                BufferIvOrEvStats(STATS_SUB_DIRECTION_NEXT);
             }
         }
         else if (gMain.newKeys & L_BUTTON)
@@ -1592,7 +1596,7 @@ static void Task_HandleInput(u8 taskId)
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
                 PlaySE(SE_SELECT);
-                BufferIvOrEvStats(0);
+                BufferIvOrEvStats(STATS_SUB_DIRECTION_PREV);
             }
         }
     }
@@ -3322,10 +3326,11 @@ static void PrintSkillsPageText(void)
 {
     PrintHeldItemName();
     PrintRibbonCount();
-    BufferLeftColumnStats();
-    PrintLeftColumnStats();
-    BufferRightColumnStats();
-    PrintRightColumnStats();
+    BufferIvOrEvStats(STATS_SUB_DIRECTION_NONE);
+    // BufferLeftColumnStats();
+    // PrintLeftColumnStats();
+    // BufferRightColumnStats();
+    // PrintRightColumnStats();
     PrintExpPointsNextLevel();
 }
 
@@ -3437,9 +3442,9 @@ static void BufferIvOrEvStats(u8 dir)
     u8 *currHPString = Alloc(20);
     const s8 *natureMod = gNatureStatTable[sMonSummaryScreen->summary.nature];
 
-    if (dir == 0)
+    if (dir == STATS_SUB_DIRECTION_NEXT)
         mode = (mode + sizeof(sStatusStates) - 1) % sizeof(sStatusStates);
-    else
+    else if (dir == STATS_SUB_DIRECTION_PREV)
         mode = (mode + 1) % sizeof(sStatusStates);
 
     switch (mode)

@@ -16,8 +16,6 @@ Debug_QuickStart::
 	setvar VAR_BIRCH_LAB_STATE, 2
 	setvar VAR_ROUTE101_STATE, 3
 	givemon SPECIES_TREECKO, 20, ITEM_NONE
-	givemon SPECIES_TORCHIC, 20, ITEM_NONE
-	givemon SPECIES_MUDKIP, 20, ITEM_NONE
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -107,13 +105,15 @@ Debug_EndGameStart::
 
 Debug_TestOne::
 	lockall
-	giveitem ITEM_LINK_STONE, 2
-	givemon SPECIES_CLAMPERL, 20, ITEM_DEEP_SEA_TOOTH
-	givemon SPECIES_CLAMPERL, 20, ITEM_DEEP_SEA_SCALE 
+	givemon SPECIES_SKITTY, 8, ITEM_NONE
+	givemon SPECIES_DITTO, 8, ITEM_DESTINY_KNOT
+	givemon SPECIES_MAGMAR, 85, ITEM_NONE
 	release
 	end
 
-Debug_Script_2::
+Debug_TestTwo::
+	lockall
+	release
 	end
 
 Debug_Script_3::

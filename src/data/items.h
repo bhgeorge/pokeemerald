@@ -2775,12 +2775,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_0E2] =
+    [ITEM_DESTINY_KNOT] =
     {
-        .name = _("????????"),
-        .itemId = ITEM_NONE,
-        .price = 0,
-        .description = sDummyDesc,
+        .name = _("DESTINY KNOT"),
+        .itemId = ITEM_DESTINY_KNOT,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_DESTINY_KNOT,
+        .description = sDestinyKnotDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
