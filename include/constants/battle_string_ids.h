@@ -379,8 +379,9 @@
 #define STRINGID_TRAINER1WINTEXT            379
 #define STRINGID_TRAINER2WINTEXT            380
 #define STRINGID_PKMNGAINEDEXPOTHER         381
+#define STRINGID_DESTINYXINFATUATEDY        382
 
-#define BATTLESTRINGS_COUNT                 382
+#define BATTLESTRINGS_COUNT                 383
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -573,6 +574,7 @@
 // gGotBurnedStringIds / gGotFrozenStringIds / gAttractUsedStringIds
 #define B_MSG_STATUSED            0
 #define B_MSG_STATUSED_BY_ABILITY 1
+#define B_MSG_STATUSED_BY_ITEM    2
 
 // gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds
 #define B_MSG_ABILITY_PREVENTS_MOVE_STATUS    0

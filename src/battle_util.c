@@ -3687,6 +3687,20 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     effect = ITEM_EFFECT_OTHER;
                 }
                 break;
+            case HOLD_EFFECT_DESTINY_KNOT:
+                if (gBattleMons[battlerId].status2 & STATUS2_INFATUATION
+                 && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION
+                 && gBattleMons[gBattlerAttacker].ability != ABILITY_OBLIVIOUS))
+                {
+                    gBattleMons[gBattlerAttacker].status2 |= STATUS2_INFATUATED_WITH(battlerId);
+                    StringCopy(gBattleTextBuff1, gStatusConditionString_LoveJpn);
+                    BattleScriptPushCursor();
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED_BY_ITEM;
+                    gBattlescriptCurrInstr = BattleScript_DestinyKnotRet;
+                    effect = ITEM_EFFECT_OTHER;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
+                }
+                break;
             case HOLD_EFFECT_CURE_STATUS:
                 if (gBattleMons[battlerId].status1 & STATUS1_ANY || gBattleMons[battlerId].status2 & STATUS2_CONFUSION)
                 {
