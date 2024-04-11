@@ -105,14 +105,13 @@ Debug_EndGameStart::
 
 Debug_TestOne::
 	lockall
-	givemon SPECIES_SKITTY, 8, ITEM_NONE
-	givemon SPECIES_DITTO, 8, ITEM_DESTINY_KNOT
-	givemon SPECIES_MAGMAR, 85, ITEM_NONE
+	givemon SPECIES_SKITTY, 20, ITEM_NONE
 	release
 	end
 
 Debug_TestTwo::
 	lockall
+	setflag FLAG_SHINY_CHARM
 	release
 	end
 

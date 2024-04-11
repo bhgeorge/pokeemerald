@@ -2198,6 +2198,14 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     CalculateMonStats(mon);
 }
 
+u32 GetPlayerTrainerOTId()
+{
+    return gSaveBlock2Ptr->playerTrainerId[0]
+    | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+    | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+    | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+}
+
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u8 speciesName[POKEMON_NAME_LENGTH + 1];
@@ -2308,7 +2316,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     GiveBoxMonInitialMoveset(boxMon);
 }
 
-void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
+u32 GetRandomPersonalityFromNature(u8 nature)
 {
     u32 personality;
 
@@ -2318,10 +2326,32 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
     }
     while (nature != GetNatureFromPersonality(personality));
 
+    return personality;
+}
+
+// This is ONLY used for wild pokemon encounters
+void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
+{
+    u32 personality = GetRandomPersonalityFromNature(nature);
+    u32 playerTrainerId = GetPlayerTrainerOTId();
+    u32 shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+    u8 rerolls = 0;
+
+    if (FlagGet(FLAG_SHINY_CHARM))
+    {
+        rerolls = 2;
+        do
+        {
+            personality = GetRandomPersonalityFromNature(nature);
+            shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+            rerolls--;
+        } while (shinyValue >= SHINY_ODDS && rerolls > 0);
+    }
+
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
-void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter)
+static u32 GetRandomPersonalityFromNatureLetter(u16 species, u8 gender, u8 nature, u8 unownLetter)
 {
     u32 personality;
 
@@ -2346,6 +2376,27 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
         }
         while (nature != GetNatureFromPersonality(personality)
             || gender != GetGenderFromSpeciesAndPersonality(species, personality));
+    }
+
+    return personality;
+}
+
+void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter)
+{
+    u32 personality = GetRandomPersonalityFromNatureLetter(species, gender, nature, unownLetter);
+    u32 playerTrainerId = GetPlayerTrainerOTId();
+    u32 shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+    u8 rerolls = 0;
+
+    if (FlagGet(FLAG_SHINY_CHARM))
+    {
+        rerolls = 2;
+        do
+        {
+            personality = GetRandomPersonalityFromNatureLetter(species, gender, nature, unownLetter);
+            shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+            rerolls--;
+        } while (shinyValue >= SHINY_ODDS && rerolls > 0);
     }
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);

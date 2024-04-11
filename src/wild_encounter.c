@@ -25,6 +25,8 @@
 
 extern const u8 EventScript_RepelWoreOff[];
 
+#define BUGFIX
+
 #define MAX_ENCOUNTER_RATE 2880
 
 #define NUM_FEEBAS_SPOTS 6

@@ -61,7 +61,7 @@ extern u8 Debug_TestTwo[];
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
 static const u8 sDebugText_EndGameStart[] = _("Endgame Start");
 static const u8 sDebugText_TestOne[]      = _("Destiny Knot");
-static const u8 sDebugText_TestTwo[]      = _("Daycare Steps");
+static const u8 sDebugText_TestTwo[]      = _("Shiny Charm");
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 
 // Menu Actions
@@ -227,8 +227,6 @@ static void DebugAction_TestTwo(u8 taskId)
 {
     Debug_DestroyMenu(taskId);
     LockPlayerFieldControls();
-    gSaveBlock1Ptr->daycare.mons[0].steps += 2000;
-    gSaveBlock1Ptr->daycare.mons[1].steps += 2000;
     ScriptContext_SetupScript(Debug_TestTwo);
 }
 

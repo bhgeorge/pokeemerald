@@ -998,6 +998,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("KOBE"),
         .otGender = MALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
         .requestedSpecies = SPECIES_RALTS
     },
     [INGAME_TRADE_PLUSLE] =
@@ -1014,6 +1015,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("ROMAN"),
         .otGender = MALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
         .requestedSpecies = SPECIES_VOLBEAT
     },
     [INGAME_TRADE_HORSEA] =
@@ -1030,6 +1032,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("SKYLAR"),
         .otGender = MALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
         .requestedSpecies = SPECIES_BAGON
     },
     [INGAME_TRADE_MEOWTH] =
@@ -1046,6 +1049,24 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("ISIS"),
         .otGender = FEMALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
+        .requestedSpecies = SPECIES_SKITTY
+    },
+    [INGAME_TRADE_FRENCH_DITTO] =
+    {
+        .nickname = _("MÉTAMORPH"),
+        .species = SPECIES_DITTO,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 42175,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0xA2,
+        .heldItem = ITEM_DESTINY_KNOT,
+        .mailNum = -1,
+        .otName = _("CÉLINE"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .language = LANGUAGE_FRENCH,
         .requestedSpecies = SPECIES_SKITTY
     }
 };
