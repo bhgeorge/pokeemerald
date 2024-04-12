@@ -1130,6 +1130,11 @@ static const u8 sExpShareDesc[] = _(
     "share EXP. points\n"
     "from battles.");
 
+static const u8 sShinyCharmDesc[] = _(
+    "A delightful\n"
+    "shiny charm.");
+
+
 // TMs/HMs
 static const u8 sTM01Desc[] = _(
     "Powerful, but makes\n"

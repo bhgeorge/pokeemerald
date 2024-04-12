@@ -373,6 +373,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_CyndaquilTransferredToPC::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedCyndaquil::
 	hidemonpic
+	call LittlerootTown_ProfessorBirchsLab_EventScript_GiveShinyCharm
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
 	releaseall
@@ -414,6 +415,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_TotodileTransferredToPC::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTotodile::
 	hidemonpic
+	call LittlerootTown_ProfessorBirchsLab_EventScript_GiveShinyCharm
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
 	releaseall
@@ -455,10 +457,18 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ChikoritaTransferredToPC::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedChikorita::
 	hidemonpic
+	call LittlerootTown_ProfessorBirchsLab_EventScript_GiveShinyCharm
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting, MSGBOX_DEFAULT
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6
 	releaseall
 	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_GiveShinyCharm::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GiveShinyCharm, MSGBOX_DEFAULT
+	waitmessage
+	giveitem ITEM_SHINY_CHARM
+	setflag FLAG_SHINY_CHARM
+	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter::
 	playfanfare MUS_OBTAIN_ITEM
@@ -940,6 +950,11 @@ LittlerootTown_ProfessorBirchsLab_Text_ReceivedJohtoStarter:
 LittlerootTown_ProfessorBirchsLab_Text_NicknameJohtoStarter:
 	.string "Want to give a nickname to\n"
 	.string "the {STR_VAR_1} you received?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_GiveShinyCharm:
+	.string "PROF. BIRCH: Hrmm, what's that there?\n"
+	.string "{STR_VAR_1} was holding this,\l"
+	.string "I guess you should take it.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting:
 	.string "PROF. BIRCH: Listen, {PLAYER}{KUN}.\n"
