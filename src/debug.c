@@ -57,7 +57,7 @@ extern u8 Debug_TestTwo[];
 // Text
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
 static const u8 sDebugText_TestOne[]      = _("HOENN Dex");
-static const u8 sDebugText_TestTwo[]      = _("Shiny Charm Flag");
+static const u8 sDebugText_TestTwo[]      = _("Move Relearner");
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 
 // Menu Actions

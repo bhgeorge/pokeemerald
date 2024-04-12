@@ -48,7 +48,8 @@ Debug_TestOne::
 
 Debug_TestTwo::
 	lockall
-	setflag FLAG_SHINY_CHARM
+	givemon SPECIES_CLOYSTER, 60, ITEM_NONE
+	giveitem ITEM_HEART_SCALE
 	release
 	end
 
