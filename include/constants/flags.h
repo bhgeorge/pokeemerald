@@ -655,7 +655,7 @@
 #define FLAG_DEFEATED_SNORLAX  0x264 // Whether Snorlax was defeated or ran from
 #define FLAG_CAUGHT_SNORLAX    0x265 // Whether Snorlax was caught
 #define FLAG_HIDE_SNORLAX      0x266 // Whether Snorlax should be shown
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
+#define FLAG_HIDE_DOME_FOSSIL  0x267 // Picked up the Dome Fossil
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag

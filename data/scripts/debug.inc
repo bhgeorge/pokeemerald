@@ -43,6 +43,8 @@ Debug_QuickStart::
 Debug_TestOne::
 	lockall
 	giveitem ITEM_BLUE_FLUTE
+	giveitem ITEM_MASTER_BALL
+	givemon SPECIES_MEWTWO, 100, ITEM_NONE
 	release
 	end
 

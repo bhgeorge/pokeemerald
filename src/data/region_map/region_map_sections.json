@@ -1710,6 +1710,14 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_FORTREE_JUNGLE",
+      "name": "FORTREE JUNGLE",
+      "x": 6,
+      "y": 14,
+      "width": 1,
+      "height": 1
     }
   ]
 }
