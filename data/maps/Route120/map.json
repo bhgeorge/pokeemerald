@@ -22,6 +22,11 @@
       "map": "MAP_ROUTE121",
       "offset": 80,
       "direction": "right"
+    },
+    {
+      "map": "MAP_FORTREE_JUNGLE",
+      "offset": -46,
+      "direction": "right"
     }
   ],
   "object_events": [

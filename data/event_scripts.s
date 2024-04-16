@@ -950,6 +950,9 @@ gText_Sudowoodo_Attacked::
 	.string "WAILMER PAIL!\p"
 	.string "The weird tree attacked!$"
 
+gText_LegendaryRanAway::
+	.string "The {STR_VAR_1} ran away!$"
+
 gText_LegendaryFlewAway::
 	.string "The {STR_VAR_1} flew away!$"
 
@@ -991,6 +994,15 @@ Common_EventScript_RemoveStaticPokemon::
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+Common_EventScript_LegendaryRanAway::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryRanAway, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1060,3 +1072,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/FallarborTown_HyperTrainersHouse/scripts.inc"
+
+	.include "data/maps/Fortree_Jungle/scripts.inc"

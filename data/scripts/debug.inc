@@ -42,7 +42,7 @@ Debug_QuickStart::
 
 Debug_TestOne::
 	lockall
-	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE 4 @ 4: Entered lab after catching all HOENN mons
+	giveitem ITEM_BLUE_FLUTE
 	release
 	end
 

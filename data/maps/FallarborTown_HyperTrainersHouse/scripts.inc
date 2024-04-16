@@ -111,7 +111,7 @@ FallarborTown_HyperTrainersHouse_Text_HandedOverBottleCap:
 	.string "in exchange.$"
 
 FallarborTown_HyperTrainersHouse_Text_HyperTrainingComplete:
-	.string "Hooray! Your POKéMON's true\n"
+	.string "Hyaah! Your POKéMON's true\n"
 	.string "potential has been unleashed!\p"
 	.string "If you want more training, come back\n"
 	.string "with another BOTTLE CAP.$"
