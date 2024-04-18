@@ -4861,4 +4861,16 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_EUGENES_NOTES] =
+    {
+        .name = _("STRANGE NOTES"),
+        .itemId = ITEM_EUGENES_NOTES,
+        .price = 0,
+        .importance = 1,
+        .description = sEugenesNotesDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

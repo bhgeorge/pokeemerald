@@ -1,0 +1,74 @@
+.set LOCALID_CELEBI, 1
+
+FortreeJungle_CelebiHouse_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, FortreeJungle_CelebiHouse_OnTransition
+	.byte 0
+
+FortreeJungle_CelebiHouse_OnTransition:
+	clearflag FLAG_HIDE_CELEBI
+	call_if_set FLAG_CAUGHT_CELEBI, FortreeJungle_CelebiHouse_EventScript_HideCelebi
+	call_if_unset FLAG_CAUGHT_LUGIA, FortreeJungle_CelebiHouse_EventScript_HideCelebi
+	call_if_unset FLAG_CAUGHT_HO_OH, FortreeJungle_CelebiHouse_EventScript_HideCelebi
+	end
+
+FortreeJungle_CelebiHouse_EventScript_HideCelebi::
+	setflag FLAG_HIDE_CELEBI
+	return
+
+FortreeJungle_CelebiHouse_EventScript_Celebi::
+	lock
+	playmoncry SPECIES_CELEBI, CRY_MODE_NORMAL
+	waitmoncry
+	msgbox FortreeJungle_CelebiHouse_Text_CelebiJoin, MSGBOX_DEFAULT
+	waitmessage
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CELEBI
+	givemon SPECIES_CELEBI, 30, ITEM_LUCKY_EGG
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, FortreeJungle_CelebiHouse_EventScript_CelebiParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, FortreeJungle_CelebiHouse_EventScript_CelebiPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+FortreeJungle_CelebiHouse_EventScript_CelebiFanfare::
+	bufferspeciesname STR_VAR_2, SPECIES_CELEBI
+	removeobject LOCALID_CELEBI
+	playfanfare MUS_OBTAIN_ITEM
+	message FortreeJungle_CelebiHouse_Text_ObtainedCelebi
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_CELEBI
+	return
+
+FortreeJungle_CelebiHouse_EventScript_CelebiRecieved::
+	setflag FLAG_CAUGHT_CELEBI
+	releaseall
+	end
+
+FortreeJungle_CelebiHouse_EventScript_CelebiParty::
+	call FortreeJungle_CelebiHouse_EventScript_CelebiFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FortreeJungle_CelebiHouse_EventScript_CelebiRecieved
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto FortreeJungle_CelebiHouse_EventScript_CelebiRecieved
+	end
+
+FortreeJungle_CelebiHouse_EventScript_CelebiPC::
+	call FortreeJungle_CelebiHouse_EventScript_CelebiFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FortreeJungle_CelebiHouse_EventScript_CelebiTransferredToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto FortreeJungle_CelebiHouse_EventScript_CelebiTransferredToPC
+	end
+
+FortreeJungle_CelebiHouse_EventScript_CelebiTransferredToPC::
+	call Common_EventScript_TransferredToPC
+	goto FortreeJungle_CelebiHouse_EventScript_CelebiRecieved
+	end
+
+FortreeJungle_CelebiHouse_Text_CelebiJoin:
+	.string "The strange POKéMON wants to join you.$"
+
+FortreeJungle_CelebiHouse_Text_ObtainedCelebi:
+	.string "{PLAYER} obtained CELEBI.$"
+

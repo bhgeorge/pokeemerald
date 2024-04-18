@@ -4430,6 +4430,56 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Fortree_Jungle/border.bin",
       "blockdata_filepath": "data/layouts/Fortree_Jungle/map.bin"
+    },
+    {
+      "id": "LAYOUT_TANOBY_RUINS_ENTRANCE",
+      "name": "TanobyRuins_Entrance_Layout",
+      "width": 9,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TanobyRuins",
+      "border_filepath": "data/layouts/TanobyRuins_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/TanobyRuins_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_TANOBY_RUINS_INSIDE",
+      "name": "TanobyRuins_Inside_Layout",
+      "width": 23,
+      "height": 17,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TanobyRuins",
+      "border_filepath": "data/layouts/TanobyRuins_Inside/border.bin",
+      "blockdata_filepath": "data/layouts/TanobyRuins_Inside/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORTREE_JUNGLE_HOUSE_LEFT",
+      "name": "FortreeJungle_HouseLeft_Layout",
+      "width": 8,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FortreeJungle_HouseLeft/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeJungle_HouseLeft/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORTREE_JUNGLE_HOUSE_RIGHT",
+      "name": "FortreeJungle_HouseRight_Layout",
+      "width": 8,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FortreeJungle_HouseRight/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeJungle_HouseRight/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORTREE_JUNGLE_CELEBI_HOUSE",
+      "name": "FortreeJungle_CelebiHouse_Layout",
+      "width": 8,
+      "height": 6,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/FortreeJungle_CelebiHouse/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeJungle_CelebiHouse/map.bin"
     }
   ]
 }

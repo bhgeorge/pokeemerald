@@ -50,25 +50,30 @@ Debug_TestOne::
 
 Debug_TestTwo::
 	lockall
-	givemon SPECIES_CLOYSTER, 60, ITEM_NONE
-	giveitem ITEM_HEART_SCALE
+	giveitem ITEM_EUGENES_NOTES
 	release
 	end
 
-Debug_Script_3::
+Debug_TestThree::
+	lockall
+	giveitem ITEM_ULTRA_BALL, 50
+	release
 	end
 
-Debug_Script_4::
+Debug_TestFour::
+	lockall
+	setflag FLAG_CAUGHT_LUGIA
+	setflag FLAG_CAUGHT_HO_OH
 	end
 
-Debug_Script_5::
+Debug_TestFive::
 	end
 
-Debug_Script_6::
+Debug_TestSix::
 	end
 
-Debug_Script_7::
+Debug_TestSeven::
 	end
 
-Debug_Script_8::
+Debug_TestEight::
 	end

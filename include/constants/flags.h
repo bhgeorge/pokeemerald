@@ -652,13 +652,13 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_DEFEATED_SNORLAX  0x264 // Whether Snorlax was defeated or ran from
-#define FLAG_CAUGHT_SNORLAX    0x265 // Whether Snorlax was caught
-#define FLAG_HIDE_SNORLAX      0x266 // Whether Snorlax should be shown
-#define FLAG_HIDE_DOME_FOSSIL  0x267 // Picked up the Dome Fossil
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
+#define FLAG_DEFEATED_SNORLAX       0x264 // Whether Snorlax was defeated or ran from
+#define FLAG_CAUGHT_SNORLAX         0x265 // Whether Snorlax was caught
+#define FLAG_HIDE_SNORLAX           0x266 // Whether Snorlax should be shown
+#define FLAG_RECIEVED_OLD_AMBER     0x267 // Finished EUGENE's quest
+#define FLAG_HIDE_ROUTE_120_EUGENE  0x268 // Gave EUGENE the notes
+#define FLAG_HIDE_CELEBI            0x269 // If LUGIA and HO-OH haven't been caught
+#define FLAG_CAUGHT_CELEBI          0x26A
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
@@ -1218,8 +1218,8 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
+#define FLAG_ITEM_DOME_FOSSIL                                       0x493
+#define FLAG_ITEM_FORTREE_JUNGLE_LINK_STONE                         0x494
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag

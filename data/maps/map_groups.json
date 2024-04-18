@@ -221,7 +221,10 @@
     "FortreeCity_House3",
     "FortreeCity_House4",
     "FortreeCity_House5",
-    "FortreeCity_DecorationShop"
+    "FortreeCity_DecorationShop",
+    "FortreeJungle_HouseLeft",
+    "FortreeJungle_HouseRight",
+    "FortreeJungle_CelebiHouse"
   ],
   "gMapGroup_IndoorLilycove": [
     "LilycoveCity_CoveLilyMotel_1F",
@@ -585,7 +588,9 @@
     "NavelRock_Down10",
     "NavelRock_Down11",
     "NavelRock_Bottom",
-    "TrainerHill_Elevator"
+    "TrainerHill_Elevator",
+    "TanobyRuins_Entrance",
+    "TanobyRuins_Inside"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

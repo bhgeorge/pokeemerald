@@ -427,6 +427,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     // Amethyst-only key items
     [ITEM_EVER_REPEL] = {gItemIcon_Repel, gItemIconPalette_EverRepel},
     [ITEM_SHINY_CHARM] = {gItemIcon_ShinyCharm, gItemIconPalette_ShinyCharm},
+    [ITEM_EUGENES_NOTES] = {gItemIcon_OldSeaMap, gItemIconPalette_OldSeaMap},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

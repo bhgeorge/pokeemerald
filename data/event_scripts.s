@@ -1074,3 +1074,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/FallarborTown_HyperTrainersHouse/scripts.inc"
 
 	.include "data/maps/Fortree_Jungle/scripts.inc"
+
+	.include "data/maps/TanobyRuins_Entrance/scripts.inc"
+
+	.include "data/maps/TanobyRuins_Inside/scripts.inc"
+
+	.include "data/maps/FortreeJungle_HouseLeft/scripts.inc"
+
+	.include "data/maps/FortreeJungle_HouseRight/scripts.inc"
+
+	.include "data/maps/FortreeJungle_CelebiHouse/scripts.inc"

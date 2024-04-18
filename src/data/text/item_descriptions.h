@@ -1134,6 +1134,11 @@ static const u8 sShinyCharmDesc[] = _(
     "A delightful\n"
     "shiny charm.");
 
+static const u8 sEugenesNotesDesc[] = _(
+    "An odd looking map\n"
+    "that leads into\n"
+    "the jungle.");
+
 
 // TMs/HMs
 static const u8 sTM01Desc[] = _(

@@ -109,6 +109,7 @@ SECTIONS {
         src/daycare.o(.text);
         src/debug.o(.text);
         src/egg_hatch.o(.text);
+        src/eugene_unown.o(.text);
         src/battle_interface.o(.text);
         src/battle_anim_smokescreen.o(.text);
         src/pokeball.o(.text);
@@ -498,6 +499,7 @@ SECTIONS {
         src/daycare.o(.rodata);
         src/debug.o(.rodata);
         src/egg_hatch.o(.rodata);
+        src/eugene_unown.o(.rodata);
         src/battle_gfx_sfx_util.o(.rodata);
         src/battle_interface.o(.rodata);
         src/pokeball.o(.rodata);

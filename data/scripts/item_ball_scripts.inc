@@ -475,7 +475,7 @@ SafariZone_Southwest_EventScript_ItemMaxRevive::
 	end
 
 SafariZone_Northeast_EventScript_ItemNugget::
-	finditem ITEM_NUGGET
+	finditem ITEM_EUGENES_NOTES
 	end
 
 SafariZone_Southeast_EventScript_ItemBigPearl::

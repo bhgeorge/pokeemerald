@@ -192,6 +192,9 @@
 #define MAP_FORTREE_CITY_HOUSE4            (7 | (12 << 8))
 #define MAP_FORTREE_CITY_HOUSE5            (8 | (12 << 8))
 #define MAP_FORTREE_CITY_DECORATION_SHOP   (9 | (12 << 8))
+#define MAP_FORTREE_JUNGLE_HOUSE_LEFT      (10 | (12 << 8))
+#define MAP_FORTREE_JUNGLE_HOUSE_RIGHT     (11 | (12 << 8))
+#define MAP_FORTREE_JUNGLE_CELEBI_HOUSE    (12 | (12 << 8))
 
 // gMapGroup_IndoorLilycove
 #define MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F        (0 | (13 << 8))
@@ -556,6 +559,8 @@
 #define MAP_NAVEL_ROCK_DOWN11                               (86 | (26 << 8))
 #define MAP_NAVEL_ROCK_BOTTOM                               (87 | (26 << 8))
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
+#define MAP_TANOBY_RUINS_ENTRANCE                           (89 | (26 << 8))
+#define MAP_TANOBY_RUINS_INSIDE                             (90 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

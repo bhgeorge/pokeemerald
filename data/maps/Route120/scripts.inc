@@ -1,6 +1,9 @@
 .set LOCALID_BRIDGE_KECLEON, 30
 .set LOCALID_STEVEN, 31
 .set LOCALID_BRIDGE_KECLEON_SHADOW, 36  @ They use a second object which is identical to Kecleon but has a reflection palette tag for the bridge shadow
+.set LOCALID_EUGENE_CHIKORITA, 45
+.set LOCALID_EUGENE_BAG, 46
+.set LOCALID_EUGENE, 47
 
 Route120_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route120_OnResume
@@ -361,6 +364,49 @@ Route120_EventScript_Callie::
 	trainerbattle_single TRAINER_CALLIE, Route120_Text_CallieIntro, Route120_Text_CallieDefeat
 	msgbox Route120_Text_CalliePostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route120_EventScript_Eugene::
+	lock
+	faceplayer
+	checkitem ITEM_EUGENES_NOTES
+	goto_if_eq VAR_RESULT, TRUE, Route120_EventScript_EugeneMove
+	msgbox Route120_Text_EugeneNoNotes, MSGBOX_DEFAULT
+	release
+	end
+
+Route120_EventScript_EugeneMove::
+	removeitem ITEM_EUGENES_NOTES
+	msgbox Route120_Text_EugeneMove, MSGBOX_DEFAULT
+	waitmessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_HIDE_ROUTE_120_EUGENE
+	removeobject VAR_LAST_TALKED
+	removeobject LOCALID_EUGENE_BAG
+	removeobject LOCALID_EUGENE_CHIKORITA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+Route120_EventScript_EugeneChikorita::
+	lock
+	playmoncry SPECIES_CHIKORITA, CRY_MODE_NORMAL
+	waitmoncry
+	release
+	end
+
+Route120_Text_EugeneNoNotes:
+	.string "EUGENE: This is a disaster! I'm on\n"
+	.string "the verge of my greatest discovery\l"
+	.string "and I seem to have lost my NOTES.\p"
+	.string "EUGENE: Where could I have left\n"
+	.string "them? Hrmmm....\p"
+	.string "Maybe when I ran into that\n"
+	.string "SHUCKLE in the SAFARI ZONE?$"
+
+Route120_Text_EugeneMove:
+	.string "EUGENE: My NOTES! Oh thank you!\p"
+	.string "EUGENE: Look out jungle, here\n"
+	.string "comes the great explorer EUGENE!$"
 
 Route120_Text_StevenGreeting:
 	.string "STEVEN: Hm? {PLAYER}{KUN}, hi.\n"

@@ -83,11 +83,7 @@ Fortree_Jungle_EventScript_RanFromSnorlax::
 	end
 
 Fortree_Jungle_EventScript_DomeFossil::
-	lock
-	giveitem ITEM_DOME_FOSSIL
-	setflag FLAG_HIDE_DOME_FOSSIL
-	removeobject LOCALID_DOME_FOSSIL
-	release
+	finditem ITEM_DOME_FOSSIL
 	end
 
 Fortree_Jungle_Text_SnorlaxNoFlute:

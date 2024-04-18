@@ -444,8 +444,9 @@
 // Amethyst
 #define ITEM_EVER_REPEL          399
 #define ITEM_SHINY_CHARM         400
+#define ITEM_EUGENES_NOTES       401
 
-#define ITEMS_COUNT              401
+#define ITEMS_COUNT              402
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
 // Its icon is defined at ITEMS_COUNT as the "return to field" arrow
