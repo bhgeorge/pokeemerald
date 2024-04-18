@@ -11719,7 +11719,7 @@
           "map": "MAP_SHOAL_CAVE_ICE_ROOM_EXPANSION",
           "base_label": "gShoalCave_IceRoomExpansion",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 30,
             "mons": [
               {
                 "min_level": 26,
