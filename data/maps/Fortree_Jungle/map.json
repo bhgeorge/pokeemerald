@@ -45,6 +45,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Fortree_Jungle_EventScript_DomeFossil",
       "flag": "FLAG_ITEM_DOME_FOSSIL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 25,
+      "y": 67,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Fortree_Jungle_EventScipt_AdamantMint",
+      "flag": "FLAG_ITEM_FORTREE_JUNGLE_ADAMANT_MINT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 36,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Fortree_Jungle_EventScript_BoldMint",
+      "flag": "FLAG_ITEM_FORTREE_JUNGLE_BOLD_MINT"
     }
   ],
   "warp_events": [

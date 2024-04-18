@@ -1,0 +1,64 @@
+.set LOCALID_HELIX_FOSSIL, 1
+.set LOCALID_ARTICUNO, 2
+
+ShoalCave_IceRoomExpansion_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, ShoalCave_IceRoomExpansion_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, ShoalCave_IceRoomExpansion_OnResume
+	.byte 0
+
+ShoalCave_IceRoomExpansion_OnTransition:
+	call_if_set FLAG_CAUGHT_ARTICUNO, ShoalCave_IceRoomExpansion_EventScript_HideArticuno
+	call_if_unset FLAG_CAUGHT_ARTICUNO, ShoalCave_IceRoomExpansion_EventScript_TryShowArticuno
+	end
+
+ShoalCave_IceRoomExpansion_EventScript_HideArticuno::
+	setflag FLAG_HIDE_ARTICUNO
+	return
+
+ShoalCave_IceRoomExpansion_EventScript_TryShowArticuno::
+	goto_if_set FLAG_DEFEATED_ARTICUNO, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_ARTICUNO
+	return
+
+ShoalCave_IceRoomExpansion_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, ShoalCave_IceRoomExpansion_EventScript_TryRemoveArticuno
+	end
+
+ShoalCave_IceRoomExpansion_EventScript_TryRemoveArticuno::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject LOCALID_ARTICUNO
+	return
+
+ShoalCave_IceRoomExpansion_EventScript_Articuno::
+	lock
+	playmoncry SPECIES_ARTICUNO, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_ARTICUNO, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, ShoalCave_IceRoomExpansion_EventScript_DefeatedArticuno
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, ShoalCave_IceRoomExpansion_EventScript_RanFromArticuno
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, ShoalCave_IceRoomExpansion_EventScript_RanFromArticuno
+	setflag FLAG_CAUGHT_ARTICUNO
+	release
+	end
+
+ShoalCave_IceRoomExpansion_EventScript_DefeatedArticuno::
+	setflag FLAG_DEFEATED_ARTICUNO
+	setvar VAR_0x8004, SPECIES_ARTICUNO
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+ShoalCave_IceRoomExpansion_EventScript_RanFromArticuno::
+	setvar VAR_0x8004, SPECIES_ARTICUNO
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+ShoalCave_IceRoomExpansion_EventScript_HelixFossil::
+	finditem ITEM_HELIX_FOSSIL
+	end

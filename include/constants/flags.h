@@ -659,9 +659,9 @@
 #define FLAG_HIDE_ROUTE_120_EUGENE  0x268 // Gave EUGENE the notes
 #define FLAG_HIDE_CELEBI            0x269 // If LUGIA and HO-OH haven't been caught
 #define FLAG_CAUGHT_CELEBI          0x26A
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
+#define FLAG_DEFEATED_ARTICUNO      0x26B
+#define FLAG_CAUGHT_ARTICUNO        0x26C
+#define FLAG_HIDE_ARTICUNO          0x26D
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
@@ -1220,9 +1220,9 @@
 
 #define FLAG_ITEM_DOME_FOSSIL                                       0x493
 #define FLAG_ITEM_FORTREE_JUNGLE_LINK_STONE                         0x494
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
+#define FLAG_ITEM_FORTREE_JUNGLE_ADAMANT_MINT                       0x495
+#define FLAG_ITEM_FORTREE_JUNGLE_BOLD_MINT                          0x496
+#define FLAG_ITEM_HELIX_FOSSIL                                      0x497
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag

@@ -11560,6 +11560,229 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_FORTREE_JUNGLE",
+          "base_label": "gFortree_Jungle",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 51,
+                "max_level": 54,
+                "species": "SPECIES_EXEGGCUTE"
+              },
+              {
+                "min_level": 52,
+                "max_level": 54,
+                "species": "SPECIES_JUMPLUFF"
+              },
+              {
+                "min_level": 52,
+                "max_level": 54,
+                "species": "SPECIES_TANGELA"
+              },
+              {
+                "min_level": 53,
+                "max_level": 56,
+                "species": "SPECIES_LINOONE"
+              },
+              {
+                "min_level": 53,
+                "max_level": 53,
+                "species": "SPECIES_LEDIAN"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_LICKITUNG"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_YANMA"
+              },
+              {
+                "min_level": 56,
+                "max_level": 56,
+                "species": "SPECIES_YANMA"
+              },
+              {
+                "min_level": 58,
+                "max_level": 58,
+                "species": "SPECIES_HYPNO"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_HOPPIP"
+              },
+              {
+                "min_level": 60,
+                "max_level": 60,
+                "species": "SPECIES_EXEGGUTOR"
+              },
+              {
+                "min_level": 62,
+                "max_level": 62,
+                "species": "SPECIES_SLAKING"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 50,
+                "max_level": 53,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 52,
+                "max_level": 54,
+                "species": "SPECIES_SEAKING"
+              },
+              {
+                "min_level": 51,
+                "max_level": 51,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 49,
+                "max_level": 52,
+                "species": "SPECIES_QWILFISH"
+              },
+              {
+                "min_level": 54,
+                "max_level": 56,
+                "species": "SPECIES_STARMIE"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 48,
+                "max_level": 52,
+                "species": "SPECIES_SEAKING"
+              },
+              {
+                "min_level": 50,
+                "max_level": 55,
+                "species": "SPECIES_TENTACRUEL"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_CORSOLA"
+              },
+              {
+                "min_level": 52,
+                "max_level": 54,
+                "species": "SPECIES_STARMIE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_SHOAL_CAVE_ICE_ROOM_EXPANSION",
+          "base_label": "gShoalCave_IceRoomExpansion",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 26,
+                "max_level": 26,
+                "species": "SPECIES_SPHEAL"
+              },
+              {
+                "min_level": 28,
+                "max_level": 28,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 28,
+                "max_level": 28,
+                "species": "SPECIES_SPHEAL"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SPHEAL"
+              },
+              {
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_DELIBIRD"
+              },
+              {
+                "min_level": 26,
+                "max_level": 26,
+                "species": "SPECIES_SNORUNT"
+              },
+              {
+                "min_level": 26,
+                "max_level": 26,
+                "species": "SPECIES_SWINUB"
+              },
+              {
+                "min_level": 28,
+                "max_level": 28,
+                "species": "SPECIES_SNORUNT"
+              },
+              {
+                "min_level": 28,
+                "max_level": 28,
+                "species": "SPECIES_SWINUB"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SNORUNT"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_SWINUB"
+              }
+            ]
+          }
         }
       ]
     },

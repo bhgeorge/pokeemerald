@@ -94,5 +94,8 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | EXP Share     | Devon researcher in Petalburg Woods                                         |
 | Ever Repel    | Rustobro after delivering Steven's letter (replaces old Exp Share location) |
 | Link Stone    | Fortree Jungle                                                              |
+| Adamant Mint  | Fortree Jungle                                                              |
+| Bold Mint     | Fortree Jungle                                                              |
 | Destiny Knot  | French Ditto trade (held)                                                   |
+| Strange Notes | Replaces the NUGGET in the Northeast area of the Safari Zone                |
 | Mystic Ticket | Give Eugene an Unown in the Fortree Jungle                                  |

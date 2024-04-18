@@ -2417,7 +2417,7 @@
       "width": 58,
       "height": 26,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "0",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/UnusedOutdoorArea/border.bin",
       "blockdata_filepath": "data/layouts/UnusedOutdoorArea/map.bin"
     },
@@ -4480,6 +4480,16 @@
       "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/FortreeJungle_CelebiHouse/border.bin",
       "blockdata_filepath": "data/layouts/FortreeJungle_CelebiHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHOAL_CAVE_ICE_ROOM_EXPANSION",
+      "name": "ShoalCave_IceRoomExpansion_Layout",
+      "width": 36,
+      "height": 14,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ShoalCave_IceRoomExpansion/border.bin",
+      "blockdata_filepath": "data/layouts/ShoalCave_IceRoomExpansion/map.bin"
     }
   ]
 }

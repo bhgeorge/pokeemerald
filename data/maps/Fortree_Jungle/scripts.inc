@@ -86,6 +86,14 @@ Fortree_Jungle_EventScript_DomeFossil::
 	finditem ITEM_DOME_FOSSIL
 	end
 
+Fortree_Jungle_EventScipt_AdamantMint::
+	finditem ITEM_ADAMANT_MINT
+	end
+
+Fortree_Jungle_EventScript_BoldMint::
+	finditem ITEM_BOLD_MINT
+	end
+
 Fortree_Jungle_Text_SnorlaxNoFlute:
 	.string "There's a huge sleeping POKéMON here.\p"
 	.string "If only there was something that\n"

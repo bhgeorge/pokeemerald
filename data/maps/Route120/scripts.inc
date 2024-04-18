@@ -379,6 +379,8 @@ Route120_EventScript_EugeneMove::
 	msgbox Route120_Text_EugeneMove, MSGBOX_DEFAULT
 	waitmessage
 	fadescreenswapbuffers FADE_TO_BLACK
+	playse SE_FLEE
+	waitse
 	setflag FLAG_HIDE_ROUTE_120_EUGENE
 	removeobject VAR_LAST_TALKED
 	removeobject LOCALID_EUGENE_BAG
