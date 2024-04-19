@@ -1068,7 +1068,55 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 10,
         .language = LANGUAGE_FRENCH,
         .requestedSpecies = SPECIES_SKITTY
-    }
+    },
+    [INGAME_TRADE_MR_MIME] = 
+    {
+        .nickname = _("MIMIEN"),
+        .species = SPECIES_MR_MIME,
+        .ivs = {20, 15, 17, 24, 23, 22},
+        .abilityNum = 0,
+        .otId = 1985,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x9c,
+        .heldItem = ITEM_NONE,
+        .mailNum = 255,
+        .otName = _("REYLEY"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_ABRA
+    }, 
+    [INGAME_TRADE_JYNX] = 
+    {
+        .nickname = _("ZYNX"),
+        .species = SPECIES_JYNX,
+        .ivs = {18, 17, 18, 22, 25, 21},
+        .abilityNum = 0,
+        .otId = 36728,
+        .conditions = {5, 30, 5, 5, 5},
+        .personality = 0x49,
+        .heldItem = ITEM_FAB_MAIL,
+        .mailNum = 0,
+        .otName = _("DONTAE"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_POLIWHIRL
+    }, 
+    [INGAME_TRADE_FARFETCHD] = 
+    {
+        .nickname = _("CH'DING"),
+        .species = SPECIES_FARFETCHD,
+        .ivs = {20, 25, 21, 24, 15, 20},
+        .abilityNum = 0,
+        .otId = 8810,
+        .conditions = {30, 5, 5, 5, 5},
+        .personality = 0x15,
+        .heldItem = ITEM_STICK,
+        .mailNum = 255,
+        .otName = _("ELYSSA"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_SPEAROW
+    }, 
 };
 
 static const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =

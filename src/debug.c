@@ -69,7 +69,7 @@ extern u8 Debug_TestSix[];
 // Text
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
 static const u8 sDebugText_TestOne[]      = _("Mewtwo");
-static const u8 sDebugText_TestTwo[]      = _("New Mauville 2");
+static const u8 sDebugText_TestTwo[]      = _("Ingame Trade");
 static const u8 sDebugText_TestThree[]    = _("Mt Pyre 1");
 static const u8 sDebugText_TestFour[]     = _("Mt Pyre 2");
 static const u8 sDebugText_TestFive[]     = _("Mt Pyre 3");

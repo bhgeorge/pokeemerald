@@ -48,8 +48,8 @@ Debug_TestOne::
 
 Debug_TestTwo::
 	lockall
-	setvar VAR_NEW_MAUVILLE_STATE, 2
-	setflag FLAG_IS_CHAMPION
+	givemon SPECIES_ABRA, 15, ITEM_NONE
+	givemon SPECIES_POLIWHIRL, 15, ITEM_NONE
 	release
 	end
 

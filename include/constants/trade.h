@@ -10,6 +10,9 @@
 #define INGAME_TRADE_HORSEA       2
 #define INGAME_TRADE_MEOWTH       3
 #define INGAME_TRADE_FRENCH_DITTO 4
+#define INGAME_TRADE_MR_MIME      5
+#define INGAME_TRADE_JYNX         6
+#define INGAME_TRADE_FARFETCHD    7
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon
 #define CAN_TRADE_MON              0
