@@ -48,7 +48,8 @@ Debug_TestOne::
 
 Debug_TestTwo::
 	lockall
-	setvar VAR_MT_PYRE_STATE, 0
+	setvar VAR_NEW_MAUVILLE_STATE, 2
+	setflag FLAG_IS_CHAMPION
 	release
 	end
 

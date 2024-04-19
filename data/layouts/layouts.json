@@ -4490,6 +4490,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_IceRoomExpansion/border.bin",
       "blockdata_filepath": "data/layouts/ShoalCave_IceRoomExpansion/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAUVILLE_EXPANSION",
+      "name": "NewMauville_Expansion_Layout",
+      "width": 9,
+      "height": 9,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BikeShop",
+      "border_filepath": "data/layouts/NewMauville_Expansion/border.bin",
+      "blockdata_filepath": "data/layouts/NewMauville_Expansion/map.bin"
     }
   ]
 }

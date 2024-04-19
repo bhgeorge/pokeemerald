@@ -363,3 +363,5 @@ const u32 gObjectEventPic_Articuno[] = INCBIN_U32("graphics/object_events/pics/p
 const u16 gObjectEventPal_Articuno[] = INCBIN_U16("graphics/object_events/palettes/articuno.gbapal");
 const u32 gObjectEventPic_Moltres[] = INCBIN_U32("graphics/object_events/pics/pokemon/moltres.4bpp");
 const u16 gObjectEventPal_Moltres[] = INCBIN_U16("graphics/object_events/palettes/moltres.gbapal");
+const u32 gObjectEventPic_Zapdos[] = INCBIN_U32("graphics/object_events/pics/pokemon/zapdos.4bpp");
+const u16 gObjectEventPal_Zapdos[] = INCBIN_U16("graphics/object_events/palettes/zapdos.gbapal");

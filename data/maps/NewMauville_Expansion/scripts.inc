@@ -1,0 +1,61 @@
+.set LOCALID_ZAPDOS, 1
+
+NewMauville_Expansion_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, NewMauville_Expansion_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, NewMauville_Expansion_OnResume
+	.byte 0
+
+NewMauville_Expansion_OnTransition:
+	call_if_unset FLAG_IS_CHAMPION, NewMauville_Expansion_EventScript_HideZapdos
+	call_if_ne VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Expansion_EventScript_HideZapdos
+	call_if_set FLAG_CAUGHT_ZAPDOS, NewMauville_Expansion_EventScript_HideZapdos
+	call_if_unset FLAG_CAUGHT_ZAPDOS, NewMauville_Expansion_EventScript_TryShowZapdos
+	end
+
+NewMauville_Expansion_EventScript_HideZapdos::
+	setflag FLAG_HIDE_ZAPDOS
+	end
+
+NewMauville_Expansion_EventScript_TryShowZapdos::
+	goto_if_set FLAG_DEFEATED_ZAPDOS, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_ZAPDOS
+	return
+
+NewMauville_Expansion_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, NewMauville_Expansion_EventScript_TryRemoveZapdos
+	end
+
+NewMauville_Expansion_EventScript_TryRemoveZapdos::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject LOCALID_ZAPDOS
+	return
+
+NewMauville_Expansion_EventScript_Zapdos::
+	lock
+	playmoncry SPECIES_ZAPDOS, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_ZAPDOS, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Expansion_EventScript_DefeatedZapdos
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Expansion_EventScript_RanFromZapdos
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, NewMauville_Expansion_EventScript_RanFromZapdos
+	setflag FLAG_CAUGHT_ZAPDOS
+	release
+	end
+
+NewMauville_Expansion_EventScript_DefeatedZapdos::
+	setflag FLAG_DEFEATED_ZAPDOS
+	setvar VAR_0x8004, SPECIES_ZAPDOS
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+NewMauville_Expansion_EventScript_RanFromZapdos::
+	setvar VAR_0x8004, SPECIES_ZAPDOS
+	goto Common_EventScript_LegendaryFlewAway
+	end

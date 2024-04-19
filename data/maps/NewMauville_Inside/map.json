@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -126,6 +126,13 @@
       "elevation": 3,
       "dest_map": "MAP_NEW_MAUVILLE_ENTRANCE",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 35,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_MAUVILLE_EXPANSION",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

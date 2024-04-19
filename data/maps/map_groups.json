@@ -435,7 +435,8 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "ShoalCave_IceRoomExpansion"
+    "ShoalCave_IceRoomExpansion",
+    "NewMauville_Expansion"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

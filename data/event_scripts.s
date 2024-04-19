@@ -1086,3 +1086,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/FortreeJungle_CelebiHouse/scripts.inc"
 
 	.include "data/maps/ShoalCave_IceRoomExpansion/scripts.inc"
+
+	.include "data/maps/NewMauville_Expansion/scripts.inc"

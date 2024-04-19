@@ -665,9 +665,9 @@
 #define FLAG_DEFEATED_MOLTRES       0x26E
 #define FLAG_CAUGHT_MOLTRES         0x26F
 #define FLAG_HIDE_MOLTRES           0x270
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
+#define FLAG_DEFEATED_ZAPDOS        0x271
+#define FLAG_CAUGHT_ZAPDOS          0x272
+#define FLAG_HIDE_ZAPDOS            0x273
 #define FLAG_UNUSED_0x274  0x274 // Unused Flag
 #define FLAG_UNUSED_0x275  0x275 // Unused Flag
 #define FLAG_UNUSED_0x276  0x276 // Unused Flag
