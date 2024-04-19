@@ -123,6 +123,7 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 125           | Electabuzz | New Mauville Inside                                | 1%             |
 | 126           | Magmar     | Magma Hideout (any room with lava)                 | 1%             |
 | 128           | Tauros     | Safari Zone South                                  | 1%             |
+| 133           | Eevee      | Mom's House (After helping Wally)                  |                |
 | 138           | Omanyte    | Shoal Cave Ice Room Expansion (Helix Fossil)       |                |
 | 140           | Kabuto     | Fortree Jungle (Dome Fossil)                       |                |
 | 143           | Snorlax    | Fortree Jungle (requires Blue Flute)               |                |

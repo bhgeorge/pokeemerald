@@ -57,7 +57,7 @@ Debug_TestTwo::
 
 Debug_TestThree::
 	lockall
-	setflag FLAG_RETURNED_DEVON_GOODS
+	setflag FLAG_THANKED_FOR_PLAYING_WITH_WALLY
 	release
 	end
 

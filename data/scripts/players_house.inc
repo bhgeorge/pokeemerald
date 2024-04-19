@@ -308,6 +308,7 @@ PlayersHouse_1F_EventScript_Mom::
 	faceplayer
 	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
 	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
+	goto_if_set FLAG_THANKED_FOR_PLAYING_WITH_WALLY, PlayersHouse_1F_EventScript_TryGiveEevee
 	goto_if_set FLAG_HAS_MATCH_CALL, PlayersHouse_1F_EventScript_TryRegisterMom
 	goto_if_set FLAG_RESCUED_BIRCH, PlayersHouse_1F_EventScript_MomHealsParty
 	goto_if_eq VAR_TEMP_1, 1, PlayersHouse_1F_EventScript_SeeYouHoney
@@ -371,6 +372,67 @@ PlayersHouse_1F_EventScript_DidYouMeetProfBirch::
 	msgbox PlayersHouse_1F_Text_DidYouMeetProfBirch, MSGBOX_DEFAULT
 	release
 	end
+
+
+PlayersHouse_1F_EventScript_TryGiveEevee::
+	goto_if_set FLAG_RECEIVED_EEVEE, PlayersHouse_1F_EventScript_MomHealsParty
+	msgbox PlayersHouse_1F_Text_TryGiveEevee, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EEVEE
+	givemon SPECIES_EEVEE, 5, ITEM_NONE
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, PlayersHouse_1F_EventScript_ReceiveEeveeParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, PlayersHouse_1F_EventScript_ReceiveEeveePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+PlayersHouse_1F_EventScript_ReceiveEeveeParty::
+	call PlayersHouse_1F_EventScript_ReceivedEeveeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PlayersHouse_1F_EventScript_TakeCareEevee
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto PlayersHouse_1F_EventScript_TakeCareEevee
+	end
+
+PlayersHouse_1F_EventScript_ReceiveEeveePC::
+	call PlayersHouse_1F_EventScript_ReceivedEeveeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PlayersHouse_1F_EventScript_SendEeveeToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto PlayersHouse_1F_EventScript_SendEeveeToPC
+	end
+
+PlayersHouse_1F_EventScript_SendEeveeToPC::
+	call Common_EventScript_TransferredToPC
+	goto PlayersHouse_1F_EventScript_TakeCareEevee
+	end
+
+PlayersHouse_1F_EventScript_ReceivedEeveeFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message PlayersHouse_1F_Text_PlayerReceivedEevee
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
+	return
+
+PlayersHouse_1F_EventScript_TakeCareEevee::
+	msgbox PlayersHouse_1F_Text_TakeCareEevee, MSGBOX_DEFAULT
+	waitmessage
+	setflag FLAG_RECEIVED_EEVEE
+	release
+	end
+
+PlayersHouse_1F_Text_TryGiveEevee:
+	.string "I heard what you did for WALLY.\n"
+	.string "that was so kind of you.\p"
+	.string "I got you this POKéMON to help with\n"
+	.string "your adventure!$"
+
+PlayersHouse_1F_Text_PlayerReceivedEevee:
+	.string "{PLAYER} received EEVEE!$"
+
+PlayersHouse_1F_Text_TakeCareEevee:
+	.string "Take care of EEVEE!\p"
+	.string "I'm so proud of you honey.$"
 
 PlayersHouse_1F_EventScript_Vigoroth1::
 	lock
