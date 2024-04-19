@@ -44,11 +44,65 @@ VerdanturfTown_FriendshipRatersHouse_EventScript_LikesYouQuiteALot::
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_VeryHappy::
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_VeryHappy, MSGBOX_DEFAULT
+	goto_if_unset FLAG_RECEIVED_BULBASAUR VerdanturfTown_FriendshipRatersHouse_EventScript_GiveBulbasaur
 	release
 	end
 
 VerdanturfTown_FriendshipRatersHouse_EventScript_AdoresYou::
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_AdoresYou, MSGBOX_DEFAULT
+	goto_if_unset FLAG_RECEIVED_BULBASAUR VerdanturfTown_FriendshipRatersHouse_EventScript_GiveBulbasaur
+	release
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_GiveBulbasaur::
+	msgbox VerdanturfTown_Text_AskGiveBulbasaur, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VerdanturfTown_FriendshipRatersHouse_EventScript_DeclineBulbasaur
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_BULBASAUR
+	givemon SPECIES_BULBASAUR, 5, ITEM_NONE
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VerdanturfTown_FriendshipRatersHouse_EventScript_ReceiveBulbasaurParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VerdanturfTown_FriendshipRatersHouse_EventScript_ReceiveBulbasaurPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_DeclineBulbasaur::
+	msgbox VerdanturfTown_FriendshipRatersHouse_Text_DeclineBulbasaur, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_ReceiveBulbasaurParty::
+	call VerdanturfTown_FriendshipRatersHouse_EventScript_ReceivedBulbasaurFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VerdanturfTown_FriendshipRatersHouse_EventScript_TakeCareBulbasaur
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TakeCareBulbasaur
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_ReceiveBulbasaurPC::
+	call VerdanturfTown_FriendshipRatersHouse_EventScript_ReceivedBulbasaurFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VerdanturfTown_FriendshipRatersHouse_EventScript_SendBulbasaurToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_SendBulbasaurToPC
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_SendBulbasaurToPC::
+	call Common_EventScript_TransferredToPC
+	goto VerdanturfTown_FriendshipRatersHouse_EventScript_TakeCareBulbasaur
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_ReceivedBulbasaurFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message VerdanturfTown_FriendshipRatersHouse_Text_PlayerReceivedBulbasaur
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_BULBASAUR
+	return
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_TakeCareBulbasaur::
+	msgbox VerdanturfTown_FriendshipRatersHouse_Text_TakeCareBulbasaur, MSGBOX_DEFAULT
+	waitmessage
+	setflag FLAG_RECEIVED_BULBASAUR
 	release
 	end
 
@@ -61,6 +115,23 @@ VerdanturfTown_FriendshipRatersHouse_EventScript_Pikachu::
 	waitmoncry
 	release
 	end
+
+VerdanturfTown_Text_AskGiveBulbasaur:
+	.string "I've been looking for a trainer as\n"
+	.string "kind as you to raise this BULBASAUR.\p"
+	.string "It need a good home, could you\n"
+	.string "possibly take it with you?$"
+
+VerdanturfTown_FriendshipRatersHouse_Text_PlayerReceivedBulbasaur:
+	.string "{PLAYER} received BULBASAUR!$"
+
+VerdanturfTown_FriendshipRatersHouse_Text_DeclineBulbasaur:
+	.string "Oh, that's ok. I'm sure I'll find it\n"
+	.string "a good home.$"
+
+VerdanturfTown_FriendshipRatersHouse_Text_TakeCareBulbasaur:
+	.string "Take care BULBASAUR!\p"
+	.string "I'm sure you'll be so happy.$"
 
 VerdanturfTown_FriendshipRatersHouse_Text_SeeHowMuchPokemonLikesYou:
 	.string "Let me see your POKéMON.\n"

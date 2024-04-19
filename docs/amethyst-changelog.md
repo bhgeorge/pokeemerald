@@ -30,6 +30,7 @@
 - The daycare no longer gives EXP, and costs `$500` up front rather than `$100 + $100 * lvl` when retrieving the POKéMON
 - Added the Destiny Knot, holding it causes 5 IVs to be inherited instead of 3
   - The Destiny Knot also maintains its held item effect in battle
+- Eggs hatch at lvl 1 instead of lvl 5
 - Bugfix for general IV inheritance that made it more difficult to inherit HP, ATK, & DEF IVs
 - Added the Masuda method, where breeding with a POKéMON from a different language version of the game increases shiny chance
   - There is a new in-game trade for a French Ditto
@@ -78,10 +79,11 @@ Amethyst includes the ability to get all 386 POKéMON on a single save file with
 
 In general when encounters have been added to existing areas of the game, they've tried to replace POKéMON that are readily available elsewhere (or even in the same location). If a POKéMON is not listed in the table below, it is exactly where it is found in vanilla POKéMON Emerald.
 
-For any overworld encounters of POKéMON, if accidentally defeated, they can be retried by first defeating the Elite Four again. Once caught, they will not respawn in this way.
+For any overworld encounters of POKéMON, if accidentally defeated, they can be retried by first defeating the Elite Four again. Once caught, they will not respawn in this way. Sudowoodo is the exception here, it will respawn forever each time you defeat the Elite Four.
 
 | NationalDex # | POKéMON    | Location                                         | Encounter Odds |
 | ------------- | ---------- | ------------------------------------------------ | -------------- |
+| 001           | Bulbasaur  | Verdanturf Town (Friendship rater)               |                |
 | 010           | Caterpie   | Petalburg Woods                                  | 10%            |
 | 016           | Pidgey     | Route 115                                        | 40%            |
 | 017           | Pidgeotto  | Route 115                                        | 10%            |

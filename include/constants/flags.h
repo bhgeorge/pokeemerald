@@ -671,9 +671,9 @@
 #define FLAG_TRADED_MR_MIME         0x274
 #define FLAG_TRADED_JYNX            0x275
 #define FLAG_TRADED_FARFETCHD       0x276
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
+#define FLAG_RECEIVED_BULBASAUR     0x277
+#define FLAG_RECEIVED_SQUIRTLE      0x278
+#define FLAG_RECEIVED_CHARMANDER    0x279
 #define FLAG_UNUSED_0x27A  0x27A // Unused Flag
 #define FLAG_UNUSED_0x27B  0x27B // Unused Flag
 #define FLAG_UNUSED_0x27C  0x27C // Unused Flag

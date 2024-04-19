@@ -48,8 +48,10 @@ Debug_TestOne::
 
 Debug_TestTwo::
 	lockall
-	givemon SPECIES_ABRA, 15, ITEM_NONE
-	givemon SPECIES_POLIWHIRL, 15, ITEM_NONE
+	givemon SPECIES_EEVEE, 15, ITEM_SOOTHE_BELL
+	giveitem ITEM_GREPA_BERRY, 99
+	giveitem ITEM_HONDEW_BERRY, 99
+	giveitem ITEM_POMEG_BERRY, 99
 	release
 	end
 
