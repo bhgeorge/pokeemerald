@@ -44,8 +44,79 @@ RustboroCity_DevonCorp_1F_EventScript_StairGuard::
 
 RustboroCity_DevonCorp_1F_EventScript_AlwaysWelcome::
 	msgbox RustboroCity_DevonCorp_1F_Text_YoureAlwaysWelcomeHere, MSGBOX_DEFAULT
+	goto_if_unset FLAG_RECEIVED_SQUIRTLE, RustoboroCity_DevonCorp_1F_EventScript_GiveSquirtle
 	release
 	end
+
+	RustoboroCity_DevonCorp_1F_EventScript_GiveSquirtle::
+	msgbox RustoboroCity_DevonCorp_1F_Text_AskGiveSquirtle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustoboroCity_DevonCorp_1F_EventScript_DeclineSquirtle
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SQUIRTLE
+	givemon SPECIES_SQUIRTLE, 5, ITEM_NONE
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustoboroCity_DevonCorp_1F_EventScript_ReceiveSquirtleParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustoboroCity_DevonCorp_1F_EventScript_ReceiveSquirtlePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustoboroCity_DevonCorp_1F_EventScript_DeclineSquirtle::
+	msgbox RustoboroCity_DevonCorp_1F_Text_DeclineSquirtle, MSGBOX_DEFAULT
+	release
+	end
+
+RustoboroCity_DevonCorp_1F_EventScript_ReceiveSquirtleParty::
+	call RustoboroCity_DevonCorp_1F_EventScript_ReceivedSquirtleFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustoboroCity_DevonCorp_1F_EventScript_TakeCareSquirtle
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustoboroCity_DevonCorp_1F_EventScript_TakeCareSquirtle
+	end
+
+RustoboroCity_DevonCorp_1F_EventScript_ReceiveSquirtlePC::
+	call RustoboroCity_DevonCorp_1F_EventScript_ReceivedSquirtleFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, RustoboroCity_DevonCorp_1F_EventScript_SendSquirtleToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustoboroCity_DevonCorp_1F_EventScript_SendSquirtleToPC
+	end
+
+RustoboroCity_DevonCorp_1F_EventScript_SendSquirtleToPC::
+	call Common_EventScript_TransferredToPC
+	goto RustoboroCity_DevonCorp_1F_EventScript_TakeCareSquirtle
+	end
+
+RustoboroCity_DevonCorp_1F_EventScript_ReceivedSquirtleFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message RustoboroCity_DevonCorp_1F_Text_PlayerReceivedSquirtle
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SQUIRTLE
+	return
+
+RustoboroCity_DevonCorp_1F_EventScript_TakeCareSquirtle::
+	msgbox RustoboroCity_DevonCorp_1F_Text_TakeCareSquirtle, MSGBOX_DEFAULT
+	waitmessage
+	setflag FLAG_RECEIVED_SQUIRTLE
+	release
+	end
+
+RustoboroCity_DevonCorp_1F_Text_AskGiveSquirtle:
+	.string "Say, you seem like you can handle\n"
+	.string "yourself around ruffians.\p"
+	.string "This SQUIRTLE has been causing\n"
+	.string "trouble around here lately.\p"
+	.string "Think you could take it\n"
+	.string "off my hands?$"
+
+RustoboroCity_DevonCorp_1F_Text_PlayerReceivedSquirtle:
+	.string "{PLAYER} received SQUIRTLE!$"
+
+RustoboroCity_DevonCorp_1F_Text_DeclineSquirtle:
+	.string "If you change your mind, I'll be\n"
+	.string "right here.$"
+
+RustoboroCity_DevonCorp_1F_Text_TakeCareSquirtle:
+	.string "Don't get into too much trouble!$"
 
 RustboroCity_DevonCorp_1F_EventScript_GotRobbed::
 	msgbox RustboroCity_DevonCorp_1F_Text_HowCouldWeGetRobbed, MSGBOX_DEFAULT

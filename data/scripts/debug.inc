@@ -57,9 +57,7 @@ Debug_TestTwo::
 
 Debug_TestThree::
 	lockall
-	setflag FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE
-	setflag FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA
-	setvar VAR_MT_PYRE_STATE, 1
+	setflag FLAG_RETURNED_DEVON_GOODS
 	release
 	end
 

@@ -81,65 +81,66 @@ In general when encounters have been added to existing areas of the game, they'v
 
 For any overworld encounters of POKéMON, if accidentally defeated, they can be retried by first defeating the Elite Four again. Once caught, they will not respawn in this way. Sudowoodo is the exception here, it will respawn forever each time you defeat the Elite Four.
 
-| NationalDex # | POKéMON    | Location                                         | Encounter Odds |
-| ------------- | ---------- | ------------------------------------------------ | -------------- |
-| 001           | Bulbasaur  | Verdanturf Town (Friendship rater)               |                |
-| 004           | Charmander | Route 111 (Old Lady's Rest Stop)                 |                |
-| 010           | Caterpie   | Petalburg Woods                                  | 10%            |
-| 016           | Pidgey     | Route 115                                        | 40%            |
-| 017           | Pidgeotto  | Route 115                                        | 10%            |
-| 021           | Spearow    | Route 123                                        | 8%             |
-| 022           | Fearow     | Route 123                                        | 1%             |
-| 029           | Nidoran F  | Route 116, Route 117                             | 4% / 20%       |
-| 032           | Nidoran M  | Route 116, 117                                   | 4% / 20%       |
-| 046           | Paras      | Route 119                                        | 5%             |
-| 050           | Diglett    | Meteor Falls 1F_1R                               | 21%            |
-| 051           | Dugtrio    | Meteor Falls 1F_2R                               | 14%            |
-| 056           | Mankey     | Safari Zone South                                | 20%            |
-| 058           | Growlithe  | Magma Hideout                                    | 5%             |
-| 060           | Poliwag    | Route 114 (Surf)                                 | 30%            |
-| 061           | Poliwhirl  | Route 114 (Surf)                                 | 5%             |
-| 069           | Bellsprout | Route 119, Route 120                             | 25%            |
-| 077           | Ponyta     | Safari Zone North                                | 10%            |
-| 079           | Slowpoke   | Route 120 (Grass or Surf)                        | 5% / 30%       |
-| 080           | Slowbro    | Route 120 (Surf)                                 | 5%             |
-| 083           | Farfetch'd | Dewford Town (Trade)                             |                |
-| 086           | Seel       | Shoal Cave Entrance (Low tide)                   | 10%            |
-| 087           | Dewgong    | Shoal Cave Entrance (Low tide)                   | 1%             |
-| 090           | Shellder   | Underwater Route 124                             | 5%             |
-| 095           | Onix       | Victory Road 1F                                  | 4%             |
-| 097           | Hypno      | Fortree Jungle                                   | 4%             |
-| 098           | Krabby     | Safari Zone Northwest (Surf)                     | 30%            |
-| 102           | Exeggcute  | Fortree Jungle                                   | 20%            |
-| 104           | Cubone     | Mt Pyre 4F, 5F, 6F                               | 5%             |
-| 108           | Lickitung  | Fortree Jungle                                   | 10%            |
-| 113           | Chansey    | Safari Zone Southeast                            | 5%             |
-| 114           | Tangela    | Route 123, Fortree Jungle                        | 10%            |
-| 115           | Kangaskhan | Safari Zone Northeast                            | 5%             |
-| 122           | Mr Mime    | Verdanturf Town (Trade)                          |                |
-| 123           | Scyther    | Safari Zone Southeast                            | 10%            |
-| 124           | Jynx       | Slateport City (Trade)                           |                |
-| 125           | Electabuzz | New Mauville Inside                              | 1%             |
-| 126           | Magmar     | Magma Hideout (any room with lava)               | 1%             |
-| 128           | Tauros     | Safari Zone South                                | 1%             |
-| 138           | Omanyte    | Shoal Cave Ice Room Expansion (Helix Fossil)     |                |
-| 140           | Kabuto     | Fortree Jungle (Dome Fossil)                     |                |
-| 143           | Snorlax    | Fortree Jungle (requires Blue Flute)             |                |
-| 144           | Articuno   | Shoal Cave Ice Room Expansion                    |                |
-| 145           | Zapdos     | New Mauville Expansion (requires being Champion) |                |
-| 146           | Moltres    | Mt Pyre Summit (requires being Champion)         |                |
-| 152           | Chikorita  | See Jhoto Starters                               |                |
-| 155           | Cyndaquil  | See Jhoto Starters                               |                |
-| 158           | Totodile   | See Jhoto Starters                               |                |
-| 161           | Sentret    | Route 117                                        | 30%            |
-| 166           | Ledian     | Fortree Jungle                                   | 10%            |
-| 187           | Hoppip     | Fortree Jungle                                   | 4%             |
-| 189           | Jumpluff   | Fortree Jungle                                   | 10%            |
-| 193           | Yanma      | Fortree Jungle                                   | 10%            |
-| 201           | Unown      | Tanoby Ruins (Fortree Jungle)                    | 100%           |
-| 220           | Swinub     | Shoal Cave Ice Room Expansion                    | 10%            |
-| 225           | Delibird   | Shoal Cave Ice Room Expansion                    | 10%            |
-| 251           | Celebi     | Fortree Jungle (requires Lugia & Ho-oh)          |                |
+| NationalDex # | POKéMON    | Location                                           | Encounter Odds |
+| ------------- | ---------- | -------------------------------------------------- | -------------- |
+| 001           | Bulbasaur  | Verdanturf Town (Friendship rater)                 |                |
+| 004           | Charmander | Route 111 (Old Lady's Rest Stop)                   |                |
+| 007           | Squirtle   | Devon Corporation 1F (After returning DEVON GOODS) |                |
+| 010           | Caterpie   | Petalburg Woods                                    | 10%            |
+| 016           | Pidgey     | Route 115                                          | 40%            |
+| 017           | Pidgeotto  | Route 115                                          | 10%            |
+| 021           | Spearow    | Route 123                                          | 8%             |
+| 022           | Fearow     | Route 123                                          | 1%             |
+| 029           | Nidoran F  | Route 116, Route 117                               | 4% / 20%       |
+| 032           | Nidoran M  | Route 116, 117                                     | 4% / 20%       |
+| 046           | Paras      | Route 119                                          | 5%             |
+| 050           | Diglett    | Meteor Falls 1F_1R                                 | 21%            |
+| 051           | Dugtrio    | Meteor Falls 1F_2R                                 | 14%            |
+| 056           | Mankey     | Safari Zone South                                  | 20%            |
+| 058           | Growlithe  | Magma Hideout                                      | 5%             |
+| 060           | Poliwag    | Route 114 (Surf)                                   | 30%            |
+| 061           | Poliwhirl  | Route 114 (Surf)                                   | 5%             |
+| 069           | Bellsprout | Route 119, Route 120                               | 25%            |
+| 077           | Ponyta     | Safari Zone North                                  | 10%            |
+| 079           | Slowpoke   | Route 120 (Grass or Surf)                          | 5% / 30%       |
+| 080           | Slowbro    | Route 120 (Surf)                                   | 5%             |
+| 083           | Farfetch'd | Dewford Town (Trade)                               |                |
+| 086           | Seel       | Shoal Cave Entrance (Low tide)                     | 10%            |
+| 087           | Dewgong    | Shoal Cave Entrance (Low tide)                     | 1%             |
+| 090           | Shellder   | Underwater Route 124                               | 5%             |
+| 095           | Onix       | Victory Road 1F                                    | 4%             |
+| 097           | Hypno      | Fortree Jungle                                     | 4%             |
+| 098           | Krabby     | Safari Zone Northwest (Surf)                       | 30%            |
+| 102           | Exeggcute  | Fortree Jungle                                     | 20%            |
+| 104           | Cubone     | Mt Pyre 4F, 5F, 6F                                 | 5%             |
+| 108           | Lickitung  | Fortree Jungle                                     | 10%            |
+| 113           | Chansey    | Safari Zone Southeast                              | 5%             |
+| 114           | Tangela    | Route 123, Fortree Jungle                          | 10%            |
+| 115           | Kangaskhan | Safari Zone Northeast                              | 5%             |
+| 122           | Mr Mime    | Verdanturf Town (Trade)                            |                |
+| 123           | Scyther    | Safari Zone Southeast                              | 10%            |
+| 124           | Jynx       | Slateport City (Trade)                             |                |
+| 125           | Electabuzz | New Mauville Inside                                | 1%             |
+| 126           | Magmar     | Magma Hideout (any room with lava)                 | 1%             |
+| 128           | Tauros     | Safari Zone South                                  | 1%             |
+| 138           | Omanyte    | Shoal Cave Ice Room Expansion (Helix Fossil)       |                |
+| 140           | Kabuto     | Fortree Jungle (Dome Fossil)                       |                |
+| 143           | Snorlax    | Fortree Jungle (requires Blue Flute)               |                |
+| 144           | Articuno   | Shoal Cave Ice Room Expansion                      |                |
+| 145           | Zapdos     | New Mauville Expansion (requires being Champion)   |                |
+| 146           | Moltres    | Mt Pyre Summit (requires being Champion)           |                |
+| 152           | Chikorita  | See Jhoto Starters                                 |                |
+| 155           | Cyndaquil  | See Jhoto Starters                                 |                |
+| 158           | Totodile   | See Jhoto Starters                                 |                |
+| 161           | Sentret    | Route 117                                          | 30%            |
+| 166           | Ledian     | Fortree Jungle                                     | 10%            |
+| 187           | Hoppip     | Fortree Jungle                                     | 4%             |
+| 189           | Jumpluff   | Fortree Jungle                                     | 10%            |
+| 193           | Yanma      | Fortree Jungle                                     | 10%            |
+| 201           | Unown      | Tanoby Ruins (Fortree Jungle)                      | 100%           |
+| 220           | Swinub     | Shoal Cave Ice Room Expansion                      | 10%            |
+| 225           | Delibird   | Shoal Cave Ice Room Expansion                      | 10%            |
+| 251           | Celebi     | Fortree Jungle (requires Lugia & Ho-oh)            |                |
 
 ### Jhoto Starters
 
