@@ -84,6 +84,7 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | NationalDex # | POKéMON    | Location                                         | Encounter Odds |
 | ------------- | ---------- | ------------------------------------------------ | -------------- |
 | 001           | Bulbasaur  | Verdanturf Town (Friendship rater)               |                |
+| 004           | Charmander | Route 111 (Old Lady's Rest Stop)                 |                |
 | 010           | Caterpie   | Petalburg Woods                                  | 10%            |
 | 016           | Pidgey     | Route 115                                        | 40%            |
 | 017           | Pidgeotto  | Route 115                                        | 10%            |
