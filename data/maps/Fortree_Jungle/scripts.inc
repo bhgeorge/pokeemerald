@@ -58,7 +58,7 @@ Fortree_Jungle_EventScript_SnorlaxFlute::
 	playmoncry SPECIES_SNORLAX, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_SNORLAX, 55
+	setwildbattle SPECIES_SNORLAX, 65
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	waitstate
