@@ -662,9 +662,9 @@
 #define FLAG_DEFEATED_ARTICUNO      0x26B
 #define FLAG_CAUGHT_ARTICUNO        0x26C
 #define FLAG_HIDE_ARTICUNO          0x26D
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
+#define FLAG_DEFEATED_MOLTRES       0x26E
+#define FLAG_CAUGHT_MOLTRES         0x26F
+#define FLAG_HIDE_MOLTRES           0x270
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag

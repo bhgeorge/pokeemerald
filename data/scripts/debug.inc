@@ -42,34 +42,44 @@ Debug_QuickStart::
 
 Debug_TestOne::
 	lockall
-	giveitem ITEM_BLUE_FLUTE
-	giveitem ITEM_MASTER_BALL
 	givemon SPECIES_MEWTWO, 100, ITEM_NONE
 	release
 	end
 
 Debug_TestTwo::
 	lockall
-	giveitem ITEM_EUGENES_NOTES
+	setvar VAR_MT_PYRE_STATE, 0
 	release
 	end
 
 Debug_TestThree::
 	lockall
-	giveitem ITEM_ULTRA_BALL, 50
+	setflag FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE
+	setflag FLAG_HIDE_MT_PYRE_SUMMIT_TEAM_AQUA
+	setvar VAR_MT_PYRE_STATE, 1
 	release
 	end
 
 Debug_TestFour::
 	lockall
-	setflag FLAG_CAUGHT_LUGIA
-	setflag FLAG_CAUGHT_HO_OH
+	setflag FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE
+	clearflag FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE
+	clearflag FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE
+	setvar VAR_MT_PYRE_STATE, 2
+	release
 	end
 
 Debug_TestFive::
+	lockall
+	setflag FLAG_IS_CHAMPION
+	setvar VAR_MT_PYRE_STATE, 3
+	release
 	end
 
 Debug_TestSix::
+	lockall
+	setvar VAR_MT_PYRE_STATE, 4
+	release
 	end
 
 Debug_TestSeven::

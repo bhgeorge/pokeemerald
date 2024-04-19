@@ -5,19 +5,79 @@
 .set LOCALID_GRUNT_3, 6
 .set LOCALID_GRUNT_4, 7
 .set LOCALID_MAXIE, 8
+.set LOCALID_MOLTRES, 9
 
 MtPyre_Summit_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MtPyre_Summit_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, MtPyre_Summit_EventScript_OnResume
 	.byte 0
 
 MtPyre_Summit_OnTransition:
 	call_if_eq VAR_MT_PYRE_STATE, 2, MtPyre_Summit_EventScript_SetArchieMaxiePositions
+	call_if_eq VAR_MT_PYRE_STATE, 3, MtPyre_Summit_EventScript_CheckMoltresState
+	call_if_eq VAR_MT_PYRE_STATE, 4, MtPyre_Summit_EventScript_TryShowMoltres
+	call_if_ne VAR_MT_PYRE_STATE, 4, MtPyre_Summit_EventScript_HideMoltres
+	end
+
+MtPyre_Summit_EventScript_HideMoltres::
+	setflag FLAG_HIDE_MOLTRES
+	return
+
+MtPyre_Summit_EventScript_CheckMoltresState::
+	goto_if_unset FLAG_IS_CHAMPION, Common_EventScript_NopReturn
+	setvar VAR_MT_PYRE_STATE, 4
+	return
+
+MtPyre_Summit_EventScript_TryShowMoltres::
+	goto_if_set FLAG_DEFEATED_MOLTRES, Common_EventScript_NopReturn
+	goto_if_set FLAG_CAUGHT_MOLTRES, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_MOLTRES
+	return
+
+MtPyre_Summit_EventScript_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, MtPyre_Summit_EventScript_TryRemoveMoltres
+	end
+
+MtPyre_Summit_EventScript_TryRemoveMoltres::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject LOCALID_MOLTRES
+	return
+
+MtPyre_Summit_EventScript_Moltres::
+	lock
+	playmoncry SPECIES_MOLTRES, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_MOLTRES, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MtPyre_Summit_EventScript_DefeatedMoltres
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MtPyre_Summit_EventScript_RanFromMoltres
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtPyre_Summit_EventScript_RanFromMoltres
+	setflag FLAG_CAUGHT_MOLTRES
+	setvar VAR_MT_PYRE_STATE, 5
+	release
+	end
+
+MtPyre_Summit_EventScript_DefeatedMoltres::
+	setflag FLAG_DEFEATED_MOLTRES
+	setvar VAR_0x8004, SPECIES_MOLTRES
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+MtPyre_Summit_EventScript_RanFromMoltres::
+	setvar VAR_0x8004, SPECIES_MOLTRES
+	goto Common_EventScript_LegendaryFlewAway
 	end
 
 MtPyre_Summit_EventScript_SetArchieMaxiePositions::
 	setobjectxyperm LOCALID_MAXIE, 23, 6
 	setobjectxyperm LOCALID_ARCHIE, 22, 6
-	end
+	return
 
 MtPyre_Summit_EventScript_TeamAquaTrigger0::
 	lockall

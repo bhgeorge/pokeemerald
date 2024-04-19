@@ -23,6 +23,8 @@ enum {
     DEBUG_MENU_ITEM_TEST_TWO,
     DEBUG_MENU_ITEM_TEST_THREE,
     DEBUG_MENU_ITEM_TEST_FOUR,
+    DEBUG_MENU_ITEM_TEST_FIVE,
+    DEBUG_MENU_ITEM_TEST_SIX,
     DEBUG_MENU_ITEM_CANCEL
 };
 
@@ -51,6 +53,8 @@ static void DebugAction_TestOne(u8 taskId);
 static void DebugAction_TestTwo(u8 taskId);
 static void DebugAction_TestThree(u8 taskId);
 static void DebugAction_TestFour(u8 taskId);
+static void DebugAction_TestFive(u8 taskId);
+static void DebugAction_TestSix(u8 taskId);
 
 // Scripts
 extern u8 Debug_ShowFieldMessageStringVar4[];
@@ -59,13 +63,17 @@ extern u8 Debug_TestOne[];
 extern u8 Debug_TestTwo[];
 extern u8 Debug_TestThree[];
 extern u8 Debug_TestFour[];
+extern u8 Debug_TestFive[];
+extern u8 Debug_TestSix[];
 
 // Text
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
-static const u8 sDebugText_TestOne[]      = _("Blue Flute");
-static const u8 sDebugText_TestTwo[]      = _("Eugenes Notes");
-static const u8 sDebugText_TestThree[]    = _("Ultra Balls");
-static const u8 sDebugText_TestFour[]     = _("Catch Gen 2");
+static const u8 sDebugText_TestOne[]      = _("Mewtwo");
+static const u8 sDebugText_TestTwo[]      = _("Mt Pyre 0");
+static const u8 sDebugText_TestThree[]    = _("Mt Pyre 1");
+static const u8 sDebugText_TestFour[]     = _("Mt Pyre 2");
+static const u8 sDebugText_TestFive[]     = _("Mt Pyre 3");
+static const u8 sDebugText_TestSix[]      = _("Mt Pyre 4");   
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 
 // Menu Actions
@@ -76,6 +84,8 @@ static void (*const sDebugMenu_Actions_Main[])(u8) =
     [DEBUG_MENU_ITEM_TEST_TWO]        = DebugAction_TestTwo,
     [DEBUG_MENU_ITEM_TEST_THREE]      = DebugAction_TestThree,
     [DEBUG_MENU_ITEM_TEST_FOUR]       = DebugAction_TestFour,
+    [DEBUG_MENU_ITEM_TEST_FIVE]      = DebugAction_TestFive,
+    [DEBUG_MENU_ITEM_TEST_SIX]       = DebugAction_TestSix,
     [DEBUG_MENU_ITEM_CANCEL]          = DebugAction_Cancel
 };
 
@@ -87,6 +97,8 @@ static const struct ListMenuItem sDebugMenu_Items_Main[] =
     [DEBUG_MENU_ITEM_TEST_TWO]        = {sDebugText_TestTwo, DEBUG_MENU_ITEM_TEST_TWO},
     [DEBUG_MENU_ITEM_TEST_THREE]      = {sDebugText_TestThree, DEBUG_MENU_ITEM_TEST_THREE},
     [DEBUG_MENU_ITEM_TEST_FOUR]       = {sDebugText_TestFour, DEBUG_MENU_ITEM_TEST_FOUR},
+    [DEBUG_MENU_ITEM_TEST_FIVE]      = {sDebugText_TestFive, DEBUG_MENU_ITEM_TEST_FIVE},
+    [DEBUG_MENU_ITEM_TEST_SIX]       = {sDebugText_TestSix, DEBUG_MENU_ITEM_TEST_SIX},
     [DEBUG_MENU_ITEM_CANCEL]          = {sDebugText_Cancel,     DEBUG_MENU_ITEM_CANCEL}
 };
 
@@ -241,6 +253,20 @@ static void DebugAction_TestFour(u8 taskId)
     Debug_DestroyMenu(taskId);
     LockPlayerFieldControls();
     ScriptContext_SetupScript(Debug_TestFour);
+}
+
+static void DebugAction_TestFive(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_TestFive);
+}
+
+static void DebugAction_TestSix(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_TestSix);
 }
 
 #endif // DEBUG_SYSTEM_ENABLE

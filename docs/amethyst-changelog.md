@@ -120,6 +120,7 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 140           | Kabuto     | Fortree Jungle (Dome Fossil)                 |                |
 | 143           | Snorlax    | Fortree Jungle (requires Blue Flute)         |                |
 | 144           | Articuno   | Shoal Cave Ice Room Expansion                |                |
+| 146           | Moltres    | Mt Pyre Summit (requires being Champion)     |                |
 | 152           | Chikorita  | See Jhoto Starters                           |                |
 | 155           | Cyndaquil  | See Jhoto Starters                           |                |
 | 158           | Totodile   | See Jhoto Starters                           |                |
