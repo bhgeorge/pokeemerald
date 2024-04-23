@@ -130,6 +130,7 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 133           | Eevee      | Mom's House (After helping Wally)                  |                |
 | 138           | Omanyte    | Shoal Cave Ice Room Expansion (Helix Fossil)       |                |
 | 140           | Kabuto     | Fortree Jungle (Dome Fossil)                       |                |
+| 142           | Aerodactyl | Navel Rock                                         |                |
 | 143           | Snorlax    | Fortree Jungle (requires Blue Flute)               |                |
 | 144           | Articuno   | Shoal Cave Ice Room Expansion                      |                |
 | 145           | Zapdos     | New Mauville Expansion (requires being Champion)   |                |

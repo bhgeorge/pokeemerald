@@ -3867,6 +3867,7 @@ extern const u32 gItemIconPalette_BottleCap[];
 extern const u32 gItemIconPalette_EverRepel[];
 extern const u32 gItemIcon_ShinyCharm[];
 extern const u32 gItemIconPalette_ShinyCharm[];
+extern const u32 gItemIconPalette_ShippingManifest[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

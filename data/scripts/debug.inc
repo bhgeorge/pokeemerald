@@ -82,7 +82,11 @@ Debug_TestFive::
 
 Debug_TestSix::
 	lockall
-	setvar VAR_MT_PYRE_STATE, 4
+	giveitem ITEM_CLAW_FOSSIL
+	giveitem ITEM_ROOT_FOSSIL
+	giveitem ITEM_HELIX_FOSSIL
+	giveitem ITEM_DOME_FOSSIL
+	giveitem ITEM_OLD_AMBER
 	release
 	end
 

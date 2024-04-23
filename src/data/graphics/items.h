@@ -758,3 +758,4 @@ const u32 gItemIconPalette_BottleCap[] = INCBIN_U32("graphics/items/icon_palette
 // Amethyst key items
 const u32 gItemIcon_ShinyCharm[] = INCBIN_U32("graphics/items/icons/shiny_charm.4bpp.lz");
 const u32 gItemIconPalette_ShinyCharm[] = INCBIN_U32("graphics/items/icon_palettes/shiny_charm.gbapal.lz");
+const u32 gItemIconPalette_ShippingManifest[] = INCBIN_U32("graphics/items/icon_palettes/shipping_manifest.gbapal.lz");
