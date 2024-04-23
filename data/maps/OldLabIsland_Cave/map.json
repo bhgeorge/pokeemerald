@@ -1,0 +1,86 @@
+{
+  "id": "MAP_OLD_LAB_ISLAND_CAVE",
+  "name": "OldLabIsland_Cave",
+  "layout": "LAYOUT_OLD_LAB_ISLAND_CAVE",
+  "music": "MUS_ABNORMAL_WEATHER",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OldLabIsland_Cave_EventScript_Lapras",
+      "flag": "FLAG_HIDE_LAPRAS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OldLabIsland_Cave_EventScript_LinkStone",
+      "flag": "FLAG_ITEM_OLD_LAB_ISLAND_LINK_STONE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 2,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OldLabIsland_Cave_EventScript_ModestMint",
+      "flag": "FLAG_ITEM_OLD_LAB_ISLAND_MODEST_MINT"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_OLD_LAB_ISLAND_EXTERIOR",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 23,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_OLD_LAB_ISLAND_CAVE_B1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_OLD_LAB_ISLAND_CAVE_B1F",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}
