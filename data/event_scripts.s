@@ -1088,3 +1088,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ShoalCave_IceRoomExpansion/scripts.inc"
 
 	.include "data/maps/NewMauville_Expansion/scripts.inc"
+
+	.include "data/maps/OldLabIsland_Exterior/scripts.inc"
+
+	.include "data/maps/OldLabIsland_Cave/scripts.inc"
+
+	.include "data/maps/OldLabIsland_Gatehouse/scripts.inc"
+
+	.include "data/maps/OldLabIsland_Cave_B1F/scripts.inc"
+
+	.include "data/maps/OldLabIsland_Interior/scripts.inc"
+
+	.include "data/maps/OldLabIsland_Interior_2F/scripts.inc"

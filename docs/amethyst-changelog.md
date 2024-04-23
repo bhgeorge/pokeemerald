@@ -92,7 +92,10 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 021           | Spearow    | Route 123                                          | 8%             |
 | 022           | Fearow     | Route 123                                          | 1%             |
 | 029           | Nidoran F  | Route 116, Route 117                               | 4% / 20%       |
+| 030           | Nidorina   | Old Lab Exterior                                   | 10%            |
+| 031           | Nidoqueen  | Old Lab Exterior                                   | 1%             |
 | 032           | Nidoran M  | Route 116, 117                                     | 4% / 20%       |
+| 033           | Nidorino   | Old Lab Exterior                                   | 20%            |
 | 046           | Paras      | Route 119                                          | 5%             |
 | 050           | Diglett    | Meteor Falls 1F_1R                                 | 21%            |
 | 051           | Dugtrio    | Meteor Falls 1F_2R                                 | 14%            |
@@ -123,6 +126,7 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 125           | Electabuzz | New Mauville Inside                                | 1%             |
 | 126           | Magmar     | Magma Hideout (any room with lava)                 | 1%             |
 | 128           | Tauros     | Safari Zone South                                  | 1%             |
+| 131           | Lapras     | Old Lab Island Cave                                |                |
 | 133           | Eevee      | Mom's House (After helping Wally)                  |                |
 | 138           | Omanyte    | Shoal Cave Ice Room Expansion (Helix Fossil)       |                |
 | 140           | Kabuto     | Fortree Jungle (Dome Fossil)                       |                |
@@ -130,6 +134,9 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 144           | Articuno   | Shoal Cave Ice Room Expansion                      |                |
 | 145           | Zapdos     | New Mauville Expansion (requires being Champion)   |                |
 | 146           | Moltres    | Mt Pyre Summit (requires being Champion)           |                |
+| 147           | Dratini    | Old Lab Cave (Surf & Fish)                         | 5%             |
+| 148           | Dragonair  | Old Lab Cave (Surf)                                | 1%             |
+| 150           | Mewtwo     | Old Lab Island                                     |                |
 | 152           | Chikorita  | See Jhoto Starters                                 |                |
 | 155           | Cyndaquil  | See Jhoto Starters                                 |                |
 | 158           | Totodile   | See Jhoto Starters                                 |                |
@@ -138,9 +145,17 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 187           | Hoppip     | Fortree Jungle                                     | 4%             |
 | 189           | Jumpluff   | Fortree Jungle                                     | 10%            |
 | 193           | Yanma      | Fortree Jungle                                     | 10%            |
+| 198           | Murkrow    | Old Lab Exterior                                   | 10%            |
+| 200           | Misdreavus | Old Lab Cave                                       | 20%            |
 | 201           | Unown      | Tanoby Ruins (Fortree Jungle)                      | 100%           |
+| 206           | Dunsparce  | Old Lab Cave                                       | 24%            |
+| 211           | Qwilfish   | Old Lab Cave (Surf & Fish)                         | 30%            |
+| 215           | Sneasel    | Old Lab Exteriror                                  | 8%             |
 | 220           | Swinub     | Shoal Cave Ice Room Expansion                      | 10%            |
 | 225           | Delibird   | Shoal Cave Ice Room Expansion                      | 10%            |
+| 226           | Mantine    | Old Lab Cave (Surf)                                | 60%            |
+| 246           | Larvitar   | Old Lab Exterior, Old Lab Cave                     | 10%            |
+| 247           | Pupitar    | Old Lab Cave                                       | 1%             |
 | 251           | Celebi     | Fortree Jungle (requires Lugia & Ho-oh)            |                |
 
 ### Jhoto Starters
@@ -171,12 +186,16 @@ As a part of base Emerald, you get one of the Jhoto starters for completing the 
 | ------------- | --------------------------------------------------------------------------- |
 | EXP Share     | Devon researcher in Petalburg Woods                                         |
 | Ever Repel    | Rustobro after delivering Steven's letter (replaces old Exp Share location) |
-| Link Stone    | Fortree Jungle                                                              |
-| Adamant Mint  | Fortree Jungle                                                              |
-| Bold Mint     | Fortree Jungle                                                              |
+| Link Stone    | Fortree Jungle, Old Lab Island Cave                                         |
 | Destiny Knot  | French Ditto trade (held)                                                   |
+| Up-Grade      | Old Lab Island                                                              |
 | Strange Notes | Replaces the NUGGET in the Northeast area of the Safari Zone                |
 | Mystic Ticket | Give Eugene an Unown in the Fortree Jungle                                  |
+| Old Sea Map   | Old Lab Island                                                              |
+| Bottle Cap    | Old Lab Island Gatehouse                                                    |
+| Adamant Mint  | Fortree Jungle                                                              |
+| Bold Mint     | Fortree Jungle                                                              |
+| Modest Mint   | Old Lab Island Cave                                                         |
 
 ### Repeatable
 

@@ -831,8 +831,8 @@ static const struct SpriteFrameImage sPicTable_MauvilleOldMan2[] = {
     overworld_frame(gObjectEventPic_MauvilleOldMan2, 2, 4, 8),
 };
 
-static const struct SpriteFrameImage sPicTable_UnusedNatuDoll[] = {
-    obj_frame_tiles(gObjectEventPic_UnusedNatuDoll),
+static const struct SpriteFrameImage sPicTable_Celebi[] = {
+    obj_frame_tiles(gObjectEventPic_Celebi),
 };
 
 static const struct SpriteFrameImage sPicTable_Articuno[] = {
@@ -847,12 +847,12 @@ static const struct SpriteFrameImage sPicTable_Zapdos[] = {
     obj_frame_tiles(gObjectEventPic_Zapdos),
 };
 
-static const struct SpriteFrameImage sPicTable_UnusedPikachuDoll[] = {
-    obj_frame_tiles(gObjectEventPic_UnusedPikachuDoll),
+static const struct SpriteFrameImage sPicTable_Mewtwo[] = {
+    obj_frame_tiles(gObjectEventPic_Mewtwo),
 };
 
-static const struct SpriteFrameImage sPicTable_UnusedPorygon2Doll[] = {
-    obj_frame_tiles(gObjectEventPic_UnusedPorygon2Doll),
+static const struct SpriteFrameImage sPicTable_Lapras[] = {
+    obj_frame_tiles(gObjectEventPic_Lapras),
 };
 
 static const struct SpriteFrameImage sPicTable_CuttableTree[] = {

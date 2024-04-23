@@ -57,7 +57,10 @@ Debug_TestTwo::
 
 Debug_TestThree::
 	lockall
-	setflag FLAG_THANKED_FOR_PLAYING_WITH_WALLY
+	setflag FLAG_BADGE04_GET
+	setflag FLAG_BADGE08_GET
+	giveitem ITEM_HM03
+	giveitem ITEM_HM07
 	release
 	end
 

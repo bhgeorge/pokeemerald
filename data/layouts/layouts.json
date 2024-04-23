@@ -4500,6 +4500,66 @@
       "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/NewMauville_Expansion/border.bin",
       "blockdata_filepath": "data/layouts/NewMauville_Expansion/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_ISLAND_EXTERIOR",
+      "name": "OldLabIsland_Exterior_Layout",
+      "width": 32,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideWest",
+      "border_filepath": "data/layouts/OldLabIsland_Exterior/border.bin",
+      "blockdata_filepath": "data/layouts/OldLabIsland_Exterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_ISLAND_CAVE",
+      "name": "OldLabIsland_Cave_Layout",
+      "width": 26,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/OldLabIsland_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/OldLabIsland_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_ISLAND_GATEHOUSE",
+      "name": "OldLabIsland_Gatehouse_Layout",
+      "width": 6,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/OldLabIsland_Gatehouse/border.bin",
+      "blockdata_filepath": "data/layouts/OldLabIsland_Gatehouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_ISLAND_CAVE_B1F",
+      "name": "OldLabIsland_Cave_B1F_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/OldLabIsland_Cave_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/OldLabIsland_Cave_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_ISLAND_INTERIOR",
+      "name": "OldLabIsland_Interior_Layout",
+      "width": 16,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OceanicMuseum",
+      "border_filepath": "data/layouts/OldLabIsland_Interior/border.bin",
+      "blockdata_filepath": "data/layouts/OldLabIsland_Interior/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_ISLAND_INTERIOR_2F",
+      "name": "OldLabIsland_Interior_2F_Layout",
+      "width": 16,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OceanicMuseum",
+      "border_filepath": "data/layouts/OldLabIsland_Interior_2F/border.bin",
+      "blockdata_filepath": "data/layouts/OldLabIsland_Interior_2F/map.bin"
     }
   ]
 }

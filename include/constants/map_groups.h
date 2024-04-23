@@ -563,6 +563,12 @@
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
 #define MAP_TANOBY_RUINS_ENTRANCE                           (89 | (26 << 8))
 #define MAP_TANOBY_RUINS_INSIDE                             (90 | (26 << 8))
+#define MAP_OLD_LAB_ISLAND_EXTERIOR                         (91 | (26 << 8))
+#define MAP_OLD_LAB_ISLAND_CAVE                             (92 | (26 << 8))
+#define MAP_OLD_LAB_ISLAND_GATEHOUSE                        (93 | (26 << 8))
+#define MAP_OLD_LAB_ISLAND_CAVE_B1F                         (94 | (26 << 8))
+#define MAP_OLD_LAB_ISLAND_INTERIOR                         (95 | (26 << 8))
+#define MAP_OLD_LAB_ISLAND_INTERIOR_2F                      (96 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

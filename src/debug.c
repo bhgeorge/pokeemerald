@@ -70,7 +70,7 @@ extern u8 Debug_TestSix[];
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
 static const u8 sDebugText_TestOne[]      = _("Mewtwo");
 static const u8 sDebugText_TestTwo[]      = _("Friendship");
-static const u8 sDebugText_TestThree[]    = _("Help wally");
+static const u8 sDebugText_TestThree[]    = _("Water HMs");
 static const u8 sDebugText_TestFour[]     = _("Mt Pyre 2");
 static const u8 sDebugText_TestFive[]     = _("Mt Pyre 3");
 static const u8 sDebugText_TestSix[]      = _("Mt Pyre 4");   

@@ -675,12 +675,12 @@
 #define FLAG_RECEIVED_SQUIRTLE      0x278
 #define FLAG_RECEIVED_CHARMANDER    0x279
 #define FLAG_RECEIVED_EEVEE         0x27A
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
+#define FLAG_DEFEATED_MEWTWO        0x27B
+#define FLAG_CAUGHT_MEWTWO          0x27C
+#define FLAG_HIDE_MEWTWO            0x27D
+#define FLAG_DEFEATED_LAPRAS        0x27E
+#define FLAG_CAUGHT_LAPRAS          0x27F
+#define FLAG_HIDE_LAPRAS            0x280
 #define FLAG_UNUSED_0x281  0x281 // Unused Flag
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
@@ -1223,13 +1223,13 @@
 #define FLAG_ITEM_FORTREE_JUNGLE_ADAMANT_MINT                       0x495
 #define FLAG_ITEM_FORTREE_JUNGLE_BOLD_MINT                          0x496
 #define FLAG_ITEM_HELIX_FOSSIL                                      0x497
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
+#define FLAG_ITEM_OLD_LAB_ISLAND_LINK_STONE                         0x498
+#define FLAG_ITEM_OLD_LAB_ISLAND_MODEST_MINT                        0x499
+#define FLAG_ITEM_OLD_SEA_MAP                                       0x49A
+#define FLAG_ITEM_OLD_AMBER                                         0x49B
+#define FLAG_ITEM_SHIPPING_MANIFEST                                 0x49C
+#define FLAG_ITEM_OLD_LAB_ISLAND_BOTTLE_CAP                         0x49D
+#define FLAG_ITEM_OLD_LAB_ISLAND_UP_GRADE                           0x49E
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag

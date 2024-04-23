@@ -35,6 +35,8 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries::
 	clearflag FLAG_DEFEATED_MOLTRES
 	clearflag FLAG_DEFEATED_ZAPDOS
 	clearflag FLAG_DEFEATED_SUDOWOODO
+	clearflag FLAG_DEFEATED_MEWTWO
+	clearflag FLAG_DEFEATED_LAPRAS
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady::

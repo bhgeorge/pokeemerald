@@ -11783,6 +11783,229 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_OLD_LAB_ISLAND_EXTERIOR",
+          "base_label": "gOldLabIsland_Exterior",
+          "land_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 50,
+                "max_level": 52,
+                "species": "SPECIES_MAGNEMITE"
+              },
+              {
+                "min_level": 54,
+                "max_level": 54,
+                "species": "SPECIES_NIDORINO"
+              },
+              {
+                "min_level": 50,
+                "max_level": 54,
+                "species": "SPECIES_JIGGLYPUFF"
+              },
+              {
+                "min_level": 51,
+                "max_level": 53,
+                "species": "SPECIES_MURKROW"
+              },
+              {
+                "min_level": 54,
+                "max_level": 54,
+                "species": "SPECIES_NIDORINA"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_LARVITAR"
+              },
+              {
+                "min_level": 56,
+                "max_level": 56,
+                "species": "SPECIES_WIGGLYTUFF"
+              },
+              {
+                "min_level": 53,
+                "max_level": 53,
+                "species": "SPECIES_SEVIPER"
+              },
+              {
+                "min_level": 54,
+                "max_level": 54,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 54,
+                "max_level": 54,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_NIDOQUEEN"
+              },
+              {
+                "min_level": 56,
+                "max_level": 56,
+                "species": "SPECIES_SKARMORY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_OLD_LAB_ISLAND_CAVE",
+          "base_label": "gOldLabIsland_Cave",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 45,
+                "max_level": 48,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 45,
+                "max_level": 48,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 48,
+                "max_level": 52,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 54,
+                "max_level": 54,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 56,
+                "max_level": 56,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 46,
+                "max_level": 46,
+                "species": "SPECIES_PHANPY"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_LARVITAR"
+              },
+              {
+                "min_level": 48,
+                "max_level": 48,
+                "species": "SPECIES_MAROWAK"
+              },
+              {
+                "min_level": 50,
+                "max_level": 50,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 35,
+                "species": "SPECIES_PUPITAR"
+              },
+              {
+                "min_level": 51,
+                "max_level": 53,
+                "species": "SPECIES_DONPHAN"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 46,
+                "max_level": 51,
+                "species": "SPECIES_MANTINE"
+              },
+              {
+                "min_level": 45,
+                "max_level": 50,
+                "species": "SPECIES_QWILFISH"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_DRATINI"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_SEADRA"
+              },
+              {
+                "min_level": 56,
+                "max_level": 56,
+                "species": "SPECIES_DRAGONAIR"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 20,
+                "max_level": 22,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 22,
+                "max_level": 24,
+                "species": "SPECIES_QWILFISH"
+              },
+              {
+                "min_level": 25,
+                "max_level": 28,
+                "species": "SPECIES_LUVDISC"
+              },
+              {
+                "min_level": 45,
+                "max_level": 45,
+                "species": "SPECIES_LUVDISC"
+              },
+              {
+                "min_level": 25,
+                "max_level": 26,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 25,
+                "max_level": 26,
+                "species": "SPECIES_DRATINI"
+              },
+              {
+                "min_level": 28,
+                "max_level": 28,
+                "species": "SPECIES_DRATINI"
+              }
+            ]
+          }
         }
       ]
     },
