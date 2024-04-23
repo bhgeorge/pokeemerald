@@ -6,7 +6,7 @@ NewMauville_Expansion_MapScripts::
 	.byte 0
 
 NewMauville_Expansion_OnTransition:
-	call_if_unset FLAG_IS_CHAMPION, NewMauville_Expansion_EventScript_HideZapdos
+	call_if_unset FLAG_SYS_GAME_CLEAR, NewMauville_Expansion_EventScript_HideZapdos
 	call_if_ne VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Expansion_EventScript_HideZapdos
 	call_if_set FLAG_CAUGHT_ZAPDOS, NewMauville_Expansion_EventScript_HideZapdos
 	call_if_unset FLAG_CAUGHT_ZAPDOS, NewMauville_Expansion_EventScript_TryShowZapdos

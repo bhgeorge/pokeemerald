@@ -71,8 +71,8 @@ static const u8 sDebugText_QuickStart[]   = _("Quick Start");
 static const u8 sDebugText_TestOne[]      = _("Mewtwo");
 static const u8 sDebugText_TestTwo[]      = _("Friendship");
 static const u8 sDebugText_TestThree[]    = _("Water HMs");
-static const u8 sDebugText_TestFour[]     = _("Mt Pyre 2");
-static const u8 sDebugText_TestFive[]     = _("Mt Pyre 3");
+static const u8 sDebugText_TestFour[]     = _("Shipping");
+static const u8 sDebugText_TestFive[]     = _("Mystic ticket");
 static const u8 sDebugText_TestSix[]      = _("Mt Pyre 4");   
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 

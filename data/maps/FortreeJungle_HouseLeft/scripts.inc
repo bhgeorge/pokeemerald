@@ -27,6 +27,7 @@ FortreeJungle_HouseLeft_EventScript_GiveMysticTicket::
 	waitbuttonpress
 	giveitem ITEM_MYSTIC_TICKET
 	setflag FLAG_RECEIVED_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
 	waitmessage
 	release
 	end

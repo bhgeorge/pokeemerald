@@ -491,6 +491,22 @@ static void CreateLilycoveSSTidalMultichoice(void)
         }
     }
 
+    if (CheckBagHasItem(ITEM_SHIPPING_MANIFEST, 1) == TRUE && FlagGet(FLAG_ENABLE_SHIP_OLD_LAB_ISLAND) == TRUE)
+    {
+        if (gSpecialVar_0x8004 == 0)
+        {
+            sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_OLD_LAB_ISLAND;
+            selectionCount++;
+        }
+
+        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_SHOWN_SHIPPING_MANIFEST) == FALSE)
+        {
+            sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_OLD_LAB_ISLAND;
+            selectionCount++;
+            FlagSet(FLAG_SHOWN_SHIPPING_MANIFEST);
+        }
+    }
+
     sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_EXIT;
     selectionCount++;
 

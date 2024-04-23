@@ -66,17 +66,17 @@ Debug_TestThree::
 
 Debug_TestFour::
 	lockall
-	setflag FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE
-	clearflag FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE
-	clearflag FLAG_HIDE_MT_PYRE_SUMMIT_ARCHIE
-	setvar VAR_MT_PYRE_STATE, 2
+	setflag FLAG_SYS_GAME_CLEAR
+	setflag FLAG_ENABLE_SHIP_OLD_LAB_ISLAND
+	giveitem ITEM_SHIPPING_MANIFEST
 	release
 	end
 
 Debug_TestFive::
 	lockall
-	setflag FLAG_IS_CHAMPION
-	setvar VAR_MT_PYRE_STATE, 3
+	giveitem ITEM_MYSTIC_TICKET
+	setflag FLAG_RECEIVED_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
 	release
 	end
 

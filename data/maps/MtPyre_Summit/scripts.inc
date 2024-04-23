@@ -24,7 +24,7 @@ MtPyre_Summit_EventScript_HideMoltres::
 	return
 
 MtPyre_Summit_EventScript_CheckMoltresState::
-	goto_if_unset FLAG_IS_CHAMPION, Common_EventScript_NopReturn
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Common_EventScript_NopReturn
 	setvar VAR_MT_PYRE_STATE, 4
 	return
 

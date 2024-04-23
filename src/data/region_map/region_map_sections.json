@@ -1718,6 +1718,14 @@
       "y": 14,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_OLD_LAB_ISLAND",
+      "name": "OLD LAB ISLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }

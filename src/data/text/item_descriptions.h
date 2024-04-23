@@ -1139,6 +1139,11 @@ static const u8 sEugenesNotesDesc[] = _(
     "that leads into\n"
     "the jungle.");
 
+static const u8 sShippingManifestDesc[] = _(
+    "A request for\n"
+    "supplies to an\n"
+    "uncharted island.");
+
 
 // TMs/HMs
 static const u8 sTM01Desc[] = _(

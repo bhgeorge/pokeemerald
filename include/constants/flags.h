@@ -1230,8 +1230,8 @@
 #define FLAG_ITEM_SHIPPING_MANIFEST                                 0x49C
 #define FLAG_ITEM_OLD_LAB_ISLAND_BOTTLE_CAP                         0x49D
 #define FLAG_ITEM_OLD_LAB_ISLAND_UP_GRADE                           0x49E
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
+#define FLAG_ENABLE_SHIP_OLD_LAB_ISLAND                             0x49F
+#define FLAG_SHOWN_SHIPPING_MANIFEST                                0x4A0
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
