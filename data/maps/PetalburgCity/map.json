@@ -148,7 +148,7 @@
       "x": 10,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_NAVEL_ROCK_B1F",
+      "dest_map": "MAP_SS_TIDAL_LOWER_DECK",
       "dest_warp_id": "0"
     },
     {

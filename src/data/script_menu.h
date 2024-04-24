@@ -783,6 +783,13 @@ static const struct MenuAction MultichoiceList_StatOptions[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_Hitmon[] =
+{
+    {gText_Hitmonlee},
+    {gText_Hitmonchan},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -911,6 +918,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_STAT_OPTIONS]               = MULTICHOICE(MultichoiceList_StatOptions),
+    [MULTI_HITMON]                     = MULTICHOICE(MultichoiceList_Hitmon),
 };
 
 const u8 *const gStdStrings[] =

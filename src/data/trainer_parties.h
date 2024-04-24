@@ -12434,3 +12434,16 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_TrainerHitmonGiver[] = {
+    {
+    .iv = 0,
+    .lvl = 37,
+    .species = SPECIES_HITMONLEE,
+    },
+    {
+    .iv = 0,
+    .lvl = 37,
+    .species = SPECIES_HITMONCHAN,
+    }
+};

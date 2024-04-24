@@ -118,6 +118,8 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 098           | Krabby     | Safari Zone Northwest (Surf)                       | 30%            |
 | 102           | Exeggcute  | Fortree Jungle                                     | 20%            |
 | 104           | Cubone     | Mt Pyre 4F, 5F, 6F                                 | 5%             |
+| 106           | Hitmonlee  | SS Tidal Lower Deck                                |                |
+| 107           | Hitmonchan | SS Tidal Lower Deck                                |                |
 | 108           | Lickitung  | Fortree Jungle                                     | 10%            |
 | 113           | Chansey    | Safari Zone Southeast                              | 5%             |
 | 114           | Tangela    | Route 123, Fortree Jungle                          | 10%            |
@@ -158,6 +160,7 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 220           | Swinub     | Shoal Cave Ice Room Expansion                      | 10%            |
 | 225           | Delibird   | Shoal Cave Ice Room Expansion                      | 10%            |
 | 226           | Mantine    | Old Lab Cave (Surf)                                | 60%            |
+| 236           | Tyrogue    | Breed Hitmonlee or Hitmonchan                      |                |
 | 246           | Larvitar   | Old Lab Exterior, Old Lab Cave                     | 10%            |
 | 243           | Raikou     | Navel Rock                                         |                |
 | 244           | Entei      | Navel Rock                                         |                |
