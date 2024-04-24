@@ -8,6 +8,7 @@ MauvilleCity_GameCorner_MapScripts::
 	.set TM_THUNDERBOLT_COINS, 4000
 	.set TM_ICE_BEAM_COINS, 4000
 	.set DOLL_COINS, 1000
+	.set PORYGON_COINS, 6500
 
 	.set COINS_PRICE_50,  1000
 	.set COINS_PRICE_500, 10000
@@ -126,7 +127,8 @@ MauvilleCity_GameCorner_EventScript_ChooseDollPrize::
 	case 0, MauvilleCity_GameCorner_EventScript_TreeckoDoll
 	case 1, MauvilleCity_GameCorner_EventScript_TorchicDoll
 	case 2, MauvilleCity_GameCorner_EventScript_MudkipDoll
-	case 3, MauvilleCity_GameCorner_EventScript_CancelDollSelect
+	case 3, MauvilleCity_GameCorner_EventScript_Porygon
+	case 4, MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	goto MauvilleCity_GameCorner_EventScript_CancelDollSelect
 	end
 
@@ -145,6 +147,14 @@ MauvilleCity_GameCorner_EventScript_MudkipDoll::
 	bufferdecorationname STR_VAR_1, DECOR_MUDKIP_DOLL
 	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
 
+MauvilleCity_GameCorner_EventScript_Porygon::
+	setvar VAR_TEMP_1, 4
+	bufferstring STR_VAR_1, MauvilleCity_GameCorner_Text_PorygonDoll
+	goto MauvilleCity_GameCorner_EventScript_ConfirmDollPrize
+
+MauvilleCity_GameCorner_Text_PorygonDoll:
+	.string "PORYGON DOLL$"
+
 MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
 	msgbox MauvilleCity_GameCorner_Text_SoYourChoiceIsX, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_CancelDollSelect
@@ -152,6 +162,7 @@ MauvilleCity_GameCorner_EventScript_ConfirmDollPrize::
 	case 1, MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll
 	case 2, MauvilleCity_GameCorner_EventScript_BuyTorchicDoll
 	case 3, MauvilleCity_GameCorner_EventScript_BuyMudkipDoll
+	case 4, MauvilleCity_GameCorner_EventScript_BuyPorygon
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll::
@@ -194,6 +205,60 @@ MauvilleCity_GameCorner_EventScript_BuyMudkipDoll::
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_BuyPorygon::
+	checkcoins VAR_TEMP_2
+	goto_if_lt VAR_TEMP_2, PORYGON_COINS, MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll
+	givemon SPECIES_PORYGON, 25, ITEM_NONE
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MauvilleCity_GameCorner_EventScript_PorygonParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MauvilleCity_GameCorner_EventScript_PorygonPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_ReceivedPorygon::
+	removecoins PORYGON_COINS
+	updatecoinsbox 1, 1
+	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
+	end
+
+MauvilleCity_GameCorner_EventScript_PorygonFanfare::
+	msgbox MauvilleCity_GameCorner_Text_PorygonAlive, MSGBOX_DEFAULT
+	waitmessage	
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox MauvilleCity_GameCorner_Text_ReceivedPorygon, MSGBOX_DEFAULT
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON
+	return
+
+MauvilleCity_GameCorner_Text_PorygonAlive:
+	.string "Oh my! This doll seems to be alive!$"
+
+MauvilleCity_GameCorner_Text_ReceivedPorygon:
+	.string "{PLAYER} obtained PORYGON.$"
+
+MauvilleCity_GameCorner_EventScript_PorygonParty::
+	call MauvilleCity_GameCorner_EventScript_PorygonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_ReceivedPorygon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto MauvilleCity_GameCorner_EventScript_ReceivedPorygon
+	end
+
+MauvilleCity_GameCorner_EventScript_PorygonPC::
+	call MauvilleCity_GameCorner_EventScript_PorygonFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_PorygonTransferredToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto MauvilleCity_GameCorner_EventScript_PorygonTransferredToPC
+	end
+
+MauvilleCity_GameCorner_EventScript_PorygonTransferredToPC::
+	call Common_EventScript_TransferredToPC
+	goto MauvilleCity_GameCorner_EventScript_ReceivedPorygon
 	end
 
 MauvilleCity_GameCorner_EventScript_NotEnoughCoinsForDoll::

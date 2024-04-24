@@ -82,11 +82,8 @@ Debug_TestFive::
 
 Debug_TestSix::
 	lockall
-	giveitem ITEM_CLAW_FOSSIL
-	giveitem ITEM_ROOT_FOSSIL
-	giveitem ITEM_HELIX_FOSSIL
-	giveitem ITEM_DOME_FOSSIL
-	giveitem ITEM_OLD_AMBER
+	giveitem ITEM_COIN_CASE
+	addcoins 6500
 	release
 	end
 

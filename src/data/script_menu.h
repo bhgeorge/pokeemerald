@@ -262,6 +262,7 @@ static const struct MenuAction MultichoiceList_GameCornerDolls[] =
     {gText_TreeckoDollAndPrice},
     {gText_TorchicDollAndPrice},
     {gText_MudkipDollAndPrice},
+    {gText_PorygonAndPrice},
     {gText_Exit},
 };
 

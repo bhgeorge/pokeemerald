@@ -73,7 +73,7 @@ static const u8 sDebugText_TestTwo[]      = _("Friendship");
 static const u8 sDebugText_TestThree[]    = _("Water HMs");
 static const u8 sDebugText_TestFour[]     = _("Shipping");
 static const u8 sDebugText_TestFive[]     = _("Mystic ticket");
-static const u8 sDebugText_TestSix[]      = _("Fossils");   
+static const u8 sDebugText_TestSix[]      = _("Coins");   
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 
 // Menu Actions
