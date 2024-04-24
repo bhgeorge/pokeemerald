@@ -37,6 +37,9 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries::
 	clearflag FLAG_DEFEATED_SUDOWOODO
 	clearflag FLAG_DEFEATED_MEWTWO
 	clearflag FLAG_DEFEATED_LAPRAS
+	clearflag FLAG_DEFEATED_RAIKOU
+	clearflag FLAG_DEFEATED_ENTEI
+	clearflag FLAG_DEFEATED_SUICUNE
 	return
 
 EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady::

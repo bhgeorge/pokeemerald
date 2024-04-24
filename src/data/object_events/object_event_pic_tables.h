@@ -855,6 +855,18 @@ static const struct SpriteFrameImage sPicTable_Lapras[] = {
     obj_frame_tiles(gObjectEventPic_Lapras),
 };
 
+static const struct SpriteFrameImage sPicTable_Suicune[] = {
+    obj_frame_tiles(gObjectEventPic_Suicune),
+};
+
+static const struct SpriteFrameImage sPicTable_Entei[] = {
+    obj_frame_tiles(gObjectEventPic_Entei),
+};
+
+static const struct SpriteFrameImage sPicTable_Raikou[] = {
+    obj_frame_tiles(gObjectEventPic_Raikou),
+};
+
 static const struct SpriteFrameImage sPicTable_CuttableTree[] = {
     overworld_frame(gObjectEventPic_CuttableTree, 2, 2, 0),
     overworld_frame(gObjectEventPic_CuttableTree, 2, 2, 1),

@@ -1,5 +1,7 @@
 # Amehtyst Changelog
 
+`version 1.0.0`
+
 ## Future game functionality
 
 ### Day night cycle
@@ -157,6 +159,9 @@ For any overworld encounters of POKéMON, if accidentally defeated, they can be 
 | 225           | Delibird   | Shoal Cave Ice Room Expansion                      | 10%            |
 | 226           | Mantine    | Old Lab Cave (Surf)                                | 60%            |
 | 246           | Larvitar   | Old Lab Exterior, Old Lab Cave                     | 10%            |
+| 243           | Raikou     | Navel Rock                                         |                |
+| 244           | Entei      | Navel Rock                                         |                |
+| 245           | Suicune    | Navel Rock                                         |                |
 | 247           | Pupitar    | Old Lab Cave                                       | 1%             |
 | 251           | Celebi     | Fortree Jungle (requires Lugia & Ho-oh)            |                |
 

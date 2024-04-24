@@ -569,6 +569,7 @@
 #define MAP_OLD_LAB_ISLAND_CAVE_B1F                         (94 | (26 << 8))
 #define MAP_OLD_LAB_ISLAND_INTERIOR                         (95 | (26 << 8))
 #define MAP_OLD_LAB_ISLAND_INTERIOR_2F                      (96 | (26 << 8))
+#define MAP_NAVEL_ROCK_DOG_ROOM                             (97 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

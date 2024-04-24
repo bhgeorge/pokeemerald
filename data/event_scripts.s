@@ -1100,3 +1100,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/OldLabIsland_Interior/scripts.inc"
 
 	.include "data/maps/OldLabIsland_Interior_2F/scripts.inc"
+
+	.include "data/maps/NavelRock_DogRoom/scripts.inc"

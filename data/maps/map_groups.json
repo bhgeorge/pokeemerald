@@ -598,7 +598,8 @@
     "OldLabIsland_Gatehouse",
     "OldLabIsland_Cave_B1F",
     "OldLabIsland_Interior",
-    "OldLabIsland_Interior_2F"
+    "OldLabIsland_Interior_2F",
+    "NavelRock_DogRoom"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",
