@@ -19,7 +19,12 @@
 // Enums
 enum { // Main
     DEBUG_MENU_ITEM_QUICK_START,
-    DEBUG_MENU_ITEM_ENDGAME_START,
+    DEBUG_MENU_ITEM_TEST_1,
+    DEBUG_MENU_ITEM_TEST_2,
+    DEBUG_MENU_ITEM_TEST_3,
+    DEBUG_MENU_ITEM_TEST_4,
+    DEBUG_MENU_ITEM_TEST_5,
+    DEBUG_MENU_ITEM_TEST_6,
     DEBUG_MENU_ITEM_CANCEL
 };
 
@@ -44,23 +49,43 @@ static void DebugTask_HandleMenuInput_Main(u8 taskId);
 
 static void DebugAction_Cancel(u8 taskId);
 static void DebugAction_QuickStart(u8 taskId);
-static void DebugAction_EndGameStart(u8 taskId);
+static void DebugAction_Test_1(u8 taskId);
+static void DebugAction_Test_2(u8 taskId);
+static void DebugAction_Test_3(u8 taskId);
+static void DebugAction_Test_4(u8 taskId);
+static void DebugAction_Test_5(u8 taskId);
+static void DebugAction_Test_6(u8 taskId);
 
 // Scripts
 extern u8 Debug_ShowFieldMessageStringVar4[];
 extern u8 Debug_QuickStart[];
-extern u8 Debug_EndGameStart[];
+extern u8 Debug_Script_1[];
+extern u8 Debug_Script_2[];
+extern u8 Debug_Script_3[];
+extern u8 Debug_Script_4[];
+extern u8 Debug_Script_5[];
+extern u8 Debug_Script_6[];
 
 // Text
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
-static const u8 sDebugText_EndGameStart[] = _("Endgame Start");
+static const u8 sDebugText_DebugTest1[]   = _("Test 1");
+static const u8 sDebugText_DebugTest2[]   = _("Test 2");
+static const u8 sDebugText_DebugTest3[]   = _("Test 3");
+static const u8 sDebugText_DebugTest4[]   = _("Test 4");
+static const u8 sDebugText_DebugTest5[]   = _("Test 5");
+static const u8 sDebugText_DebugTest6[]   = _("Test 6");
 static const u8 sDebugText_Cancel[]       = _("Cancel");
 
 // Menu Actions
 static void (*const sDebugMenu_Actions_Main[])(u8) =
 {
     [DEBUG_MENU_ITEM_QUICK_START]     = DebugAction_QuickStart,
-    [DEBUG_MENU_ITEM_ENDGAME_START]   = DebugAction_EndGameStart,
+    [DEBUG_MENU_ITEM_TEST_1]          = DebugAction_Test_1,
+    [DEBUG_MENU_ITEM_TEST_2]          = DebugAction_Test_2,
+    [DEBUG_MENU_ITEM_TEST_3]          = DebugAction_Test_3,
+    [DEBUG_MENU_ITEM_TEST_4]          = DebugAction_Test_4,
+    [DEBUG_MENU_ITEM_TEST_5]          = DebugAction_Test_5,
+    [DEBUG_MENU_ITEM_TEST_6]          = DebugAction_Test_6,
     [DEBUG_MENU_ITEM_CANCEL]          = DebugAction_Cancel
 };
 
@@ -68,7 +93,12 @@ static void (*const sDebugMenu_Actions_Main[])(u8) =
 static const struct ListMenuItem sDebugMenu_Items_Main[] =
 {
     [DEBUG_MENU_ITEM_QUICK_START]     = {sDebugText_QuickStart, DEBUG_MENU_ITEM_QUICK_START},
-    [DEBUG_MENU_ITEM_ENDGAME_START]   = {sDebugText_EndGameStart, DEBUG_MENU_ITEM_ENDGAME_START},
+    [DEBUG_MENU_ITEM_TEST_1]          = {sDebugText_DebugTest1, DEBUG_MENU_ITEM_TEST_1},
+    [DEBUG_MENU_ITEM_TEST_2]          = {sDebugText_DebugTest2, DEBUG_MENU_ITEM_TEST_2},
+    [DEBUG_MENU_ITEM_TEST_3]          = {sDebugText_DebugTest3, DEBUG_MENU_ITEM_TEST_3},
+    [DEBUG_MENU_ITEM_TEST_4]          = {sDebugText_DebugTest4, DEBUG_MENU_ITEM_TEST_4},
+    [DEBUG_MENU_ITEM_TEST_5]          = {sDebugText_DebugTest5, DEBUG_MENU_ITEM_TEST_5},
+    [DEBUG_MENU_ITEM_TEST_6]          = {sDebugText_DebugTest6, DEBUG_MENU_ITEM_TEST_6},
     [DEBUG_MENU_ITEM_CANCEL]          = {sDebugText_Cancel,     DEBUG_MENU_ITEM_CANCEL}
 };
 
@@ -195,11 +225,46 @@ static void DebugAction_QuickStart(u8 taskId)
     ScriptContext_SetupScript(Debug_QuickStart);
 }
 
-static void DebugAction_EndGameStart(u8 taskId)
+static void DebugAction_Test_1(u8 taskId)
 {
     Debug_DestroyMenu(taskId);
     LockPlayerFieldControls();
-    ScriptContext_SetupScript(Debug_EndGameStart);
+    ScriptContext_SetupScript(Debug_Script_1);
+}
+
+static void DebugAction_Test_2(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_Script_2);
+}
+
+static void DebugAction_Test_3(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_Script_3);
+}
+
+static void DebugAction_Test_4(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_Script_4);
+}
+
+static void DebugAction_Test_5(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_Script_5);
+}
+
+static void DebugAction_Test_6(u8 taskId)
+{
+    Debug_DestroyMenu(taskId);
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(Debug_Script_6);
 }
 
 #endif // DEBUG_SYSTEM_ENABLE
