@@ -1,6 +1,7 @@
 #ifndef GUARD_EVENT_OBJECT_MOVEMENT_H
 #define GUARD_EVENT_OBJECT_MOVEMENT_H
 
+#include "global.h"
 #include "constants/event_object_movement.h"
 
 // Palette slots for overworld NPCs.
