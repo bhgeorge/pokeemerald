@@ -152,6 +152,7 @@ SECTIONS {
         src/cable_club.o(.text);
         src/trainer_see.o(.text);
         src/wild_encounter.o(.text);
+        src/overworld_encounter.o(.text);
         src/field_effect.o(.text);
         src/scanline_effect.o(.text);
         src/option_menu.o(.text);
@@ -533,6 +534,7 @@ SECTIONS {
         src/cable_club.o(.rodata);
         src/trainer_see.o(.rodata);
         src/wild_encounter.o(.rodata);
+        src/overworld_encounter.o(.rodata);
         src/field_effect.o(.rodata);
         src/scanline_effect.o(.rodata);
         src/option_menu.o(.rodata);

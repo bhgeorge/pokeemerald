@@ -8,6 +8,7 @@
 #include "menu.h"
 #include "mirage_tower.h"
 #include "overworld.h"
+#include "overworld_encounter.h"
 #include "palette.h"
 #include "pokenav.h"
 #include "script.h"
@@ -72,6 +73,7 @@ void InitMap(void)
 {
     InitMapLayoutData(&gMapHeader);
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
+    TrySpawnOverworldMons();
     RunOnLoadMapScript();
 }
 
@@ -81,6 +83,7 @@ void InitMapFromSavedGame(void)
     InitSecretBaseAppearance(FALSE);
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
     LoadSavedMapView();
+    TrySpawnOverworldMons();
     RunOnLoadMapScript();
     UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
 }

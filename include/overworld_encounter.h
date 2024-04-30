@@ -1,0 +1,6 @@
+#ifndef GUARD_OVERWORLD_ENCOUNTER_H
+#define GUARD_OVERWORLD_ENCOUNTER_H
+
+void TrySpawnOverworldMons(void);
+
+#endif // GYARD_OVERWORLD_ENCOUNTER_H

@@ -10,6 +10,12 @@ struct WildPokemon
     u16 species;
 };
 
+struct WildPokemonSlot
+{
+    u32 index;
+    u16 species;
+};
+
 struct WildPokemonInfo
 {
     u8 encounterRate;
@@ -31,8 +37,10 @@ extern const struct WildPokemonHeader gWildMonHeaders[];
 void DisableWildEncounters(bool8 disabled);
 bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavior);
 bool8 SweetScentWildEncounter(void);
+void OverworldWildMonEncounter(u16 slotIndex, bool32 isWaterMon);
 bool8 DoesCurrentMapHaveFishingMons(void);
 void FishingWildEncounter(u8 rod);
+struct WildPokemonSlot GetLocalWildMonSlot(bool32 isWaterMon);
 u16 GetLocalWildMon(bool8 *isWaterMon);
 u16 GetLocalWaterMon(void);
 bool8 UpdateRepelCounter(void);
