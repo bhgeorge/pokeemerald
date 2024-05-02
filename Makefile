@@ -270,6 +270,7 @@ include songs.mk
 
 %.1bpp: %.png  ; $(GFX) $< $@
 %.4bpp: %.png  ; $(GFX) $< $@
+%overworld.4bpp: %overworld.png ; $(GFX) $< $@ -mwidth 4 -mheight 4	
 %.8bpp: %.png  ; $(GFX) $< $@
 %.gbapal: %.pal ; $(GFX) $< $@
 %.gbapal: %.png ; $(GFX) $< $@

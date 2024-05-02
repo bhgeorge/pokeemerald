@@ -241,16 +241,30 @@
 #define OBJ_EVENT_GFX_LUGIA                      237
 #define OBJ_EVENT_GFX_HOOH                       238
 
-// NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
-//
-// Object event graphics ids are 1 byte in size (max value of 255), and the dynamic
-// graphics ids that start after NUM_OBJ_EVENT_GFX reach this limit. No graphics id
-// uses the value 239 itself, so removing the "+ 1" in OBJ_EVENT_GFX_VARS would
-// allow increasing NUM_OBJ_EVENT_GFX to 240. There are also a handful of unused
-// object graphics that can be removed. If more graphics are needed, anything that
-// stores graphics ids will need to be increased in size. See wiki entry below:
-// https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define NUM_OBJ_EVENT_GFX                        239
+// Overworld mons
+#define OBJ_EVENT_GFX_MON_START                  239
+#define OBJ_EVENT_GFX_MON_LOTAD                  (OBJ_EVENT_GFX_MON_START + 0)
+#define OBJ_EVENT_GFX_MON_POOCHYENA              (OBJ_EVENT_GFX_MON_START + 1)
+#define OBJ_EVENT_GFX_MON_RALTS                  (OBJ_EVENT_GFX_MON_START + 2)
+#define OBJ_EVENT_GFX_MON_SEEDOT                 (OBJ_EVENT_GFX_MON_START + 3)
+#define OBJ_EVENT_GFX_MON_WINGULL                (OBJ_EVENT_GFX_MON_START + 4)
+#define OBJ_EVENT_GFX_MON_WURMPLE                (OBJ_EVENT_GFX_MON_START + 5)
+#define OBJ_EVENT_GFX_MON_ZIGZAGOON              (OBJ_EVENT_GFX_MON_START + 6)
+#define OBJ_EVENT_GFX_MON_MARILL                 (OBJ_EVENT_GFX_MON_START + 7)
+#define OBJ_EVENT_GFX_MON_GOLDEEN                (OBJ_EVENT_GFX_MON_START + 8)
+#define OBJ_EVENT_GFX_MON_SHINY_LOTAD                  (OBJ_EVENT_GFX_MON_START + 9)
+#define OBJ_EVENT_GFX_MON_SHINY_POOCHYENA              (OBJ_EVENT_GFX_MON_START + 10)
+#define OBJ_EVENT_GFX_MON_SHINY_RALTS                  (OBJ_EVENT_GFX_MON_START + 11)
+#define OBJ_EVENT_GFX_MON_SHINY_SEEDOT                 (OBJ_EVENT_GFX_MON_START + 12)
+#define OBJ_EVENT_GFX_MON_SHINY_WINGULL                (OBJ_EVENT_GFX_MON_START + 13)
+#define OBJ_EVENT_GFX_MON_SHINY_WURMPLE                (OBJ_EVENT_GFX_MON_START + 14)
+#define OBJ_EVENT_GFX_MON_SHINY_ZIGZAGOON              (OBJ_EVENT_GFX_MON_START + 15)
+#define OBJ_EVENT_GFX_MON_SHINY_MARILL              (OBJ_EVENT_GFX_MON_START + 16)
+#define OBJ_EVENT_GFX_MON_SHINY_GOLDEEN              (OBJ_EVENT_GFX_MON_START + 17)
+#define NUM_MON_OBJ_EVENT_GFX                    18 
+#define OBJ_EVENT_GFX_MON_END                    (OBJ_EVENT_GFX_MON_START + NUM_MON_OBJ_EVENT_GFX)
+
+#define NUM_OBJ_EVENT_GFX                        (OBJ_EVENT_GFX_MON_END + 1)
 
 
 // These are dynamic object gfx ids.

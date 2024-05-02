@@ -2,6 +2,7 @@
 #include "malloc.h"
 #include "battle_pyramid.h"
 #include "berry.h"
+#include "decompress.h"
 #include "decoration.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -190,6 +191,7 @@ static void (*const sCameraObjectFuncs[])(struct Sprite *) = {
 };
 
 #include "data/object_events/object_event_graphics.h"
+#include "data/object_events/pokemon/object_event_graphics.h"
 
 // movement type callbacks
 static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
@@ -412,6 +414,9 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #include "data/object_events/object_event_subsprites.h"
 #include "data/object_events/object_event_graphics_info.h"
 #include "data/object_events/object_event_graphics_info_pointers.h"
+#include "data/object_events/pokemon/object_event_pic_tables.h"
+#include "data/object_events/pokemon/object_event_graphics_info.h"
+#include "data/object_events/pokemon/object_event_graphics_info_pointers.h"
 
 #define BUGFIX
 static const struct SpritePalette sObjectEventSpritePalettes[] = {
@@ -450,6 +455,22 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
+    {gMonPalette_Mon_Lotad,                 OBJ_EVENT_PAL_TAG_MON_LOTAD},
+    {gMonPalette_Mon_Poochyena,             OBJ_EVENT_PAL_TAG_MON_POOCHYENA},
+    {gMonPalette_Mon_Ralts,                 OBJ_EVENT_PAL_TAG_MON_RALTS},
+    {gMonPalette_Mon_Wingull,               OBJ_EVENT_PAL_TAG_MON_WINGULL},
+    {gMonPalette_Mon_Wurmple,               OBJ_EVENT_PAL_TAG_MON_WURMPLE},
+    {gMonPalette_Mon_Zigzagoon,             OBJ_EVENT_PAL_TAG_MON_ZIGZAGOON},
+    {gMonPalette_Mon_Marill,               OBJ_EVENT_PAL_TAG_MON_MARILL},
+    {gMonPalette_Mon_Goldeen,             OBJ_EVENT_PAL_TAG_MON_GOLDEEN},
+    {gMonPalette_MonShiny_Lotad,                 OBJ_EVENT_PAL_TAG_MON_SHINY_LOTAD},
+    {gMonPalette_MonShiny_Poochyena,             OBJ_EVENT_PAL_TAG_MON_SHINY_POOCHYENA},
+    {gMonPalette_MonShiny_Ralts,                 OBJ_EVENT_PAL_TAG_MON_SHINY_RALTS},
+    {gMonPalette_MonShiny_Wingull,               OBJ_EVENT_PAL_TAG_MON_SHINY_WINGULL},
+    {gMonPalette_MonShiny_Wurmple,               OBJ_EVENT_PAL_TAG_MON_SHINY_WURMPLE},
+    {gMonPalette_MonShiny_Zigzagoon,             OBJ_EVENT_PAL_TAG_MON_SHINY_ZIGZAGOON},
+    {gMonPalette_MonShiny_Marill,               OBJ_EVENT_PAL_TAG_MON_SHINY_MARILL},
+    {gMonPalette_MonShiny_Goldeen,             OBJ_EVENT_PAL_TAG_MON_SHINY_GOLDEEN},
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else
@@ -1074,6 +1095,7 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     objectEvent->mapNum = mapNum;
     objectEvent->trainerRange_berryTreeId = template->trainerRange_berryTreeId;
     objectEvent->previousMovementDirection = gInitialMovementTypeFacingDirections[template->movementType];
+    objectEvent->isShiny = template->isShiny;
     SetObjectEventDirection(objectEvent, objectEvent->previousMovementDirection);
     SetObjectEventDynamicGraphicsId(objectEvent);
     if (sMovementTypeHasRange[objectEvent->movementType])
@@ -1182,6 +1204,7 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     struct Sprite *sprite;
     struct ObjectEvent *objectEvent;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
+    u16 palTag = spriteTemplate->paletteTag;
 
     objectEventId = InitObjectEventStateFromTemplate(objectEventTemplate, mapNum, mapGroup);
     if (objectEventId == OBJECT_EVENTS_COUNT)
@@ -1192,8 +1215,8 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     paletteSlot = graphicsInfo->paletteSlot;
     if (spriteTemplate->paletteTag != TAG_NONE)
     {
-        LoadObjectEventPalette(spriteTemplate->paletteTag);
-        UpdatePaletteColorMapType(IndexOfSpritePaletteTag(spriteTemplate->paletteTag), COLOR_MAP_CONTRAST);
+        LoadObjectEventPalette(palTag);
+        UpdatePaletteColorMapType(IndexOfSpritePaletteTag(palTag), COLOR_MAP_CONTRAST);
     }
 
     if (objectEvent->movementType == MOVEMENT_TYPE_INVISIBLE)
@@ -1357,7 +1380,7 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
 
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate(graphicsId, SpriteCB_VirtualObject, &spriteTemplate, &subspriteTables);
-    if (spriteTemplate.paletteTag != 0xFFFF)
+    if (spriteTemplate.paletteTag != TAG_NONE)
     {
         LoadObjectEventPalette(spriteTemplate.paletteTag);
         UpdatePaletteColorMapType(IndexOfSpritePaletteTag(spriteTemplate.paletteTag), COLOR_MAP_CONTRAST);
@@ -1654,7 +1677,10 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
         return gMauvilleOldManGraphicsInfoPointers[bard];
     }
 
-    if (graphicsId >= NUM_OBJ_EVENT_GFX)
+    if (graphicsId >= OBJ_EVENT_GFX_MON_START && graphicsId < OBJ_EVENT_GFX_MON_END)
+        return gObjectEventGraphicsInfoMonPointers[graphicsId];
+
+    if (graphicsId >= OBJ_EVENT_GFX_MON_END)
         graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
 
     return gObjectEventGraphicsInfoPointers[graphicsId];
@@ -1771,7 +1797,7 @@ static u8 LoadSpritePaletteIfTagExists(const struct SpritePalette *spritePalette
 }
 
 void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
-{
+{      
     // paletteTag is assumed to exist in sObjectEventSpritePalettes
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 

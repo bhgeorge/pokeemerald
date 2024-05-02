@@ -370,6 +370,28 @@
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
+
+// Overworld mons
+#define OBJ_EVENT_PAL_TAG_MON_LOTAD                   0x1124
+#define OBJ_EVENT_PAL_TAG_MON_POOCHYENA               0x1125
+#define OBJ_EVENT_PAL_TAG_MON_RALTS                   0x1126
+#define OBJ_EVENT_PAL_TAG_MON_SEEDOT                  0x1127
+#define OBJ_EVENT_PAL_TAG_MON_WINGULL                 0x1128
+#define OBJ_EVENT_PAL_TAG_MON_WURMPLE                 0x1129
+#define OBJ_EVENT_PAL_TAG_MON_ZIGZAGOON               0x112A
+#define OBJ_EVENT_PAL_TAG_MON_MARILL                  0x112B
+#define OBJ_EVENT_PAL_TAG_MON_GOLDEEN                 0x112C
+// Overworld shiny mons
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_LOTAD                   0x112D
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_POOCHYENA               0x112E
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_RALTS                   0x112F
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_SEEDOT                  0x1130
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_WINGULL                 0x1131
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_WURMPLE                 0x1132
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_ZIGZAGOON               0x1133
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_MARILL                  0x1134
+#define OBJ_EVENT_PAL_TAG_MON_SHINY_GOLDEEN                 0x1135
+
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #endif // GUARD_CONSTANTS_EVENT_OBJECT_MOVEMENT_H
