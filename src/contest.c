@@ -2454,7 +2454,7 @@ static void SpriteCB_MonSlideIn(struct Sprite *sprite)
 {
     if (sprite->x2 != 0)
     {
-        sprite->x2 -= 2;
+        sprite->x2 -= BATTLE_GFX_SLIDE_IN_SPEED;
     }
     else
     {

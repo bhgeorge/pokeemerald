@@ -436,5 +436,6 @@
 // It's redundant with F_PAL_BATTLERS, because they're only ever used together to refer to all the battlers at once.
 #define F_PAL_BATTLERS_2  (1 << 7 | 1 << 8 | 1 << 9 | 1 << 10)
 
+#define BATTLE_GFX_SLIDE_IN_SPEED  4; // default Emerald uses 2
 
 #endif // GUARD_CONSTANTS_BATTLE_ANIM_H
