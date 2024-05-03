@@ -77,7 +77,8 @@ struct __attribute__((packed, aligned(4))) ObjectEventTemplate
     /*0x09*/ u8 movementType;
     /*0x0A*/ u16 movementRangeX:4;
              u16 movementRangeY:4;
-             u16 unused:8;
+             u16 shiny:1;
+             u16 unused:7;
     /*0x0C*/ u16 trainerType;
     /*0x0E*/ u16 trainerRange_berryTreeId;
     /*0x10*/ const u8 *script;

@@ -2203,6 +2203,14 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     CalculateMonStats(mon);
 }
 
+static u32 GetPlayerOTId()
+{
+    return gSaveBlock2Ptr->playerTrainerId[0]
+        | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+        | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+        | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+}
+
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u8 speciesName[POKEMON_NAME_LENGTH + 1];
@@ -2236,10 +2244,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     }
     else // Player is the OT
     {
-        value = gSaveBlock2Ptr->playerTrainerId[0]
-              | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
-              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
-              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+        value = GetPlayerOTId();
     }
 
     if (FlagGet(FLAG_SYS_FORCE_SHINY))
@@ -6788,6 +6793,18 @@ bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
     u32 shinyValue = GET_SHINY_VALUE(otId, personality);
     if (shinyValue < SHINY_ODDS)
         retVal = TRUE;
+    return retVal;
+}
+
+bool8 IsWildMonShinyByRoll()
+{
+    bool8 retVal = FALSE;
+    u32 personality = Random32();
+    u32 shinyValue = GET_SHINY_VALUE(GetPlayerOTId(), personality);
+    
+    if (shinyValue < SHINY_ODDS)
+        retVal = TRUE;
+    
     return retVal;
 }
 

@@ -642,4 +642,7 @@ extern const u8 EventScript_TerminateLink[];
 extern const u8 Common_Movement_FollowerSafeStart[];
 extern const u8 Common_Movement_FollowerSafeEnd[];
 
+// overworld encounters
+extern const u8 OverworldEncounter_EventScript_StartOverworldEncounter[];
+
 #endif // GUARD_EVENT_SCRIPTS_H

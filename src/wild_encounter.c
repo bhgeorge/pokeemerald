@@ -797,6 +797,36 @@ void FishingWildEncounter(u8 rod)
     BattleSetup_StartWildBattle();
 }
 
+// Creates a wild encounter from the pre-rolled slot index
+void OverworldWildEncounter(u16 slotIndex, bool32 isWaterMon)
+{
+    u16 headerId;
+    const struct WildPokemonInfo *landMonsInfo;
+    const struct WildPokemonInfo *waterMonsInfo;
+    const struct WildPokemon *mon;
+    u8 level;
+
+    headerId = GetCurrentMapWildMonHeaderId();
+
+    if (headerId == HEADER_NONE)
+        return;
+
+    landMonsInfo = gWildMonHeaders[headerId].landMonsInfo;
+    waterMonsInfo = gWildMonHeaders[headerId].waterMonsInfo;
+
+    if (isWaterMon && waterMonsInfo != NULL)
+        mon = &waterMonsInfo->wildPokemon[slotIndex];
+
+    if (!isWaterMon && landMonsInfo != NULL)
+        mon = &landMonsInfo->wildPokemon[slotIndex];
+
+    if (mon == NULL)
+        return;
+
+    level = ChooseWildMonLevel(mon);
+    CreateWildMon(mon->species, level);
+}
+
 u16 GetLocalWildMon(bool8 *isWaterMon)
 {
     u16 headerId;
@@ -845,6 +875,42 @@ u16 GetLocalWaterMon(void)
             return waterMonsInfo->wildPokemon[ChooseWildMonIndex_WaterRock()].species;
     }
     return SPECIES_NONE;
+}
+
+// Pre-creates an encounter that gets attached to an ObjectEvent
+// in `TrySpawnOverworldMons`.
+//
+// The slot index is intended to be returned to `OverworldWildEncounter`
+// to generate the actual encounter.
+struct WildPokemonSlot GetLocalWildMonSlot(bool32 isWaterMon)
+{
+    u16 headerId;
+    struct WildPokemonSlot slot;
+    const struct WildPokemonInfo *landMonsInfo;
+    const struct WildPokemonInfo *waterMonsInfo;
+
+    slot.index = WILD_MON_INDEX_NONE;
+    slot.species = SPECIES_NONE;
+
+    headerId = GetCurrentMapWildMonHeaderId();
+    if (headerId == HEADER_NONE)
+        return slot;
+
+    landMonsInfo = gWildMonHeaders[headerId].landMonsInfo;
+    waterMonsInfo = gWildMonHeaders[headerId].waterMonsInfo;
+
+    if (isWaterMon && waterMonsInfo != NULL)
+    {
+        slot.index = ChooseWildMonIndex_WaterRock();
+        slot.species = waterMonsInfo->wildPokemon[slot.index].species;
+    }
+    else if (landMonsInfo != NULL)
+    {
+        slot.index = ChooseWildMonIndex_Land();
+        slot.species = landMonsInfo->wildPokemon[slot.index].species;
+    }
+
+    return slot;
 }
 
 bool8 UpdateRepelCounter(void)

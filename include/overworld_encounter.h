@@ -1,0 +1,8 @@
+#ifndef GUARD_OVERWORLD_ENCOUNTER_H
+#define GUARD_OVERWORLD_ENCOUNTER_H
+
+void TrySpawnOverworldMons(void);
+
+#define OVERWORLD_SPAWN_ODDS 49152 // out of 65536 (75%)
+
+#endif // GYARD_OVERWORLD_ENCOUNTER_H

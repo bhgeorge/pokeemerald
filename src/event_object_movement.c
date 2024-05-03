@@ -1429,10 +1429,13 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     objectEvent->graphicsId = PackGraphicsId(template);
     SetObjectEventDynamicGraphicsId(objectEvent);
     if (objectEvent->graphicsId >= OBJ_EVENT_GFX_MON_BASE) {
-        if (template->script && template->script[0] == 0x7d)
-            objectEvent->shiny = T1_READ_16(&template->script[2]) >> 15;
-        else if (template->trainerRange_berryTreeId)
-            objectEvent->shiny = VarGet(template->trainerRange_berryTreeId) >> 5;
+        objectEvent->shiny = template->shiny;
+
+            // if (template->script && template->script[0] == 0x7d)
+            //     objectEvent->shiny = T1_READ_16(&template->script[2]) >> 15;
+            // else if (template->trainerRange_berryTreeId)
+            //     objectEvent->shiny = VarGet(template->trainerRange_berryTreeId) >> 5;
+        
     }
     objectEvent->movementType = template->movementType;
     objectEvent->localId = template->localId;
@@ -2011,12 +2014,21 @@ static u8 LoadDynamicFollowerPalette(u16 species, u8 form, bool32 shiny) {
     return paletteNum;
 }
 
+u16 GetGfxIdForMon(u16 species, u8 form)
+{
+    u16 gfxId;
+
+    gfxId = (OBJ_EVENT_GFX_MON_BASE + species) & OBJ_EVENT_GFX_SPECIES_MASK;
+    gfxId |= form << OBJ_EVENT_GFX_SPECIES_BITS;
+
+    return gfxId;
+}
+
 // Set graphics & sprite for a follower object event by species & shininess.
 static void FollowerSetGraphics(struct ObjectEvent *objEvent, u16 species, u8 form, bool8 shiny, bool8 doPalette) {
     const struct ObjectEventGraphicsInfo *graphicsInfo = SpeciesToGraphicsInfo(species, form);
     ObjectEventSetGraphics(objEvent, graphicsInfo);
-    objEvent->graphicsId = (OBJ_EVENT_GFX_MON_BASE + species) & OBJ_EVENT_GFX_SPECIES_MASK;
-    objEvent->graphicsId |= form << OBJ_EVENT_GFX_SPECIES_BITS;
+    objEvent->graphicsId = GetGfxIdForMon(species, form);
     objEvent->shiny = shiny;
     if (graphicsInfo->paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC && doPalette) { // Use palette from species palette table
         struct Sprite *sprite = &gSprites[objEvent->spriteId];
@@ -3387,7 +3399,7 @@ const u8 *GetObjectEventScriptPointerByObjectEventId(u8 objectEventId)
     return GetObjectEventScriptPointerByLocalIdAndMap(gObjectEvents[objectEventId].localId, gObjectEvents[objectEventId].mapNum, gObjectEvents[objectEventId].mapGroup);
 }
 
-static u16 GetObjectEventFlagIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
+u16 GetObjectEventFlagIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
 {
     const struct ObjectEventTemplate *obj = GetObjectEventTemplateByLocalIdAndMap(localId, mapNum, mapGroup);
 #ifdef UBFIX
@@ -10680,8 +10692,7 @@ bool8 ScrFunc_getdaycaregfx(struct ScriptContext *ctx) {
         if (specGfx == SPECIES_NONE)
             break;
         // Assemble gfx ID like FollowerSetGraphics
-        specGfx = (OBJ_EVENT_GFX_MON_BASE + specGfx) & OBJ_EVENT_GFX_SPECIES_MASK;
-        specGfx |= form << OBJ_EVENT_GFX_SPECIES_BITS;
+        specGfx = GetGfxIdForMon(specGfx, form);
         VarSet(varGfx[i], specGfx);
         VarSet(varForm[i], form | (shiny << 5));
     }
