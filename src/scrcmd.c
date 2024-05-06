@@ -13,6 +13,7 @@
 #include "event_data.h"
 #include "field_door.h"
 #include "field_effect.h"
+#include "field_move.h"
 #include "event_object_lock.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -1791,6 +1792,12 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
             gSpecialVar_Result = i;
             gSpecialVar_0x8004 = species;
             break;
+        }
+        // If no mon have the move, but the player has the HM in bag, use the first mon
+        if (gSpecialVar_Result == PARTY_SIZE && PlayerHasFieldMove(moveId))
+        { 
+            gSpecialVar_Result = 0;
+            gSpecialVar_0x8004 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL);
         }
     }
     return FALSE;
