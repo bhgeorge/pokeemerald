@@ -1670,3 +1670,7 @@ static const u8 sTimidMintDesc[] = _(
 static const u8 sEverRepelDesc[] = _(
     "Repels weak wild\n"
     "POKéMON.");
+
+static const u8 sShinyCharmDesc[] = _(
+    "A delightful\n"
+    "shiny charm.");

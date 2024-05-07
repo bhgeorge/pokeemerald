@@ -2323,7 +2323,55 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     FlagClear(FLAG_SYS_FORCE_SHINY);
 }
 
-void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
+u32 RerollForShiny(u32 personality, u32 numRerolls)
+{
+    u32 retVal = personality;
+    u32 playerTrainerId = GetPlayerOTId();
+    u32 shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+    u32 i;
+
+    // We're already shiny
+    if (shinyValue < SHINY_ODDS)
+        return retVal;
+
+    for (i = 0; i < numRerolls; i++)
+    {
+        retVal = Random32();
+        shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+        
+        // We found a shiny value
+        if (shinyValue < SHINY_ODDS)
+            break;
+    }
+
+    return retVal;
+}
+
+u32 RerollForShinyWithNature(u32 personality, u32 numRerolls, u8 nature)
+{
+    u32 retVal = personality;
+    u32 playerTrainerId = GetPlayerOTId();
+    u32 shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+    u32 i;
+
+    // We're already shiny
+    if (shinyValue < SHINY_ODDS)
+        return retVal;
+
+    for (i = 0; i < numRerolls; i++)
+    {
+        personality = GetRandomPersonalityFromNature(nature);
+        shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+        
+        // We found a shiny value
+        if (shinyValue < SHINY_ODDS)
+            break;
+    }
+
+    return retVal;
+}
+
+u32 GetRandomPersonalityFromNature(u8 nature)
 {
     u32 personality;
 
@@ -2332,6 +2380,22 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
         personality = Random32();
     }
     while (nature != GetNatureFromPersonality(personality));
+}
+
+// This is only used for wild pokemon encounters
+void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
+{
+    u32 personality = GetRandomPersonalityFromNature(nature);
+    u32 playerTrainerId = GetPlayerOTId();
+    u32 shinyValue = GET_SHINY_VALUE(playerTrainerId, personality);
+    u32 rerolls = 0;
+
+    if (FlagGet(FLAG_SYS_SHINY_CHARM))
+    {
+        rerolls += 2;
+    }
+
+    personality = RerollForShinyWithNature(personality, rerolls, nature);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
@@ -6817,8 +6881,13 @@ bool8 IsWildMonShinyByRoll()
 {
     bool8 retVal = FALSE;
     u32 personality = Random32();
-    u32 shinyValue = GET_SHINY_VALUE(GetPlayerOTId(), personality);
-    
+    u32 shinyValue;
+
+    if (FlagSet(FLAG_SYS_SHINY_CHARM))
+        personality = RerollForShiny(personality, 2);
+
+    shinyValue = GET_SHINY_VALUE(GetPlayerOTId(), personality);
+
     if (shinyValue < SHINY_ODDS)
         retVal = TRUE;
     

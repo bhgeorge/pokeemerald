@@ -998,6 +998,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("KOBE"),
         .otGender = MALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
         .requestedSpecies = SPECIES_RALTS
     },
     [INGAME_TRADE_PLUSLE] =
@@ -1014,6 +1015,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("ROMAN"),
         .otGender = MALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
         .requestedSpecies = SPECIES_VOLBEAT
     },
     [INGAME_TRADE_HORSEA] =
@@ -1030,6 +1032,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("SKYLAR"),
         .otGender = MALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
         .requestedSpecies = SPECIES_BAGON
     },
     [INGAME_TRADE_MEOWTH] =
@@ -1046,6 +1049,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("ISIS"),
         .otGender = FEMALE,
         .sheen = 10,
+        .language = GAME_LANGUAGE,
         .requestedSpecies = SPECIES_SKITTY
     }
 };

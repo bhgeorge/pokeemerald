@@ -440,9 +440,10 @@
 #define ITEM_SERIOUS_MINT        396
 #define ITEM_TIMID_MINT          397
 
-#define ITEM_EVER_REPEL 398
+#define ITEM_EVER_REPEL  398
+#define ITEM_SHINY_CHARM 399
 
-#define ITEMS_COUNT 399
+#define ITEMS_COUNT 400
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
 // Its icon is defined at ITEMS_COUNT as the "return to field" arrow

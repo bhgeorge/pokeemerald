@@ -756,3 +756,5 @@ const u32 gItemIconPalette_YellowMint[] = INCBIN_U32("graphics/items/icon_palett
 
 // Misc
 const u32 gItemIconPalette_EverRepel[] = INCBIN_U32("graphics/items/icon_palettes/ever_repel.gbapal.lz");
+const u32 gItemIcon_ShinyCharm[] = INCBIN_U32("graphics/items/icons/shiny_charm.4bpp.lz");
+const u32 gItemIconPalette_ShinyCharm[] = INCBIN_U32("graphics/items/icon_palettes/shiny_charm.gbapal.lz");

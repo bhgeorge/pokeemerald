@@ -360,10 +360,30 @@ static s32 GetParentToInheritNature(struct DayCare *daycare)
     return parent;
 }
 
+static bool8 IsMasudaMethod(struct DayCare *daycare)
+{
+    bool8 val = FALSE;
+    u8 languageA = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_LANGUAGE);
+    u8 languageB = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_LANGUAGE);
+
+    if (languageA != languageB)
+        val = TRUE;
+
+    return val;
+}
+
 static void _TriggerPendingDaycareEgg(struct DayCare *daycare)
 {
     s32 parent;
     s32 natureTries = 0;
+    u32 personality;
+    u8 shinyRerolls = 0;
+
+    if (FlagGet(FLAG_SYS_SHINY_CHARM))
+        shinyRerolls += 2;
+
+    if (IsMasudaMethod(daycare))
+        shinyRerolls += 8;
 
     SeedRng2(gMain.vblankCounter2);
     parent = GetParentToInheritNature(daycare);
@@ -371,7 +391,12 @@ static void _TriggerPendingDaycareEgg(struct DayCare *daycare)
     // don't inherit nature
     if (parent < 0)
     {
-        daycare->offspringPersonality = (Random2() << 16) | ((Random() % 0xfffe) + 1);
+        personality = (Random2() << 16) | ((Random() % 0xfffe) + 1);
+
+        if (shinyRerolls > 0)
+            personality = RerollForShiny(personality, shinyRerolls);
+
+        daycare->offspringPersonality = personality;
     }
     // inherit nature
     else
@@ -387,6 +412,10 @@ static void _TriggerPendingDaycareEgg(struct DayCare *daycare)
 
             natureTries++;
         } while (natureTries <= 2400);
+
+
+        if (shinyRerolls > 0)
+            personality = RerollForShinyWithNature(personality, shinyRerolls, GetNatureFromPersonality(personality));
 
         daycare->offspringPersonality = personality;
     }
