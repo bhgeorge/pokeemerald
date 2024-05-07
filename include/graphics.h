@@ -3868,7 +3868,8 @@ extern const u32 gItemIconPalette_YellowMint[];
 extern const u32 gItemIconPalette_EverRepel[];
 extern const u32 gItemIcon_ShinyCharm[];
 extern const u32 gItemIconPalette_ShinyCharm[];
-
+extern const u32 gItemIcon_BottleCap[];
+extern const u32 gItemIconPalette_BottleCap[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

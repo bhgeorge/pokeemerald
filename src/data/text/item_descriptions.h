@@ -1674,3 +1674,8 @@ static const u8 sEverRepelDesc[] = _(
 static const u8 sShinyCharmDesc[] = _(
     "A delightful\n"
     "shiny charm.");
+
+static const u8 sBottleCapDesc[] = _(
+    "A bottle cap that\n"
+    "gives off a\n"
+    "silver gleam");

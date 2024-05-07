@@ -4846,4 +4846,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+    [ITEM_BOTTLE_CAP] =
+    {
+        .name = _("BOTTLE CAP"),
+        .itemId = ITEM_BOTTLE_CAP,
+        .price = 100,
+        .description = sBottleCapDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

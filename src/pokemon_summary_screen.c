@@ -3449,7 +3449,7 @@ static void BufferStatsDisplay(u8 dir)
 {
     u8 mode = sStatsStates[sMonSummaryScreen->statsState];
     u16 hp, hp2, atk, def, spA, spD, spe;
-    // bool8 hHp, hAtk, hDef, hSpa, hSdef, hSpe;
+    bool8 hypHp, hypAtk, hypDef, hypSpa, hypSpd, hypSpe;
     u8 *currHPString = Alloc(20);
     const s8 *natureMod = gNatureStatTable[sMonSummaryScreen->summary.nature];
 
@@ -3480,26 +3480,19 @@ static void BufferStatsDisplay(u8 dir)
         spe = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_EV);
         break;
     case STATS_STATE_IV:
-        hp  = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_IV);
-        atk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV);
-        def = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
+        hypHp  = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_HP);
+        hp   = hypHp ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_IV);
+        hypAtk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_ATK);
+        atk  = hypAtk ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV);
+        hypDef = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_DEF);
+        def  = hypDef ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
 
-        spA = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_IV);
-        spD = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
-        spe = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
-        // hHp  = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_HP);
-        // hp   = hHp ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_IV);
-        // hAtk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_ATK);
-        // atk  = hAtk ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_IV);
-        // hDef = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_DEF);
-        // def  = hDef ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_IV);
-
-        // hSpa  = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPATK); 
-        // spA   = hSpa ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_IV);
-        // hSdef = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPDEF);
-        // spD   = hSdef ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
-        // hSpe  = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPEED);
-        // spe   = hSpe ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
+        hypSpa  = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPATK); 
+        spA   = hypSpa ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_IV);
+        hypSpd = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPDEF);
+        spD   = hypSpd ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
+        hypSpe  = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPEED);
+        spe   = hypSpe ? MAX_PER_STAT_IVS : GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
     default:
 
         break;
@@ -3524,21 +3517,15 @@ static void BufferStatsDisplay(u8 dir)
         PrintRightColumnStats();
         break;
     case STATS_STATE_IV:
-        BufferStat(gStringVar1, 0, hp, 0, 7);
-        BufferStat(gStringVar2, 0, atk, 1, 7);
-        BufferStat(gStringVar3, 0, def, 2, 7);
-        // BufferStat(gStringVar1, hHp, hp, 0, 7);
-        // BufferStat(gStringVar2, hAtk, atk, 1, 7);
-        // BufferStat(gStringVar3, hDef, def, 2, 7);
+        BufferStat(gStringVar1, hypHp, hp, 0, 7);
+        BufferStat(gStringVar2, hypAtk, atk, 1, 7);
+        BufferStat(gStringVar3, hypDef, def, 2, 7);
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnEvIvLayout);
         PrintLeftColumnStats();
 
-        BufferStat(gStringVar1, 0, spA, 0, 3);
-        BufferStat(gStringVar2, 0, spD, 1, 3);
-        BufferStat(gStringVar3, 0, spe, 2, 3);
-        // BufferStat(gStringVar1, hSpa, spA, 0, 3);
-        // BufferStat(gStringVar2, hSdef, spD, 1, 3);
-        // BufferStat(gStringVar3, hSpe, spe, 2, 3);
+        BufferStat(gStringVar1, hypSpa, spA, 0, 3);
+        BufferStat(gStringVar2, hypSpd, spD, 1, 3);
+        BufferStat(gStringVar3, hypSpe, spe, 2, 3);
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
         PrintRightColumnStats();
         break;
