@@ -168,6 +168,7 @@
 #define LEVEL_UP_END       0xFFFF
 
 #define MAX_LEVEL_UP_MOVES       20
+#define MAX_LEVEL_DIFF_PRE_EVO   1
 
 #define MON_MALE       0x00
 #define MON_FEMALE     0xFE
