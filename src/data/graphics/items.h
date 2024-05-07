@@ -745,3 +745,5 @@ const u32 gItemIconPalette_PinkMint[] = INCBIN_U32("graphics/items/icon_palettes
 const u32 gItemIconPalette_GreenMint[] = INCBIN_U32("graphics/items/icon_palettes/green_mint.gbapal.lz");
 const u32 gItemIconPalette_LightBlueMint[] = INCBIN_U32("graphics/items/icon_palettes/light_blue_mint.gbapal.lz");
 const u32 gItemIconPalette_YellowMint[] = INCBIN_U32("graphics/items/icon_palettes/yellow_mint.gbapal.lz");
+
+const u32 gItemIconPalette_EverRepel[] = INCBIN_U32("graphics/items/icon_palettes/ever_repel.gbapal.lz");

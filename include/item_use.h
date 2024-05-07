@@ -26,6 +26,7 @@ void ItemUseOutOfBattle_EnigmaBerry(u8);
 void ItemUseOutOfBattle_CannotUse(u8);
 void ItemUseOutOfBattle_Mints(u8 taskId);
 void ItemUseOutOfBattle_ExpShare(u8);
+void ItemUseOutOfBattle_EverRepel(u8);
 void ItemUseInBattle_PokeBall(u8);
 void ItemUseInBattle_StatIncrease(u8);
 void ItemUseInBattle_Medicine(u8);

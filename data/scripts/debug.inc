@@ -41,6 +41,10 @@ Debug_QuickStart::
 	end
 
 Debug_Script_1::
+	lock
+	giveitem ITEM_EVER_REPEL
+	closemessage
+	release
 	end
 
 Debug_Script_2::

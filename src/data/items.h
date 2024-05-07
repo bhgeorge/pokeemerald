@@ -4821,4 +4821,17 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Mints,
         .secondaryId = NATURE_TIMID,
     },
+    // Misc
+    [ITEM_EVER_REPEL] =
+    {
+        .name = _("EVER REPEL"),
+        .itemId = ITEM_EVER_REPEL,
+        .price = 0,
+        .importance = 1,
+        .registrability = TRUE,
+        .description = sEverRepelDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_EverRepel,
+    },
 };

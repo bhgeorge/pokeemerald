@@ -423,6 +423,8 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SASSY_MINT] = {gItemIcon_Mint, gItemIconPalette_PinkMint},
     [ITEM_SERIOUS_MINT] = {gItemIcon_Mint, gItemIconPalette_YellowMint},
     [ITEM_TIMID_MINT] = {gItemIcon_Mint, gItemIconPalette_GreenMint},
+    // Misc
+    [ITEM_EVER_REPEL] = {gItemIcon_Repel, gItemIconPalette_EverRepel},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

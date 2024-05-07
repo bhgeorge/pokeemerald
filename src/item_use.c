@@ -1156,4 +1156,29 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
     }
 }
 
+void ItemUseOutOfBattle_EverRepel(u8 taskId)
+{
+    bool8 everRepelOn = FlagGet(FLAG_SYS_EVER_REPEL);
+    if (!everRepelOn)
+    {
+        FlagSet(FLAG_SYS_EVER_REPEL);
+        VarSet(VAR_REPEL_STEP_COUNT, 1);
+        PlaySE(SE_REPEL);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_EverRepelTurnOn, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_EverRepelTurnOn, CloseItemMessage);
+    }
+    else
+    {
+        FlagClear(FLAG_SYS_EVER_REPEL);
+        PlaySE(SE_PC_OFF);
+        VarSet(VAR_REPEL_STEP_COUNT, 0);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_EverRepelTurnOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_EverRepelTurnOff, CloseItemMessage);
+    }
+}
+
 #undef tUsingRegisteredKeyItem

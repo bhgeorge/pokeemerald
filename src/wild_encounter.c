@@ -924,7 +924,7 @@ bool8 UpdateRepelCounter(void)
 
     steps = VarGet(VAR_REPEL_STEP_COUNT);
 
-    if (steps != 0)
+    if (steps != 0 && !FlagGet(FLAG_SYS_EVER_REPEL))
     {
         steps--;
         VarSet(VAR_REPEL_STEP_COUNT, steps);

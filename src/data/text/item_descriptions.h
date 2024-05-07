@@ -1655,3 +1655,8 @@ static const u8 sTimidMintDesc[] = _(
     "Changes the nature\n"
     "of a Pokémon to\n"
     "TIMID");
+
+// Misc
+static const u8 sEverRepelDesc[] = _(
+    "Repels weak wild\n"
+    "POKéMON.");
