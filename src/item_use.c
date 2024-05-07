@@ -1133,4 +1133,27 @@ void ItemUseOutOfBattle_Mints(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_ExpShare(u8 taskId)
+{
+    bool8  expShareOn = FlagGet(FLAG_SYS_EXP_SHARE);
+    if (!expShareOn)
+    {
+        FlagSet(FLAG_SYS_EXP_SHARE);
+        PlaySE(SE_EXP_MAX);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_ExpShareTurnOn, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_ExpShareTurnOn, CloseItemMessage);
+    }
+    else
+    {
+        FlagClear(FLAG_SYS_EXP_SHARE);
+        PlaySE(SE_PC_OFF);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_ExpShareTurnOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_ExpShareTurnOff, CloseItemMessage);
+    }
+}
+
 #undef tUsingRegisteredKeyItem
