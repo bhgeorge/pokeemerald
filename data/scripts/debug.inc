@@ -42,19 +42,14 @@ Debug_QuickStart::
 
 Debug_Script_1::
 	lock
-	giveitem ITEM_METAL_COAT
-	giveitem ITEM_DEEP_SEA_SCALE
-	giveitem ITEM_DEEP_SEA_TOOTH
-	giveitem ITEM_LINK_STONE, 5
-	givemon SPECIES_SCYTHER, 1
-	givemon SPECIES_CLAMPERL, 1
-	givemon SPECIES_CLAMPERL, 1
-	givemon SPECIES_HAUNTER, 1
 	closemessage
 	release
 	end
 
 Debug_Script_2::
+	lock
+	closemessage
+	release
 	end
 
 Debug_Script_3::

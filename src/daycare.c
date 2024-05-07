@@ -210,52 +210,14 @@ static void ShiftDaycareSlots(struct DayCare *daycare)
     }
 }
 
-static void ApplyDaycareExperience(struct Pokemon *mon)
-{
-    s32 i;
-    bool8 firstMove;
-    u16 learnedMove;
-
-    for (i = 0; i < MAX_LEVEL; i++)
-    {
-        // Add the mon's gained daycare experience level by level until it can't level up anymore.
-        if (TryIncrementMonLevel(mon))
-        {
-            // Teach the mon new moves it learned while in the daycare.
-            firstMove = TRUE;
-            while ((learnedMove = MonTryLearningNewMove(mon, firstMove)) != 0)
-            {
-                firstMove = FALSE;
-                if (learnedMove == MON_HAS_MAX_MOVES)
-                    DeleteFirstMoveAndGiveMoveToMon(mon, gMoveToLearn);
-            }
-        }
-        else
-        {
-            break;
-        }
-    }
-
-    // Re-calculate the mons stats at its new level.
-    CalculateMonStats(mon);
-}
-
 static u16 TakeSelectedPokemonFromDaycare(struct DaycareMon *daycareMon)
 {
     u16 species;
-    u32 experience;
     struct Pokemon pokemon;
 
     GetBoxMonNickname(&daycareMon->mon, gStringVar1);
     species = GetBoxMonData(&daycareMon->mon, MON_DATA_SPECIES);
     BoxMonToMon(&daycareMon->mon, &pokemon);
-
-    if (GetMonData(&pokemon, MON_DATA_LEVEL) != MAX_LEVEL)
-    {
-        experience = GetMonData(&pokemon, MON_DATA_EXP) + daycareMon->steps;
-        SetMonData(&pokemon, MON_DATA_EXP, &experience);
-        ApplyDaycareExperience(&pokemon);
-    }
 
     gPlayerParty[PARTY_SIZE - 1] = pokemon;
     if (daycareMon->mail.message.itemId)
@@ -283,66 +245,10 @@ u16 TakePokemonFromDaycare(void)
     return TakeSelectedPokemonMonFromDaycareShiftSlots(&gSaveBlock1Ptr->daycare, gSpecialVar_0x8004);
 }
 
-static u8 GetLevelAfterDaycareSteps(struct BoxPokemon *mon, u32 steps)
-{
-    struct BoxPokemon tempMon = *mon;
-
-    u32 experience = GetBoxMonData(mon, MON_DATA_EXP) + steps;
-    SetBoxMonData(&tempMon, MON_DATA_EXP,  &experience);
-    return GetLevelFromBoxMonExp(&tempMon);
-}
-
-static u8 GetNumLevelsGainedFromSteps(struct DaycareMon *daycareMon)
-{
-    u8 levelBefore;
-    u8 levelAfter;
-
-    levelBefore = GetLevelFromBoxMonExp(&daycareMon->mon);
-    levelAfter = GetLevelAfterDaycareSteps(&daycareMon->mon, daycareMon->steps);
-    return levelAfter - levelBefore;
-}
-
-static u8 GetNumLevelsGainedForDaycareMon(struct DaycareMon *daycareMon)
-{
-    u8 numLevelsGained = GetNumLevelsGainedFromSteps(daycareMon);
-    ConvertIntToDecimalStringN(gStringVar2, numLevelsGained, STR_CONV_MODE_LEFT_ALIGN, 2);
-    GetBoxMonNickname(&daycareMon->mon, gStringVar1);
-    return numLevelsGained;
-}
-
-static u32 GetDaycareCostForSelectedMon(struct DaycareMon *daycareMon)
-{
-    u32 cost;
-
-    u8 numLevelsGained = GetNumLevelsGainedFromSteps(daycareMon);
-    GetBoxMonNickname(&daycareMon->mon, gStringVar1);
-    cost = 100 + 100 * numLevelsGained;
-    ConvertIntToDecimalStringN(gStringVar2, cost, STR_CONV_MODE_LEFT_ALIGN, 5);
-    return cost;
-}
-
-static u16 GetDaycareCostForMon(struct DayCare *daycare, u8 slotId)
-{
-    return GetDaycareCostForSelectedMon(&daycare->mons[slotId]);
-}
-
-void GetDaycareCost(void)
-{
-    gSpecialVar_0x8005 = GetDaycareCostForMon(&gSaveBlock1Ptr->daycare, gSpecialVar_0x8004);
-}
-
 static void UNUSED Debug_AddDaycareSteps(u16 numSteps)
 {
     gSaveBlock1Ptr->daycare.mons[0].steps += numSteps;
     gSaveBlock1Ptr->daycare.mons[1].steps += numSteps;
-}
-
-u8 GetNumLevelsGainedFromDaycare(void)
-{
-    if (GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[gSpecialVar_0x8004].mon, MON_DATA_SPECIES) != 0)
-        return GetNumLevelsGainedForDaycareMon(&gSaveBlock1Ptr->daycare.mons[gSpecialVar_0x8004]);
-
-    return 0;
 }
 
 static void ClearDaycareMonMail(struct DaycareMail *mail)
@@ -1162,23 +1068,6 @@ static void UNUSED GetDaycareLevelMenuText(struct DayCare *daycare, u8 *dest)
     StringAppend(dest, gText_Exit4);
 }
 
-static void UNUSED GetDaycareLevelMenuLevelText(struct DayCare *daycare, u8 *dest)
-{
-    u8 i;
-    u8 level;
-    u8 text[20];
-
-    *dest = EOS;
-    for (i = 0; i < DAYCARE_MON_COUNT; i++)
-    {
-        StringAppend(dest, gText_Lv);
-        level = GetLevelAfterDaycareSteps(&daycare->mons[i].mon, daycare->mons[i].steps);
-        ConvertIntToDecimalStringN(text, level, STR_CONV_MODE_LEFT_ALIGN, 3);
-        StringAppend(dest, text);
-        StringAppend(dest, gText_NewLine2);
-    }
-}
-
 static void DaycareAddTextPrinter(u8 windowId, const u8 *text, u32 x, u32 y)
 {
     struct TextPrinterTemplate printer;
@@ -1217,7 +1106,7 @@ static void DaycarePrintMonLvl(struct DayCare *daycare, u8 windowId, u32 daycare
     u8 intText[8];
 
     StringCopy(lvlText, gText_Lv);
-    level = GetLevelAfterDaycareSteps(&daycare->mons[daycareSlotId].mon, daycare->mons[daycareSlotId].steps);
+    level = GetLevelFromBoxMonExp(&daycare->mons[daycareSlotId].mon);
     ConvertIntToDecimalStringN(intText, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     StringAppend(lvlText, intText);
     x = GetStringRightAlignXOffset(FONT_NORMAL, lvlText, 112);
