@@ -42,7 +42,6 @@ Debug_QuickStart::
 
 Debug_Script_1::
 	lock
-	giveitem ITEM_EVER_REPEL
 	closemessage
 	release
 	end
