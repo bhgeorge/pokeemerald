@@ -286,6 +286,7 @@ static const u8 sText_PkmnsXWhippedUpSandstorm[] = _("{B_SCR_ACTIVE_NAME_WITH_PR
 static const u8 sText_PkmnsXIntensifiedSun[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nintensified the sun's rays!");
 static const u8 sText_PkmnsXPreventsYLoss[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nprevents {B_BUFF1} loss!");
 static const u8 sText_PkmnsXInfatuatedY[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\ninfatuated {B_ATK_NAME_WITH_PREFIX}!");
+static const u8 sText_DestinyXInfatuatedY[] = _("{B_DEF_NAME_WITH_PREFIX}'s DESTINY KNOT\ninfatuated {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnsXMadeYIneffective[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nmade {B_CURRENT_MOVE} ineffective!");
 static const u8 sText_PkmnsXCuredYProblem[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncured its {B_BUFF1} problem!");
 static const u8 sText_ItSuckedLiquidOoze[] = _("It sucked up the\nLIQUID OOZE!");
@@ -887,6 +888,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_S
     [STRINGID_TRAINER1WINTEXT - BATTLESTRINGS_TABLE_START] = sText_Trainer1WinText,
     [STRINGID_TRAINER2WINTEXT - BATTLESTRINGS_TABLE_START] = sText_Trainer2WinText,
     [STRINGID_PKMNGAINEDEXPALL - BATTLESTRINGS_TABLE_START] = sText_PkmnGainedEXPAll,
+    [STRINGID_DESTINYXINFATUATEDY - BATTLESTRINGS_TABLE_START] = sText_DestinyXInfatuatedY,
 };
 
 const u16 gMissStringIds[] =
@@ -1116,7 +1118,8 @@ const u16 gKOFailedStringIds[] =
 const u16 gAttractUsedStringIds[] =
 {
     [B_MSG_STATUSED]            = STRINGID_PKMNFELLINLOVE,
-    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNSXINFATUATEDY
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNSXINFATUATEDY,
+    [B_MSG_STATUSED_BY_ITEM]    = STRINGID_DESTINYXINFATUATEDY
 };
 
 const u16 gAbsorbDrainStringIds[] =

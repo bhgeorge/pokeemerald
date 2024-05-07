@@ -3,6 +3,8 @@
 
 #include "constants/daycare.h"
 
+#define DESTINY_KNOT_IV_COUNT 5
+
 struct RecordMixingDaycareMail
 {
     struct DaycareMail mail[DAYCARE_MON_COUNT];

@@ -192,6 +192,8 @@ extern const u8 BattleScript_BerryCureConfusionEnd2[];
 extern const u8 BattleScript_BerryCureConfusionRet[];
 extern const u8 BattleScript_BerryCureChosenStatusEnd2[];
 extern const u8 BattleScript_BerryCureChosenStatusRet[];
+extern const u8 BattleScript_DestinyKnotEnd2[];
+extern const u8 BattleScript_DestinyKnotRet[]; 
 extern const u8 BattleScript_WhiteHerbEnd2[];
 extern const u8 BattleScript_WhiteHerbRet[];
 extern const u8 BattleScript_ItemHealHP_RemoveItem[];

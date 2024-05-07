@@ -952,6 +952,11 @@ static const u8 sStickDesc[] = _(
     "raises FARFETCH'D's\n"
     "critical-hit ratio.");
 
+static const u8 sDestinyKnotDesc[] = _(
+    "If the holder falls\n"
+    "in love, the foe\n"
+    "does too.");
+
 static const u8 sRedScarfDesc[] = _(
     "A hold item that\n"
     "raises COOL in\n"

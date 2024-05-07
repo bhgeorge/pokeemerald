@@ -1654,6 +1654,19 @@ BattleScript_EffectAttract::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_DestinyKnotEnd2::
+	call BattleScript_DestinyKnotRet
+	end2
+
+BattleScript_DestinyKnotRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+	status2animation BS_ATTACKER, STATUS2_INFATUATION
+	waitanimation
+	printfromtable gAttractUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_EffectReturn::
 BattleScript_EffectFrustration::
 	attackcanceler

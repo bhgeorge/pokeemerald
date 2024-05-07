@@ -2,6 +2,7 @@
 #include "pokemon.h"
 #include "battle.h"
 #include "daycare.h"
+#include "item.h"
 #include "string_util.h"
 #include "mail.h"
 #include "pokemon_storage_system.h"
@@ -19,6 +20,7 @@
 #include "party_menu.h"
 #include "list_menu.h"
 #include "overworld.h"
+#include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
@@ -433,10 +435,11 @@ static void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv)
 static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
 {
     u8 i;
-    u8 selectedIvs[INHERITED_IV_COUNT];
+    u8 selectedIvs[DESTINY_KNOT_IV_COUNT];
     u8 availableIVs[NUM_STATS];
-    u8 whichParents[INHERITED_IV_COUNT];
+    u8 whichParents[DESTINY_KNOT_IV_COUNT];
     u8 iv;
+    u32 inheritedNum = INHERITED_IV_COUNT;
 
     // Initialize a list of IV indices.
     for (i = 0; i < NUM_STATS; i++)
@@ -444,8 +447,16 @@ static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
         availableIVs[i] = i;
     }
 
-    // Select the 3 IVs that will be inherited.
-    for (i = 0; i < INHERITED_IV_COUNT; i++)
+    // search for power items or destiny knot
+    for (i = 0; i < DAYCARE_MON_COUNT; i++)
+    { 
+        u16 item = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_HELD_ITEM);
+		if (item == ITEM_DESTINY_KNOT)
+			inheritedNum = DESTINY_KNOT_IV_COUNT;
+    }
+
+    // Select the 1 - 5 IVs that will be inherited.
+    for (i = 0; i < inheritedNum; i++)
     {
         // Randomly pick an IV from the available list and stop from being chosen again.
         // BUG: Instead of removing the IV that was just picked, this
@@ -453,6 +464,7 @@ static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
         // have a lower chance to be inherited in Emerald and why the IV picked for inheritance can
         // be repeated. Amusingly, FRLG and RS also got this wrong. They remove selectedIvs[i], which
         // is not an index! This means that it can sometimes remove the wrong stat.
+        #define BUGFIX
         #ifndef BUGFIX
         selectedIvs[i] = availableIVs[Random() % (NUM_STATS - i)];
         RemoveIVIndexFromList(availableIVs, i);
@@ -461,16 +473,17 @@ static void InheritIVs(struct Pokemon *egg, struct DayCare *daycare)
         selectedIvs[i] = availableIVs[index];
         RemoveIVIndexFromList(availableIVs, index);
         #endif
+        #undef BUGFIX
     }
 
     // Determine which parent each of the selected IVs should inherit from.
-    for (i = 0; i < INHERITED_IV_COUNT; i++)
+    for (i = 0; i < inheritedNum; i++)
     {
         whichParents[i] = Random() % DAYCARE_MON_COUNT;
     }
 
     // Set each of inherited IVs on the egg mon.
-    for (i = 0; i < INHERITED_IV_COUNT; i++)
+    for (i = 0; i < inheritedNum; i++)
     {
         switch (selectedIvs[i])
         {
