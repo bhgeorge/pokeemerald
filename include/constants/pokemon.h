@@ -90,6 +90,8 @@
 #define DEFAULT_STAT_STAGE 6
 #define MAX_STAT_STAGE    12
 
+#define HIDDEN_NATURE_NONE 26 // 25 natures
+
 // Shiny odds
 #define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
 
