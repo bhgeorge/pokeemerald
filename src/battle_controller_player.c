@@ -2251,6 +2251,8 @@ static void PlayerHandleSwitchInAnim(void)
 // In normal singles, if follower pokemon is out, have it slide in instead of being thrown
 static bool8 ShouldDoSlideInAnim(void) {
     struct ObjectEvent *followerObj = GetFollowerObject();
+    if (gSaveBlock2Ptr->optionsFollowerSlide == OPTIONS_FOLLOWER_SLIDE_OFF)
+        return FALSE;
     if (!followerObj || followerObj->invisible)
         return FALSE;
     if (gBattleTypeFlags & (
