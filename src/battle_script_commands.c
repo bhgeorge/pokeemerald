@@ -3404,7 +3404,7 @@ static void Cmd_getexp(void)
                     if (gBattleStruct->sentInPokes & (1 << gBattleStruct->expGetterMonId))
                         gBattleMoveDamage = *exp;
                     else if (gExpShareCheck)
-                        gBattleMoveDamage += gExpShareExp;
+                        gBattleMoveDamage = gExpShareExp;
                     else
                         gBattleMoveDamage = 0;
 
@@ -3559,9 +3559,15 @@ static void Cmd_getexp(void)
                 }
                 if (!gExpShareCheck && FlagGet(FLAG_SYS_EXP_SHARE) && totalMon>viaSentIn)
                 {
+                    u32 sharedExp = gExpShareExp;
+
+                    // Add the trainer multiplier if applicable
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                        sharedExp = (sharedExp * 150) / 100;
+
                     gExpShareCheck = TRUE;
                     gBattleStruct->expGetterMonId = 0;
-                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gExpShareExp);
+                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, sharedExp);
                     PrepareStringBattle(STRINGID_PKMNGAINEDEXPALL, gBattleStruct->expGetterBattlerId);
                     gBattleScripting.getexpState = 2; // loop again
                 }
