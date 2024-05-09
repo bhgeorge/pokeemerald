@@ -421,6 +421,8 @@ static void HandleInputChooseTarget(void)
                 break;
             }
 
+            MoveSelectionDisplayMoveTypeDoubles(GetBattlerPosition(gMultiUsePlayerCursor));
+
             if (gAbsentBattlerFlags & gBitTable[gMultiUsePlayerCursor])
                 i = 0;
         } while (i == 0);
@@ -476,6 +478,10 @@ static void HandleInputChooseMove(void)
 {
     bool32 canSelectTarget = FALSE;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[gActiveBattler][4]);
+
+    // Reset effectiveness display in double battles on B button
+    if (IsDoubleBattle())
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 
     if (JOY_HELD(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         gPlayerDpadHoldFrames++;
