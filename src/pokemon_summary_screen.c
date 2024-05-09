@@ -1805,6 +1805,7 @@ static void ChangePage(u8 taskId, s8 delta)
     PlaySE(SE_SELECT);
     ClearPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
     sMonSummaryScreen->currPageIndex += delta;
+    sMonSummaryScreen->statsState = STATS_STATE_STATS;
     data[0] = 0;
     if (delta == 1)
         SetTaskFuncWithFollowupFunc(taskId, PssScrollRight, gTasks[taskId].func);
@@ -3335,16 +3336,16 @@ static void Task_PrintSkillsPage(u8 taskId)
         PrintRibbonCount();
         break;
     case 3:
-        BufferLeftColumnStats();
+        BufferStatsDisplay(2);
         break;
     case 4:
-        PrintLeftColumnStats();
+        // PrintLeftColumnStats();
         break;
     case 5:
-        BufferRightColumnStats();
+        // BufferRightColumnStats();
         break;
     case 6:
-        PrintRightColumnStats();
+        // PrintRightColumnStats();
         break;
     case 7:
         PrintExpPointsNextLevel();
