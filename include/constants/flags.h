@@ -1504,7 +1504,7 @@
 
 #define FLAG_SYS_EVER_REPEL                         (SYSTEM_FLAGS + 0x85)
 #define FLAG_SYS_SHINY_CHARM                        (SYSTEM_FLAGS + 0x86)
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
+#define FLAG_SYS_AUTO_RUN                           (SYSTEM_FLAGS + 0x87) // B toggles run
 #define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
 #define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
