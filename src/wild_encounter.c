@@ -423,6 +423,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
 {
     u8 wildMonIndex = 0;
     u8 level;
+    u16 species;
 
     switch (area)
     {
@@ -451,7 +452,12 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    // Check for night encounters
+    species = wildMonInfo->wildPokemon[wildMonIndex].species;
+    if (gTimeOfDay == TIME_OF_DAY_NIGHT && wildMonInfo->wildPokemon[wildMonIndex].nightSpecies != SPECIES_NONE)
+        species = wildMonInfo->wildPokemon[wildMonIndex].nightSpecies;
+
+    CreateWildMon(species, level);
     return TRUE;
 }
 
@@ -805,6 +811,7 @@ void OverworldWildEncounter(u16 slotIndex, bool32 isWaterMon)
     const struct WildPokemonInfo *waterMonsInfo;
     const struct WildPokemon *mon;
     u8 level;
+    u16 species;
 
     headerId = GetCurrentMapWildMonHeaderId();
 
@@ -824,7 +831,13 @@ void OverworldWildEncounter(u16 slotIndex, bool32 isWaterMon)
         return;
 
     level = ChooseWildMonLevel(mon);
-    CreateWildMon(mon->species, level);
+    
+    // Get night encounter override
+    species = mon->species;
+    if (gTimeOfDay == TIME_OF_DAY_NIGHT && mon->nightSpecies != SPECIES_NONE)
+        species = mon->nightSpecies;
+
+    CreateWildMon(species, level);
 }
 
 u16 GetLocalWildMon(bool8 *isWaterMon)
@@ -903,11 +916,19 @@ struct WildPokemonSlot GetLocalWildMonSlot(bool32 isWaterMon)
     {
         slot.index = ChooseWildMonIndex_WaterRock();
         slot.species = waterMonsInfo->wildPokemon[slot.index].species;
+
+        // Override with night encounter
+        if (gTimeOfDay == TIME_OF_DAY_NIGHT && waterMonsInfo->wildPokemon[slot.index].nightSpecies != SPECIES_NONE)
+            slot.species = waterMonsInfo->wildPokemon[slot.index].nightSpecies;
     }
     else if (landMonsInfo != NULL)
     {
         slot.index = ChooseWildMonIndex_Land();
         slot.species = landMonsInfo->wildPokemon[slot.index].species;
+
+        // Override with night encounter
+        if (gTimeOfDay == TIME_OF_DAY_NIGHT && landMonsInfo->wildPokemon[slot.index].nightSpecies != SPECIES_NONE)
+            slot.species = landMonsInfo->wildPokemon[slot.index].nightSpecies;
     }
 
     return slot;
