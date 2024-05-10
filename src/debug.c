@@ -5,8 +5,6 @@
 #include "main.h"
 #include "map_name_popup.h"
 #include "menu.h"
-#include "overworld.h"
-#include "rtc.h"
 #include "script.h"
 #include "sound.h"
 #include "window.h"
@@ -70,8 +68,8 @@ extern u8 Debug_Script_6[];
 
 // Text
 static const u8 sDebugText_QuickStart[]   = _("Quick Start");
-static const u8 sDebugText_DebugTest1[]   = _("Time Day");
-static const u8 sDebugText_DebugTest2[]   = _("Time Night");
+static const u8 sDebugText_DebugTest1[]   = _("Test 1");
+static const u8 sDebugText_DebugTest2[]   = _("Test 2");
 static const u8 sDebugText_DebugTest3[]   = _("Test 3");
 static const u8 sDebugText_DebugTest4[]   = _("Test 4");
 static const u8 sDebugText_DebugTest5[]   = _("Test 5");
@@ -231,8 +229,6 @@ static void DebugAction_Test_1(u8 taskId)
 {
     Debug_DestroyMenu(taskId);
     LockPlayerFieldControls();
-    RtcInitLocalTimeOffset(12, 0);
-    UpdateTimeOfDay();
     ScriptContext_SetupScript(Debug_Script_1);
 }
 
@@ -240,8 +236,6 @@ static void DebugAction_Test_2(u8 taskId)
 {
     Debug_DestroyMenu(taskId);
     LockPlayerFieldControls();
-    RtcInitLocalTimeOffset(22, 0);
-    UpdateTimeOfDay();
     ScriptContext_SetupScript(Debug_Script_2);
 }
 

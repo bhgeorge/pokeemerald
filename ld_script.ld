@@ -95,6 +95,7 @@ SECTIONS {
         src/battle_script_commands.o(.text);
         src/battle_util2.o(.text);
         src/battle_controller_player.o(.text);
+        src/level_caps.o(.text);
         src/battle_gfx_sfx_util.o(.text);
         src/battle_controller_opponent.o(.text);
         src/battle_ai_switch_items.o(.text);
@@ -487,6 +488,7 @@ SECTIONS {
         src/battle_util.o(.rodata);
         src/battle_script_commands.o(.rodata);
         src/battle_controller_player.o(.rodata);
+        src/level_caps.o(.rodata);
         src/battle_anim_smokescreen.o(.rodata);
         src/battle_controller_opponent.o(.rodata);
         src/battle_ai_switch_items.o(.rodata);
