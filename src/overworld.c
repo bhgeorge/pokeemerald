@@ -173,6 +173,7 @@ static void TransitionMapMusic(void);
 static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *, u16, u8);
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *, u8, u16, u8);
 static u16 GetCenterScreenMetatileBehavior(void);
+static void RemoveWhiteOutMoney(void);
 
 static void *sUnusedOverworldCallback;
 static u8 sPlayerLinkStates[MAX_LINK_PLAYERS];
@@ -363,10 +364,43 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 };
 
 // code
+static const u16 sWhiteOutBadgeFlags[NUM_BADGES] = {
+    FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
+    FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
+};
+
+static const u16 sWhiteOutBadgeMoney[9] = { 8, 16, 24, 36, 48, 60, 80, 100, 120 };
+
+static void RemoveWhiteOutMoney(void)
+{
+    s32 i;
+    u32 partyLevel = 1;
+    u32 money;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+            && GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) == FALSE)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) > partyLevel)
+                partyLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+        }
+    }
+
+    for (i = 0; i < NUM_BADGES; i++)
+    {
+        if (!FlagGet(sWhiteOutBadgeFlags[i]))
+            break;
+    }
+
+    money = sWhiteOutBadgeMoney[i] * partyLevel;
+    RemoveMoney(&gSaveBlock1Ptr->money, money);
+}
+
 void DoWhiteOut(void)
 {
     RunScriptImmediately(EventScript_WhiteOut);
-    SetMoney(&gSaveBlock1Ptr->money, GetMoney(&gSaveBlock1Ptr->money) / 2);
+    RemoveWhiteOutMoney();
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
     SetWarpDestinationToLastHealLocation();
