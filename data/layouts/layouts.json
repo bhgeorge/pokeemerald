@@ -4420,6 +4420,26 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Debugburgh/border.bin",
       "blockdata_filepath": "data/layouts/Debugburgh/map.bin"
+    },
+    {
+      "id": "LAYOUT_WAKEBOROUGH",
+      "name": "Wakeborough_Layout",
+      "width": 42,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Wakeborough/border.bin",
+      "blockdata_filepath": "data/layouts/Wakeborough/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE01",
+      "name": "Route01_Layout",
+      "width": 56,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route01/border.bin",
+      "blockdata_filepath": "data/layouts/Route01/map.bin"
     }
   ]
 }

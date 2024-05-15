@@ -1063,3 +1063,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/scripts/overworld_encounter.inc"
 
 	.include "data/maps/Debugburgh/scripts.inc"
+
+	.include "data/maps/Wakeborough/scripts.inc"
+
+	.include "data/maps/Route01/scripts.inc"

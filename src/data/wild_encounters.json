@@ -11506,8 +11506,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SENTRET",
-                "night_species": "SPECIES_STANTLER"
+                "species": "SPECIES_SENTRET"
               },
               {
                 "min_level": 5,
@@ -11517,26 +11516,22 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NIDORAN_F",
-                "night_species": "SPECIES_KOFFING"
+                "species": "SPECIES_NIDORAN_F"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NIDORAN_M",
-                "night_species": "SPECIES_LUNATONE"
+                "species": "SPECIES_NIDORAN_M"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YANMA",
-                "night_species": "SPECIES_MURKROW"
+                "species": "SPECIES_YANMA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_VULPIX",
-                "night_species": "SPECIES_LUNATONE"
+                "species": "SPECIES_VULPIX"
               },
               {
                 "min_level": 5,
@@ -11546,14 +11541,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PHANPY",
-                "night_species": "SPECIES_HOOTHOOT"
+                "species": "SPECIES_PHANPY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SEEDOT",
-                "night_species": "SPECIES_VENOMOTH"
+                "species": "SPECIES_SEEDOT"
               },
               {
                 "min_level": 5,
@@ -11563,8 +11556,76 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_HERACROSS",
-                "night_species": "SPECIES_SNEASEL"
+                "species": "SPECIES_HERACROSS"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_WAKEBOROUGH",
+          "base_label": "gWakeborough",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NIDORAN_M"
               }
             ]
           }
