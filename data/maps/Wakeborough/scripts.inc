@@ -3,5 +3,5 @@ Wakeborough_MapScripts::
 	.byte 0
 
 Wakeborough_OnTransition:
-	setflag FLAG_VISITED_WAKEBOROUGH
+	@ setflag FLAG_VISITED_WAKEBOROUGH
 	end
