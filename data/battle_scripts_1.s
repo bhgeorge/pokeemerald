@@ -694,7 +694,11 @@ BattleScript_EffectToxic::
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_NotAffected
 	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_NotAffected
+	jumpiftype BS_ATTACKER, TYPE_POISON, BattleScript_EffectToxicHit
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	goto BattleScript_EffectToxicHit
+
+BattleScript_EffectToxicHit::
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
 	attackanimation
 	waitanimation
