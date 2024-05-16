@@ -11634,7 +11634,7 @@
           "map": "MAP_ROUTE01",
           "base_label": "gRoute01",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 2,
@@ -11679,17 +11679,17 @@
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_CATERPIE"
+                "species": "SPECIES_WURMPLE"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_SENTRET"
+                "species": "SPECIES_CATERPIE"
               },
               {
                 "min_level": 4,
                 "max_level": 4,
-                "species": "SPECIES_SENTRET"
+                "species": "SPECIES_WURMPLE"
               },
               {
                 "min_level": 3,
@@ -11703,61 +11703,61 @@
           "map": "MAP_ROUTE02",
           "base_label": "gRoute02",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
+                "min_level": 4,
                 "max_level": 5,
                 "species": "SPECIES_SENTRET"
               },
               {
-                "min_level": 5,
+                "min_level": 4,
                 "max_level": 5,
                 "species": "SPECIES_PIDGEY"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 3,
+                "max_level": 4,
                 "species": "SPECIES_SNORUNT"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_KOFFING"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SWINUB"
+                "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_WEEDLE"
               },
               {
                 "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_YANMA"
+                "max_level": 6,
+                "species": "SPECIES_KAKUNA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 3,
+                "max_level": 4,
                 "species": "SPECIES_VULPIX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 3,
+                "max_level": 4,
                 "species": "SPECIES_PHANPY"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 6,
+                "max_level": 6,
                 "species": "SPECIES_SEVIPER"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 6,
+                "max_level": 6,
                 "species": "SPECIES_ZANGOOSE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 6,
+                "max_level": 6,
                 "species": "SPECIES_HERACROSS"
               },
               {

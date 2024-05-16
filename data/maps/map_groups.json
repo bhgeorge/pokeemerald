@@ -1,6 +1,8 @@
 {
   "group_order": [
     "gMapGroup_TownsAndRoutes",
+    "gMapGroup_IndoorWakeborough",
+    "gMapGroup_IndoorFoxbourne",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -98,6 +100,13 @@
     "Route01",
     "Foxbourne",
     "Route02"
+  ],
+  "gMapGroup_IndoorWakeborough": [
+
+  ],
+  "gMapGroup_IndoorFoxbourne": [
+    "Foxbourne_Pokecenter",
+    "Foxbourne_Mart"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

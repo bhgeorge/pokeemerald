@@ -1071,3 +1071,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Foxbourne/scripts.inc"
 
 	.include "data/maps/Route02/scripts.inc"
+
+	.include "data/maps/Foxbourne_Pokecenter/scripts.inc"
+
+	.include "data/maps/Foxbourne_Mart/scripts.inc"

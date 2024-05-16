@@ -4460,6 +4460,26 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Route02/border.bin",
       "blockdata_filepath": "data/layouts/Route02/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOXBOURNE_POKECENTER",
+      "name": "Foxbourne_Pokecenter_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Foxbourne_Pokecenter/border.bin",
+      "blockdata_filepath": "data/layouts/Foxbourne_Pokecenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOXBOURNE_MART",
+      "name": "Foxbourne_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Foxbourne_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Foxbourne_Mart/map.bin"
     }
   ]
 }
