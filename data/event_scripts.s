@@ -1067,3 +1067,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Wakeborough/scripts.inc"
 
 	.include "data/maps/Route01/scripts.inc"
+
+	.include "data/maps/Foxbourne/scripts.inc"
+
+	.include "data/maps/Route02/scripts.inc"

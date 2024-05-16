@@ -6,5 +6,5 @@ Route01_EventScript_RouteSign::
 	end
 
 Route01_Text_RouteSign:
-	.string "{LEFT_ARROW} UNNAMED PASS\n"
+	.string "{LEFT_ARROW} FOXBOURNE\n"
 	.string "{RIGHT_ARROW} WAKEBOROUGH$"

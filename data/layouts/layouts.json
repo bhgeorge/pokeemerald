@@ -4440,6 +4440,26 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route01/border.bin",
       "blockdata_filepath": "data/layouts/Route01/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOXBOURNE",
+      "name": "Foxbourne_Layout",
+      "width": 28,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Foxbourne/border.bin",
+      "blockdata_filepath": "data/layouts/Foxbourne/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE02",
+      "name": "Route02_Layout",
+      "width": 64,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Route02/border.bin",
+      "blockdata_filepath": "data/layouts/Route02/map.bin"
     }
   ]
 }
