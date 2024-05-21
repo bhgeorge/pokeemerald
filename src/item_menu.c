@@ -211,6 +211,11 @@ static void CancelToss(u8);
 static void ConfirmSell(u8);
 static void CancelSell(u8);
 static void Task_FadeAndCloseBagMenuIfMulch(u8 taskId);
+static void SortBagItems();
+static void SortItemsInBag(u8 pocket);
+static void MergeSort(struct ItemSlot* array, u32 low, u32 high, s8 (*comparator)(struct ItemSlot*, struct ItemSlot*));
+static void Merge(struct ItemSlot* array, u32 low, u32 mid, u32 high, s8 (*comparator)(struct ItemSlot*, struct ItemSlot*));
+static s8 CompareItemsByType(struct ItemSlot* itemSlot1, struct ItemSlot* itemSlot2);
 
 static const struct BgTemplate sBgTemplates_ItemMenu[] =
 {
@@ -743,7 +748,7 @@ static bool8 SetupBagMenu(void)
         gMain.state++;
         break;
     case 12:
-        LoadBagItemListBuffers(gBagPosition.pocket);
+        SortBagItems();
         gMain.state++;
         break;
     case 13:
@@ -2620,4 +2625,95 @@ static void PrintTMHMMoveData(u16 itemId)
 
         CopyWindowToVram(WIN_TMHM_INFO, COPYWIN_GFX);
     }
+}
+
+static void SortBagItems()
+{
+    SortItemsInBag(gBagPosition.pocket);
+    UpdatePocketListPosition(gBagPosition.pocket);
+    LoadBagItemListBuffers(gBagPosition.pocket);
+}
+
+static void SortItemsInBag(u8 pocket)
+{
+    struct ItemSlot* itemMem;
+    u16 itemAmount;
+
+    switch (pocket)
+    {
+    case ITEMS_POCKET:
+        itemMem = gSaveBlock1Ptr->bagPocket_Items;
+        itemAmount = BAG_ITEMS_COUNT;
+        break;
+    case KEYITEMS_POCKET:
+        itemMem = gSaveBlock1Ptr->bagPocket_KeyItems;
+        itemAmount = BAG_KEYITEMS_COUNT;
+        break;
+    case BALLS_POCKET:
+        itemMem = gSaveBlock1Ptr->bagPocket_PokeBalls;
+        itemAmount = BAG_POKEBALLS_COUNT;
+        break;
+    case BERRIES_POCKET:
+        itemMem = gSaveBlock1Ptr->bagPocket_Berries;
+        itemAmount = BAG_BERRIES_COUNT;
+        break;
+    case TMHM_POCKET:
+        itemMem = gSaveBlock1Ptr->bagPocket_TMHM;
+        itemAmount = BAG_TMHM_COUNT;
+        break;
+    default:
+        return;
+    }
+
+    MergeSort(itemMem, 0, itemAmount - 1, CompareItemsByType);
+}
+
+static void MergeSort(struct ItemSlot* array, u32 low, u32 high, s8 (*comparator)(struct ItemSlot*, struct ItemSlot*))
+{
+    u32 mid;
+
+    if (high <= low)
+        return;
+
+    mid = low + (high - low) / 2;
+    MergeSort(array, low, mid, comparator); //Sort left half.
+    MergeSort(array, mid + 1, high, comparator); //Sort right half.
+    Merge(array, low, mid, high, comparator); //Merge results.
+}
+
+static void Merge(struct ItemSlot* array, u32 low, u32 mid, u32 high, s8 (*comparator)(struct ItemSlot*, struct ItemSlot*))
+{
+    u32 i = low;
+    u32 j = mid + 1;
+    u32 k;
+    struct ItemSlot aux[high + 1];
+
+    for (k = low; k <= high; ++k)
+        aux[k] = array[k];
+
+    for (k = low; k <= high; ++k)
+    { //Merge back to a[low..high]
+        if (i > mid)
+            array[k] = aux[j++];
+        else if (j > high)
+            array[k] = aux[i++];
+        else if (comparator(&aux[j], &aux[i]) < 0)
+            array[k] = aux[j++];
+        else
+            array[k] = aux[i++];
+    }
+}
+
+static s8 CompareItemsByType(struct ItemSlot* itemSlot1, struct ItemSlot* itemSlot2)
+{
+    //Null items go last
+    u8 type1 = (itemSlot1->itemId == ITEM_NONE) ? 0xFF : itemSlot1->itemId;
+    u8 type2 = (itemSlot2->itemId == ITEM_NONE) ? 0xFF : itemSlot2->itemId;
+
+    if (type1 < type2)
+        return -1;
+    else if (type1 > type2)
+        return 1;
+
+    return 0;
 }
