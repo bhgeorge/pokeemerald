@@ -2946,7 +2946,7 @@ static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
 {
     if ((gIntroSlideFlags & 1) == 0)
     {
-        sprite->x2 += 2;
+        sprite->x2 += B_BATTLE_SLIDE_SPEED;
         if (sprite->x2 == 0)
         {
             sprite->callback = SpriteCB_WildMonShowHealthbox;
@@ -3076,7 +3076,7 @@ static void SpriteCB_BattleSpriteSlideLeft(struct Sprite *sprite)
 {
     if (!(gIntroSlideFlags & 1))
     {
-        sprite->x2 -= 2;
+        sprite->x2 -= B_BATTLE_SLIDE_SPEED;
         if (sprite->x2 == 0)
         {
             sprite->callback = SpriteCB_Idle;
