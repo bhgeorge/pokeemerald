@@ -322,6 +322,7 @@ SECTIONS {
         src/save_location.o(.text);
         src/item_icon.o(.text);
         src/party_menu.o(.text);
+        src/field_move.o(.text);
         src/battle_tent.o(.text);
         src/braille.o(.text);
         src/multiboot.o(.text);
@@ -685,6 +686,7 @@ SECTIONS {
         src/save_location.o(.rodata);
         src/item_icon.o(.rodata);
         src/party_menu.o(.rodata);
+        src/field_menu.o(.rodata);
         src/battle_tent.o(.rodata);
         src/braille.o(.rodata);
         src/multiboot.o(.rodata);
