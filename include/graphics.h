@@ -539,10 +539,12 @@ extern const u32 gItemIcon_Repel[];
 extern const u32 gItemIconPalette_Repel[];
 extern const u32 gItemIconPalette_SuperRepel[];
 extern const u32 gItemIconPalette_MaxRepel[];
+extern const u32 gItemIconPalette_EverRepel[];
 extern const u32 gItemIcon_Lure[];
 extern const u32 gItemIconPalette_Lure[];
 extern const u32 gItemIconPalette_SuperLure[];
 extern const u32 gItemIconPalette_MaxLure[];
+extern const u32 gItemIconPalette_EverLure[];
 extern const u32 gItemIcon_EscapeRope[];
 extern const u32 gItemIconPalette_EscapeRope[];
 // X Items

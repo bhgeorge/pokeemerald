@@ -942,13 +942,14 @@ bool8 UpdateRepelCounter(void)
     u16 repelLureVar = VarGet(VAR_REPEL_STEP_COUNT);
     u16 steps = REPEL_LURE_STEPS(repelLureVar);
     bool32 isLure = IS_LAST_USED_LURE(repelLureVar);
+    bool32 isInfinite = isLure ? FlagGet(FLAG_SYS_EVER_LURE) : FlagGet(FLAG_SYS_EVER_REPEL);
 
     if (InBattlePike() || InBattlePyramid())
         return FALSE;
     if (InUnionRoom() == TRUE)
         return FALSE;
 
-    if (steps != 0)
+    if (steps != 0 && !isInfinite)
     {
         steps--;
         if (!isLure)

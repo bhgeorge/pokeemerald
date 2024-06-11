@@ -3057,6 +3057,12 @@ extern const u8 gText_TellHimTheWords[];
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];
 
+// Ever Repel/Lure
+extern const u8 gText_EverRepelOn[];
+extern const u8 gText_EverRepelOff[];
+extern const u8 gText_EverLureOn[];
+extern const u8 gText_EverLureOff[];
+
 extern const u8 gText_BasePointsResetToZero[];
 
 extern const u8 gText_Fertilize[];

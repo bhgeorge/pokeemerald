@@ -1938,6 +1938,21 @@ const struct Item gItemsInfo[] =
         .flingPower = 30,
     },
 
+    [ITEM_EVER_REPEL] =
+    {
+        .name = _("Ever Repel"),
+        .price = 0,
+        .importance = 1,
+        .holdEffectParam = 1,
+        .description = COMPOUND_STRING(
+            "Repels weak wild\n"
+            "Pokémon while\n"
+            "active."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EverRepel,
+    },
+
     [ITEM_LURE] =
     {
         .name = _("Lure"),
@@ -1984,6 +1999,21 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Lure,
         .secondaryId = 0,
         .flingPower = 30,
+    },
+
+    [ITEM_EVER_LURE] =
+    {
+        .name = _("Ever Lure"),
+        .price = 0,
+        .importance = 1,
+        .holdEffectParam = 1,
+        .description = COMPOUND_STRING(
+            "Attracts rare wild\n"
+            "Pokémon while\n"
+            "active."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EverLure,
     },
 
     [ITEM_ESCAPE_ROPE] =

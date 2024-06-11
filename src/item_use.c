@@ -954,6 +954,33 @@ void HandleUseExpiredRepel(struct ScriptContext *ctx)
 #endif
 }
 
+void ItemUseOutOfBattle_EverRepel(u8 taskId)
+{
+    if(!FlagGet(FLAG_SYS_EVER_REPEL))
+    {
+        FlagSet(FLAG_SYS_EVER_REPEL);
+        FlagClear(FLAG_SYS_EVER_LURE);
+        VarSet(VAR_REPEL_STEP_COUNT, 1);
+
+        PlaySE(SE_REPEL);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_EverRepelOn, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_EverRepelOn, CloseItemMessage);
+    }
+    else 
+    {
+        FlagClear(FLAG_SYS_EVER_REPEL);
+
+        PlaySE(SE_PC_OFF);
+        VarSet(VAR_REPEL_STEP_COUNT, 0);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_EverRepelOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_EverRepelOff, CloseItemMessage);
+    }
+}
+
 void ItemUseOutOfBattle_Lure(u8 taskId)
 {
     if (LURE_STEP_COUNT == 0)
@@ -997,6 +1024,33 @@ void HandleUseExpiredLure(struct ScriptContext *ctx)
 #if VAR_LAST_REPEL_LURE_USED != 0
     VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(VarGet(VAR_LAST_REPEL_LURE_USED)) | REPEL_LURE_MASK);
 #endif
+}
+
+void ItemUseOutOfBattle_EverLure(u8 taskId)
+{
+    if(!FlagGet(FLAG_SYS_EVER_LURE))
+    {
+        FlagSet(FLAG_SYS_EVER_LURE);
+        FlagClear(FLAG_SYS_EVER_REPEL);
+        VarSet(VAR_REPEL_STEP_COUNT, 1 | REPEL_LURE_MASK);
+
+        PlaySE(SE_REPEL);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_EverLureOn, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_EverLureOn, CloseItemMessage);
+    }
+    else 
+    {
+        FlagClear(FLAG_SYS_EVER_LURE);
+
+        PlaySE(SE_PC_OFF);
+        VarSet(VAR_REPEL_STEP_COUNT, 0);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_EverLureOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_EverLureOff, CloseItemMessage);
+    }
 }
 
 static void Task_UsedBlackWhiteFlute(u8 taskId)

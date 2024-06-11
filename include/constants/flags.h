@@ -1385,8 +1385,8 @@
 
 #define FLAG_SYS_EXP_SHARE                          (SYSTEM_FLAGS + 0x21) // Gen 6+ Exp share enabled
 #define FLAG_SYS_FORCE_SHINY                        (SYSTEM_FLAGS + 0x22)
-#define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
-#define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
+#define FLAG_SYS_EVER_REPEL                         (SYSTEM_FLAGS + 0x23) // Is the Ever Repel on
+#define FLAG_SYS_EVER_LURE                          (SYSTEM_FLAGS + 0x24) // Is the Ever Lure on
 #define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
 #define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
 #define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
