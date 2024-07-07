@@ -432,9 +432,9 @@ BattleScript_EffectTeatime::
 	waitanimation
 	setbyte gBattlerTarget, 0
 BattleScript_TeatimeLoop:
-	jumpifrodaffected BS_TARGET, BattleScript_Teatimerod
-	jumpifabsorbaffected BS_TARGET, BattleScript_Teatimesorb
-	jumpifmotoraffected BS_TARGET, BattleScript_Teatimemotor
+	jumpifelectricabilityaffected BS_TARGET, ABILITY_LIGHTNING_ROD, BattleScript_Teatimerod
+	jumpifelectricabilityaffected BS_TARGET, ABILITY_VOLT_ABSORB, BattleScript_Teatimesorb
+	jumpifelectricabilityaffected BS_TARGET, ABILITY_MOTOR_DRIVE, BattleScript_Teatimemotor
 	jumpifteainvulnerable BS_TARGET, BattleScript_Teatimevul @ in semi-invulnerable state OR held item is not a Berry
 	orword gHitMarker, HITMARKER_DISABLE_ANIMATION | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE
 	setbyte sBERRY_OVERRIDE, TRUE   @ override the requirements for eating berries
@@ -3609,7 +3609,7 @@ BattleScript_EffectParalyze::
 BattleScript_BattleScript_EffectParalyzeNoTypeCalc:
 	jumpifmovehadnoeffect BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_PARALYSIS, BattleScript_AlreadyParalyzed
-	jumpifabsorbaffected BS_TARGET, BattleScript_VoltAbsorbHeal
+	jumpifelectricabilityaffected BS_TARGET, ABILITY_VOLT_ABSORB, BattleScript_VoltAbsorbHeal
 	tryparalyzetype BS_ATTACKER, BS_TARGET, BattleScript_NotAffected
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
@@ -5931,6 +5931,10 @@ BattleScript_MagicRoomEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_GrassyTerrainEnds::
+	call BattleScript_GrassyTerrainHeals_Ret
+	goto BattleScript_TerrainEnds
+
 BattleScript_TerrainEnds_Ret::
 	printfromtable gTerrainStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -8225,6 +8229,10 @@ BattleScript_MoveUsedPsychicTerrainPrevents::
 	goto BattleScript_MoveEnd
 
 BattleScript_GrassyTerrainHeals::
+	call BattleScript_GrassyTerrainHeals_Ret
+	end2
+
+BattleScript_GrassyTerrainHeals_Ret::
 	setbyte gBattleCommunication, 0
 BattleScript_GrassyTerrainLoop:
 	copyarraywithindex gBattlerAttacker, gBattlerByTurnOrder, gBattleCommunication, 1
@@ -8242,7 +8250,7 @@ BattleScript_GrassyTerrainLoopEnd::
 	bicword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	jumpifword CMP_COMMON_BITS, gFieldStatuses, STATUS_FIELD_TERRAIN_PERMANENT, BattleScript_GrassyTerrainHealEnd
 BattleScript_GrassyTerrainHealEnd:
-	end2
+	return
 
 BattleScript_AbilityNoSpecificStatLoss::
 	pause B_WAIT_TIME_SHORT
